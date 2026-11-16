@@ -23,7 +23,11 @@ const CARD_ICONS = {
 // Supported features of a to-do list entity (TodoListEntityFeature).
 const FEATURE = { create: 1, delete: 2, update: 4, move: 8, due_date: 16, due_datetime: 32, description: 64 };
 // Lists that are shopping lists: a cart for an icon.
-const SHOPPING = new Set(["shopping_list", "bring", "ourgroceries", "any_list", "anylist", "picnic", "cookidoo", "mealie", "alexa_devices", "kitchenowl", "grocy"]);
+const SHOPPING = new Set(["shopping_list", "bring", "ourgroceries", "any_list", "anylist", "picnic", "cookidoo", "mealie", "kitchenowl"]);
+// Alexa and Grocy also have task lists: a shopping list only when its name says so.
+const MAYBE_SHOPPING = new Set(["alexa_devices", "grocy"]);
+const SHOPPING_NAME = /shop|course|einkauf|compra|spesa|boodschap|zakup|grocer|market/i;
+const isShopping = (list) => SHOPPING.has(list?.platform) || (MAYBE_SHOPPING.has(list?.platform) && SHOPPING_NAME.test(list?.name || ""));
 // How long a ticked item shows its tick before it moves (or until the list reports it done).
 const TICK_MS = 1200;
 
@@ -63,9 +67,9 @@ const STRINGS = {
     show_add: "Show the field to add items",
     show_completed: "Show the completed items",
     to_do: "to do",
-    overdue_item: "{item} overdue",
+    overdue_item: "Overdue: {item}",
     due_today_n: "{n} due today",
-    due_today_item: "{item} due today",
+    due_today_item: "Due today: {item}",
     done_n: "{n} done",
     show_hero: "Show the summary with the illustration",
     due: "Due date",
@@ -124,9 +128,9 @@ const STRINGS = {
     show_add: "Afficher le champ d'ajout",
     show_completed: "Afficher les éléments terminés",
     to_do: "à faire",
-    overdue_item: "{item} en retard",
+    overdue_item: "En retard : {item}",
     due_today_n: "{n} pour aujourd'hui",
-    due_today_item: "{item} pour aujourd'hui",
+    due_today_item: "Pour aujourd'hui : {item}",
     done_n: "{n} faits",
     show_hero: "Afficher le résumé illustré",
     due: "Échéance",
@@ -185,9 +189,9 @@ const STRINGS = {
     show_add: "Feld zum Hinzufügen anzeigen",
     show_completed: "Erledigte Einträge anzeigen",
     to_do: "offen",
-    overdue_item: "{item} überfällig",
+    overdue_item: "Überfällig: {item}",
     due_today_n: "{n} heute fällig",
-    due_today_item: "{item} heute fällig",
+    due_today_item: "Heute fällig: {item}",
     done_n: "{n} erledigt",
     show_hero: "Zusammenfassung mit Illustration anzeigen",
     due: "Fälligkeit",
@@ -246,9 +250,9 @@ const STRINGS = {
     show_add: "Mostrar el campo para añadir",
     show_completed: "Mostrar los completados",
     to_do: "pendientes",
-    overdue_item: "{item} con retraso",
+    overdue_item: "Con retraso: {item}",
     due_today_n: "{n} para hoy",
-    due_today_item: "{item} para hoy",
+    due_today_item: "Para hoy: {item}",
     done_n: "{n} hechos",
     show_hero: "Mostrar el resumen ilustrado",
     due: "Fecha límite",
@@ -307,9 +311,9 @@ const STRINGS = {
     show_add: "Mostra il campo per aggiungere",
     show_completed: "Mostra gli elementi completati",
     to_do: "da fare",
-    overdue_item: "{item} in ritardo",
+    overdue_item: "In ritardo: {item}",
     due_today_n: "{n} in scadenza oggi",
-    due_today_item: "{item} in scadenza oggi",
+    due_today_item: "In scadenza oggi: {item}",
     done_n: "{n} fatti",
     show_hero: "Mostra il riepilogo illustrato",
     due: "Scadenza",
@@ -368,9 +372,9 @@ const STRINGS = {
     show_add: "Veld om toe te voegen tonen",
     show_completed: "Voltooide items tonen",
     to_do: "te doen",
-    overdue_item: "{item} te laat",
+    overdue_item: "Te laat: {item}",
     due_today_n: "{n} vandaag",
-    due_today_item: "{item} vandaag",
+    due_today_item: "Vandaag: {item}",
     done_n: "{n} gedaan",
     show_hero: "Samenvatting met illustratie tonen",
     due: "Vervaldatum",
@@ -429,9 +433,9 @@ const STRINGS = {
     show_add: "Mostrar o campo para adicionar",
     show_completed: "Mostrar os concluídos",
     to_do: "por fazer",
-    overdue_item: "{item} em atraso",
+    overdue_item: "Em atraso: {item}",
     due_today_n: "{n} para hoje",
-    due_today_item: "{item} para hoje",
+    due_today_item: "Para hoje: {item}",
     done_n: "{n} feitos",
     show_hero: "Mostrar o resumo ilustrado",
     due: "Data limite",
@@ -490,9 +494,9 @@ const STRINGS = {
     show_add: "Pokaż pole dodawania",
     show_completed: "Pokaż zrobione",
     to_do: "do zrobienia",
-    overdue_item: "{item} po terminie",
+    overdue_item: "Po terminie: {item}",
     due_today_n: "Na dziś: {n}",
-    due_today_item: "{item} na dziś",
+    due_today_item: "Na dziś: {item}",
     done_n: "Zrobione: {n}",
     show_hero: "Pokaż podsumowanie z ilustracją",
     due: "Termin",
@@ -551,9 +555,9 @@ const STRINGS = {
     show_add: "Прикажи поље за додавање",
     show_completed: "Прикажи урађене ставке",
     to_do: "за урадити",
-    overdue_item: "{item} касни",
+    overdue_item: "Касни: {item}",
     due_today_n: "За данас: {n}",
-    due_today_item: "{item} за данас",
+    due_today_item: "За данас: {item}",
     done_n: "Урађено: {n}",
     show_hero: "Прикажи илустровани резиме",
     due: "Рок",
@@ -612,9 +616,9 @@ const STRINGS = {
     show_add: "Prikaži polje za dodavanje",
     show_completed: "Prikaži urađene stavke",
     to_do: "za uraditi",
-    overdue_item: "{item} kasni",
+    overdue_item: "Kasni: {item}",
     due_today_n: "Za danas: {n}",
-    due_today_item: "{item} za danas",
+    due_today_item: "Za danas: {item}",
     done_n: "Urađeno: {n}",
     show_hero: "Prikaži ilustrovani rezime",
     due: "Rok",
@@ -673,9 +677,9 @@ const STRINGS = {
     show_add: "Afișează câmpul de adăugare",
     show_completed: "Afișează elementele finalizate",
     to_do: "de făcut",
-    overdue_item: "{item} întârziat",
+    overdue_item: "Întârziat: {item}",
     due_today_n: "{n} pentru azi",
-    due_today_item: "{item} pentru azi",
+    due_today_item: "Pentru azi: {item}",
     done_n: "{n} făcute",
     show_hero: "Afișează rezumatul ilustrat",
     due: "Termen",
@@ -734,9 +738,9 @@ const STRINGS = {
     show_add: "Vis feltet til at tilføje",
     show_completed: "Vis udførte elementer",
     to_do: "at gøre",
-    overdue_item: "{item} forfalden",
+    overdue_item: "Forfalden: {item}",
     due_today_n: "{n} i dag",
-    due_today_item: "{item} i dag",
+    due_today_item: "I dag: {item}",
     done_n: "{n} udført",
     show_hero: "Vis resuméet med illustration",
     due: "Forfaldsdato",
@@ -795,9 +799,9 @@ const STRINGS = {
     show_add: "Visa fältet för att lägga till",
     show_completed: "Visa klara objekt",
     to_do: "att göra",
-    overdue_item: "{item} försenad",
+    overdue_item: "Försenad: {item}",
     due_today_n: "{n} i dag",
-    due_today_item: "{item} i dag",
+    due_today_item: "I dag: {item}",
     done_n: "{n} klara",
     show_hero: "Visa sammanfattningen med illustration",
     due: "Förfallodatum",
@@ -856,9 +860,9 @@ const STRINGS = {
     show_add: "Показване на полето за добавяне",
     show_completed: "Показване на готовите",
     to_do: "за правене",
-    overdue_item: "{item} закъснява",
+    overdue_item: "Закъснява: {item}",
     due_today_n: "За днес: {n}",
-    due_today_item: "{item} за днес",
+    due_today_item: "За днес: {item}",
     done_n: "Готови: {n}",
     show_hero: "Показване на илюстрираното резюме",
     due: "Срок",
@@ -917,9 +921,9 @@ const STRINGS = {
     show_add: "Показывать поле добавления",
     show_completed: "Показывать сделанное",
     to_do: "сделать",
-    overdue_item: "{item} просрочено",
+    overdue_item: "Просрочено: {item}",
     due_today_n: "На сегодня: {n}",
-    due_today_item: "{item} на сегодня",
+    due_today_item: "На сегодня: {item}",
     done_n: "Сделано: {n}",
     show_hero: "Показывать сводку с иллюстрацией",
     due: "Срок",
@@ -978,9 +982,9 @@ const STRINGS = {
     show_add: "Показувати поле додавання",
     show_completed: "Показувати зроблене",
     to_do: "зробити",
-    overdue_item: "{item} прострочено",
+    overdue_item: "Прострочено: {item}",
     due_today_n: "На сьогодні: {n}",
-    due_today_item: "{item} на сьогодні",
+    due_today_item: "На сьогодні: {item}",
     done_n: "Зроблено: {n}",
     show_hero: "Показувати зведення з ілюстрацією",
     due: "Термін",
@@ -1039,9 +1043,9 @@ const STRINGS = {
     show_add: "Hozzáadó mező megjelenítése",
     show_completed: "Kész elemek megjelenítése",
     to_do: "teendő",
-    overdue_item: "{item} lejárt",
+    overdue_item: "Lejárt: {item}",
     due_today_n: "Ma esedékes: {n}",
-    due_today_item: "{item} ma esedékes",
+    due_today_item: "Ma esedékes: {item}",
     done_n: "Kész: {n}",
     show_hero: "Illusztrált összegzés megjelenítése",
     due: "Határidő",
@@ -1100,9 +1104,9 @@ const STRINGS = {
     show_add: "Zobraziť pole na pridanie",
     show_completed: "Zobraziť hotové",
     to_do: "na urobenie",
-    overdue_item: "{item} po termíne",
+    overdue_item: "Po termíne: {item}",
     due_today_n: "Na dnes: {n}",
-    due_today_item: "{item} na dnes",
+    due_today_item: "Na dnes: {item}",
     done_n: "Hotovo: {n}",
     show_hero: "Zobraziť ilustrovaný súhrn",
     due: "Termín",
@@ -1161,9 +1165,9 @@ const STRINGS = {
     show_add: "Zobrazit pole pro přidání",
     show_completed: "Zobrazit hotové",
     to_do: "k udělání",
-    overdue_item: "{item} po termínu",
+    overdue_item: "Po termínu: {item}",
     due_today_n: "Na dnes: {n}",
-    due_today_item: "{item} na dnes",
+    due_today_item: "Na dnes: {item}",
     done_n: "Hotovo: {n}",
     show_hero: "Zobrazit ilustrovaný souhrn",
     due: "Termín",
@@ -1222,9 +1226,9 @@ const STRINGS = {
     show_add: "Prikaži polje za dodajanje",
     show_completed: "Prikaži narejeno",
     to_do: "za narediti",
-    overdue_item: "{item} zamuja",
+    overdue_item: "Zamuja: {item}",
     due_today_n: "Za danes: {n}",
-    due_today_item: "{item} za danes",
+    due_today_item: "Za danes: {item}",
     done_n: "Narejeno: {n}",
     show_hero: "Prikaži ilustriran povzetek",
     due: "Rok",
@@ -1283,9 +1287,9 @@ const STRINGS = {
     show_add: "Rādīt pievienošanas lauku",
     show_completed: "Rādīt izdarītos",
     to_do: "jāizdara",
-    overdue_item: "{item} nokavēts",
+    overdue_item: "Nokavēts: {item}",
     due_today_n: "Šodien: {n}",
-    due_today_item: "{item} šodien",
+    due_today_item: "Šodien: {item}",
     done_n: "Izdarīts: {n}",
     show_hero: "Rādīt ilustrēto kopsavilkumu",
     due: "Termiņš",
@@ -1344,9 +1348,9 @@ const STRINGS = {
     show_add: "Εμφάνιση πεδίου προσθήκης",
     show_completed: "Εμφάνιση ολοκληρωμένων",
     to_do: "για να γίνουν",
-    overdue_item: "{item} εκπρόθεσμο",
+    overdue_item: "Εκπρόθεσμο: {item}",
     due_today_n: "Για σήμερα: {n}",
-    due_today_item: "{item} για σήμερα",
+    due_today_item: "Για σήμερα: {item}",
     done_n: "Ολοκληρώθηκαν: {n}",
     show_hero: "Εμφάνιση της εικονογραφημένης σύνοψης",
     due: "Προθεσμία",
@@ -2350,6 +2354,8 @@ const TODO_STYLE = `
   .adder { display: flex; gap: 8px; align-items: center; }
   .field { font: inherit; font-size: 14px; width: 100%; box-sizing: border-box; padding: 8px 14px; border-radius: 18px; color: var(--primary-text-color); min-width: 0;
            background: transparent; border: 1px solid color-mix(in srgb, var(--primary-text-color) 20%, transparent); }
+  /* The date pickers' icon follows the dashboard theme, not the system's. */
+  .field { color-scheme: var(--td-scheme, light); }
   .field::placeholder { color: var(--secondary-text-color); }
   .field:focus { outline: 2px solid var(--primary-color, var(--td-accent)); outline-offset: -1px; }
   .items { display: flex; flex-direction: column; }
@@ -2634,14 +2640,20 @@ class TodoCard extends CardBase {
 
   _hero(sum) {
     if (this._config.show_hero === false) return "";
-    const open = sum.open ?? 0;
-    return `<div class="hero"><div class="hero-art">${todoArt(SHOPPING.has(sum.list.platform))}</div><div class="hero-body">
-      <div class="big"><b>${open}</b><span>${esc(this._t("to_do"))}</span></div>${this._heroLines(sum)}</div></div>`;
+    const loading = sum.open === null || sum.open === undefined;
+    const big = loading ? "" : `<div class="big"><b>${sum.open}</b><span>${esc(this._t("to_do"))}</span></div>`;
+    return `<div class="hero"><div class="hero-art">${todoArt(isShopping(sum.list))}</div><div class="hero-body">
+      ${big}${this._heroLines(sum)}</div></div>`;
   }
 
   _head(sum, title, sub) {
-    const shopping = SHOPPING.has(sum.list.platform);
+    const shopping = isShopping(sum.list);
     return this._header({ icon: shopping ? ICONS.cart : ICONS.list, cls: sum.overdue ? "crit" : "accent", title, sub, chip: sum.chip });
+  }
+
+  // The date pickers' icon in the dashboard's theme.
+  _scheme() {
+    return this._hass?.themes?.darkMode ? ":host { --td-scheme: dark; }" : "";
   }
 
   _render() {
@@ -2652,7 +2664,7 @@ class TodoCard extends CardBase {
     const { list } = sum;
     const parts = [this._hero(sum), this._tabs(m, list), this._adder(list)];
     if (this._items === undefined) parts.push(`<div class="empty">${esc(this._t("loading"))}</div>`);
-    else if (!sum.todo.length) parts.push(`<div class="alldone">${svgIcon(ICONS.done_all)}<span>${esc(this._t("nothing_to_do"))}</span></div>`);
+    else if (!sum.todo.length && c.show_hero === false) parts.push(`<div class="alldone">${svgIcon(ICONS.done_all)}<span>${esc(this._t("nothing_to_do"))}</span></div>`);
     else parts.push(this._itemList(sum.todo, list, Number(c.max_items) || 0));
     if (c.show_completed !== false && sum.done.length) {
       const clear = this._supports(list, "delete")
@@ -2662,7 +2674,7 @@ class TodoCard extends CardBase {
     }
     const title = c.title || (m.lists.length > 1 && c.show_tabs !== false ? this._t("lists") : list.name);
     const sub = m.lists.length > 1 && c.show_tabs !== false ? list.name : sum.open ? this._t("todo_n", { n: sum.open }) : "";
-    return `<style>${BASE_STYLE}${TODO_STYLE}</style>
+    return `<style>${BASE_STYLE}${TODO_STYLE}${this._scheme()}</style>
       <ha-card>
         ${this._head(sum, title, sub)}
         <div class="content">${parts.filter(Boolean).join("")}</div>
@@ -2694,6 +2706,7 @@ class TodoCard extends CardBase {
     }
     if (action === "add_dialog") {
       this._inputs.due = "";
+      this._inputs.new = "";
       this._openDialog({ add: true, entity: list.entity, name: list.name, due: this._dueKind(list) });
       return true;
     }
@@ -2783,19 +2796,19 @@ class TodoMiniCard extends withMini(TodoCard) {
     // The summary lines, then the first items still to do.
     let body = `<div class="empty">${esc(this._t("loading"))}</div>`;
     if (this._items !== undefined) {
-      const named = new Set([...sum.late, ...sum.dueToday].map((it) => it.uid));
-      const rest = sum.todo.filter((it) => !it.ticking && !named.has(it.uid));
+      const named = new Set([...sum.late, ...sum.dueToday].map(keyOf));
+      const rest = sum.todo.filter((it) => !it.ticking && !named.has(keyOf(it)));
       const n = Number(c.max_items) || 2;
       const names = rest.slice(0, n).map((it) => it.summary).join(", ");
       const more = rest.length > n ? ` ${this._t("more_n", { n: rest.length - n })}` : "";
       body = `${this._heroLines(sum, 2)}${names ? `<div class="line">${svgIcon(ICONS.list)}<span>${esc(names + more)}</span></div>` : ""}`;
     }
-    const art = c.show_hero === false ? "" : `<div class="hero-art">${todoArt(SHOPPING.has(list.platform))}</div>`;
+    const art = c.show_hero === false ? "" : `<div class="hero-art">${todoArt(isShopping(list))}</div>`;
     const add =
       c.show_add !== false && this._supports(list, "create")
         ? `<div class="controls"><button class="btn round primary" data-action="add_dialog" title="${esc(this._t("add_to", { list: list.name }))}" aria-label="${esc(this._t("add_to", { list: list.name }))}">${svgIcon(ICONS.plus)}</button></div>`
         : "";
-    return `<style>${BASE_STYLE}${TODO_STYLE}${MINI_STYLE}</style>
+    return `<style>${BASE_STYLE}${TODO_STYLE}${MINI_STYLE}${this._scheme()}</style>
       <ha-card>
         ${this._head(sum, c.title || list.name, "")}
         <div class="content mini">${art}<div class="info">${body}</div>${add}</div>

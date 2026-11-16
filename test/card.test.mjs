@@ -45,8 +45,8 @@ const mount = async (config = {}, variant = "default", Card = TodoCard, opts = {
 };
 
 // A card on mock data changed by `change(data)` before it is mounted.
-const mountWith = async (config, change) => {
-  const card = new TodoCard();
+const mountWith = async (config, change, Card = TodoCard) => {
+  const card = new Card();
   card._connected = true;
   card.setConfig(config);
   const hass = makeHass();
@@ -164,8 +164,8 @@ test("summary: the count left, then overdue, due today and done beside the illus
   const { html } = await mount();
   assert.match(html(), /class="hero"/);
   assert.match(html(), /<b>4<\/b><span>to do<\/span>/);
-  assert.match(html(), /line crit[^>]*>.*Change the ventilation filter overdue/s);
-  assert.match(html(), /line warn[^>]*>.*Take the bins out due today/s);
+  assert.match(html(), /line crit[^>]*>.*Overdue: Change the ventilation filter/s);
+  assert.match(html(), /line warn[^>]*>.*Due today: Take the bins out/s);
   assert.match(html(), /line ok[^>]*>.*1 done/s);
   // Due dates under the items, colored; a short detail as a pill.
   assert.match(html(), /class="due crit"/);
@@ -268,13 +268,24 @@ test("items without a uid are ticked, edited and deleted by their name", async (
   same(hass.calls.at(-1), ["todo", "remove_item", { entity_id: "todo.maison", item: "Book the boiler service" }]);
 });
 
-test("shopping lists of AnyList, Alexa, KitchenOwl and Grocy get the cart; other lists don't", async () => {
+test("shopping lists of AnyList and KitchenOwl get the cart; Alexa and Grocy only when named so; other lists don't", async () => {
   assert.ok(!(await mount({ entity: "todo.maison" })).html().includes(td.CARD_ICONS.cart));
-  for (const platform of ["anylist", "alexa_devices", "kitchenowl", "grocy"]) {
+  for (const platform of ["anylist", "kitchenowl"]) {
     const { html } = await mountWith({ entity: "todo.maison" }, (h) => {
       h.entities["todo.maison"].platform = platform;
     });
     assert.ok(html().includes(td.CARD_ICONS.cart), platform);
+  }
+  for (const platform of ["alexa_devices", "grocy"]) {
+    const tasks = await mountWith({ entity: "todo.maison" }, (h) => {
+      h.entities["todo.maison"].platform = platform;
+    });
+    assert.ok(!tasks.html().includes(td.CARD_ICONS.cart), `${platform} tasks`);
+    const shop = await mountWith({ entity: "todo.maison" }, (h) => {
+      h.entities["todo.maison"].platform = platform;
+      h.states["todo.maison"].attributes.friendly_name = "Shopping list";
+    });
+    assert.ok(shop.html().includes(td.CARD_ICONS.cart), `${platform} shopping`);
   }
 });
 
@@ -318,4 +329,29 @@ test("due dates on a list that takes a date only", async () => {
   card._inputs.due = "2026-11-22";
   card._dialogAction("dialog_ok");
   same(hass.calls.at(-1)[2].due_date, "2026-11-22");
+});
+
+test("mini card: items without a uid still show in the line of the next items", async () => {
+  const { html } = await mountWith(
+    { entity: "todo.maison" },
+    (h) => {
+      for (const it of h.subs["todo/item/subscribe|todo.maison"].items) delete it.uid;
+    },
+    TodoMiniCard,
+  );
+  // The overdue item is named in its own line; the next ones follow in the list line.
+  assert.match(html(), /Overdue: Change the ventilation filter/);
+  assert.match(html(), /<div class="line"><svg[^]*?<span>[^<]*Book the boiler service/);
+});
+
+test("empty list: \"Nothing to do\" once; while loading, no count", async () => {
+  const empty = await mountWith({ entity: "todo.maison" }, (h) => {
+    h.subs["todo/item/subscribe|todo.maison"].items = [];
+  });
+  assert.equal((empty.html().match(/Nothing to do/g) || []).length, 1);
+  const loading = await mountWith({ entity: "todo.maison" }, (h) => {
+    delete h.subs["todo/item/subscribe|todo.maison"];
+    h.states["todo.maison"] = { ...h.states["todo.maison"], state: "unknown" };
+  });
+  assert.doesNotMatch(loading.html(), /<b>0<\/b><span>to do/);
 });

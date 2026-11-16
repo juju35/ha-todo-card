@@ -11,7 +11,12 @@
 ### Fixes
 - Lists that can't update items (a Picnic cart): the checkboxes are greyed out and nothing calls a service the list refuses.
 - Items without an id are ticked, edited and deleted by their name.
-- Shopping lists of AnyList (custom `anylist`), Alexa, KitchenOwl and Grocy get the cart icon and illustration.
+- Shopping lists of AnyList (custom `anylist`) and KitchenOwl get the cart icon and illustration; Alexa and Grocy lists only when their name says they are shopping lists.
+- The summary lines put the status first ("Overdue: …", "Due today: …"), so it stays visible when the item's name is cut.
+- Mini card: items without an id show in the line of the next items.
+- An empty list says "Nothing to do" once; while the items load, no count is shown.
+- Dark theme: the date picker's icon follows the dashboard theme and stays visible.
+- The add dialog opens empty.
 
 ## 1.0.0 - 2026-11-16
 

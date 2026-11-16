@@ -74,9 +74,9 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/remember_the_milk.png" alt="" width="16"> [Remember The Milk](https://www.home-assistant.io/integrations/remember_the_milk/) (core) | Lists |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/icloud.png" alt="" width="16"> [Apple iCloud](https://www.home-assistant.io/integrations/icloud/) (core) | Reminders |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/alexa_devices.png" alt="" width="16"> [Alexa Devices](https://www.home-assistant.io/integrations/alexa_devices/) (core) | Alexa shopping and to-do lists |
-|  [AnyList](https://github.com/ozonejunkieau/ha-anylist) (custom) | Shopping lists |
-|  [Grocy](https://github.com/custom-components/grocy) (custom) | Shopping list and chores |
-|  [KitchenOwl](https://github.com/TomBursch/kitchenowl-ha) (custom) | Shopping lists |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/any_list.png" alt="" width="16"> [AnyList](https://github.com/ozonejunkieau/ha-anylist) (custom) | Shopping lists |
+| [Grocy](https://github.com/custom-components/grocy) (custom) | Shopping list and chores |
+| [KitchenOwl](https://github.com/TomBursch/kitchenowl-ha) (custom) | Shopping lists |
 | Any other to-do integration | Its lists: what it supports (its `supported_features`) decides which buttons show |
 
 The cards use Home Assistant's to-do entities and services (`todo.add_item`, `todo.update_item`, `todo.remove_item`, `todo.remove_completed_items`), so they work with any integration that provides a to-do list.
