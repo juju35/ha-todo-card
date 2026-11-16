@@ -62,6 +62,12 @@ const STRINGS = {
     show_tabs: "Show the tabs between lists",
     show_add: "Show the field to add items",
     show_completed: "Show the completed items",
+    to_do: "to do",
+    overdue_item: "{item} overdue",
+    due_today_n: "{n} due today",
+    due_today_item: "{item} due today",
+    done_n: "{n} done",
+    show_hero: "Show the summary with the illustration",
     cancel: "Cancel",
     left: "{time} left",
     today_at: "today {time}",
@@ -114,6 +120,12 @@ const STRINGS = {
     show_tabs: "Afficher les onglets des listes",
     show_add: "Afficher le champ d'ajout",
     show_completed: "Afficher les éléments terminés",
+    to_do: "à faire",
+    overdue_item: "{item} en retard",
+    due_today_n: "{n} pour aujourd'hui",
+    due_today_item: "{item} pour aujourd'hui",
+    done_n: "{n} faits",
+    show_hero: "Afficher le résumé illustré",
     cancel: "Annuler",
     left: "{time} restantes",
     today_at: "aujourd'hui {time}",
@@ -166,6 +178,12 @@ const STRINGS = {
     show_tabs: "Reiter zwischen den Listen anzeigen",
     show_add: "Feld zum Hinzufügen anzeigen",
     show_completed: "Erledigte Einträge anzeigen",
+    to_do: "offen",
+    overdue_item: "{item} überfällig",
+    due_today_n: "{n} heute fällig",
+    due_today_item: "{item} heute fällig",
+    done_n: "{n} erledigt",
+    show_hero: "Zusammenfassung mit Illustration anzeigen",
     cancel: "Abbrechen",
     left: "Noch {time}",
     today_at: "heute {time}",
@@ -218,6 +236,12 @@ const STRINGS = {
     show_tabs: "Mostrar las pestañas de las listas",
     show_add: "Mostrar el campo para añadir",
     show_completed: "Mostrar los completados",
+    to_do: "pendientes",
+    overdue_item: "{item} con retraso",
+    due_today_n: "{n} para hoy",
+    due_today_item: "{item} para hoy",
+    done_n: "{n} hechos",
+    show_hero: "Mostrar el resumen ilustrado",
     cancel: "Cancelar",
     left: "Quedan {time}",
     today_at: "hoy {time}",
@@ -270,6 +294,12 @@ const STRINGS = {
     show_tabs: "Mostra le schede degli elenchi",
     show_add: "Mostra il campo per aggiungere",
     show_completed: "Mostra gli elementi completati",
+    to_do: "da fare",
+    overdue_item: "{item} in ritardo",
+    due_today_n: "{n} in scadenza oggi",
+    due_today_item: "{item} in scadenza oggi",
+    done_n: "{n} fatti",
+    show_hero: "Mostra il riepilogo illustrato",
     cancel: "Annulla",
     left: "{time} rimanenti",
     today_at: "oggi {time}",
@@ -322,6 +352,12 @@ const STRINGS = {
     show_tabs: "Tabbladen tussen lijsten tonen",
     show_add: "Veld om toe te voegen tonen",
     show_completed: "Voltooide items tonen",
+    to_do: "te doen",
+    overdue_item: "{item} te laat",
+    due_today_n: "{n} vandaag",
+    due_today_item: "{item} vandaag",
+    done_n: "{n} gedaan",
+    show_hero: "Samenvatting met illustratie tonen",
     cancel: "Annuleren",
     left: "Nog {time}",
     today_at: "vandaag {time}",
@@ -374,6 +410,12 @@ const STRINGS = {
     show_tabs: "Mostrar os separadores das listas",
     show_add: "Mostrar o campo para adicionar",
     show_completed: "Mostrar os concluídos",
+    to_do: "por fazer",
+    overdue_item: "{item} em atraso",
+    due_today_n: "{n} para hoje",
+    due_today_item: "{item} para hoje",
+    done_n: "{n} feitos",
+    show_hero: "Mostrar o resumo ilustrado",
     cancel: "Cancelar",
     left: "Faltam {time}",
     today_at: "hoje {time}",
@@ -426,6 +468,12 @@ const STRINGS = {
     show_tabs: "Pokaż karty list",
     show_add: "Pokaż pole dodawania",
     show_completed: "Pokaż zrobione",
+    to_do: "do zrobienia",
+    overdue_item: "{item} po terminie",
+    due_today_n: "Na dziś: {n}",
+    due_today_item: "{item} na dziś",
+    done_n: "Zrobione: {n}",
+    show_hero: "Pokaż podsumowanie z ilustracją",
     cancel: "Anuluj",
     left: "Pozostało {time}",
     today_at: "dziś {time}",
@@ -478,6 +526,12 @@ const STRINGS = {
     show_tabs: "Прикажи картице листа",
     show_add: "Прикажи поље за додавање",
     show_completed: "Прикажи урађене ставке",
+    to_do: "за урадити",
+    overdue_item: "{item} касни",
+    due_today_n: "За данас: {n}",
+    due_today_item: "{item} за данас",
+    done_n: "Урађено: {n}",
+    show_hero: "Прикажи илустровани резиме",
     cancel: "Откажи",
     left: "Преостало {time}",
     today_at: "данас {time}",
@@ -530,6 +584,12 @@ const STRINGS = {
     show_tabs: "Prikaži kartice lista",
     show_add: "Prikaži polje za dodavanje",
     show_completed: "Prikaži urađene stavke",
+    to_do: "za uraditi",
+    overdue_item: "{item} kasni",
+    due_today_n: "Za danas: {n}",
+    due_today_item: "{item} za danas",
+    done_n: "Urađeno: {n}",
+    show_hero: "Prikaži ilustrovani rezime",
     cancel: "Otkaži",
     left: "Preostalo {time}",
     today_at: "danas {time}",
@@ -582,6 +642,12 @@ const STRINGS = {
     show_tabs: "Afișează filele listelor",
     show_add: "Afișează câmpul de adăugare",
     show_completed: "Afișează elementele finalizate",
+    to_do: "de făcut",
+    overdue_item: "{item} întârziat",
+    due_today_n: "{n} pentru azi",
+    due_today_item: "{item} pentru azi",
+    done_n: "{n} făcute",
+    show_hero: "Afișează rezumatul ilustrat",
     cancel: "Anulează",
     left: "Mai sunt {time}",
     today_at: "azi {time}",
@@ -634,6 +700,12 @@ const STRINGS = {
     show_tabs: "Vis faneblade mellem lister",
     show_add: "Vis feltet til at tilføje",
     show_completed: "Vis udførte elementer",
+    to_do: "at gøre",
+    overdue_item: "{item} forfalden",
+    due_today_n: "{n} i dag",
+    due_today_item: "{item} i dag",
+    done_n: "{n} udført",
+    show_hero: "Vis resuméet med illustration",
     cancel: "Annuller",
     left: "{time} tilbage",
     today_at: "i dag {time}",
@@ -686,6 +758,12 @@ const STRINGS = {
     show_tabs: "Visa flikar mellan listor",
     show_add: "Visa fältet för att lägga till",
     show_completed: "Visa klara objekt",
+    to_do: "att göra",
+    overdue_item: "{item} försenad",
+    due_today_n: "{n} i dag",
+    due_today_item: "{item} i dag",
+    done_n: "{n} klara",
+    show_hero: "Visa sammanfattningen med illustration",
     cancel: "Avbryt",
     left: "{time} kvar",
     today_at: "i dag {time}",
@@ -738,6 +816,12 @@ const STRINGS = {
     show_tabs: "Показване на разделите на списъците",
     show_add: "Показване на полето за добавяне",
     show_completed: "Показване на готовите",
+    to_do: "за правене",
+    overdue_item: "{item} закъснява",
+    due_today_n: "За днес: {n}",
+    due_today_item: "{item} за днес",
+    done_n: "Готови: {n}",
+    show_hero: "Показване на илюстрираното резюме",
     cancel: "Отказ",
     left: "Остават {time}",
     today_at: "днес {time}",
@@ -790,6 +874,12 @@ const STRINGS = {
     show_tabs: "Показывать вкладки списков",
     show_add: "Показывать поле добавления",
     show_completed: "Показывать сделанное",
+    to_do: "сделать",
+    overdue_item: "{item} просрочено",
+    due_today_n: "На сегодня: {n}",
+    due_today_item: "{item} на сегодня",
+    done_n: "Сделано: {n}",
+    show_hero: "Показывать сводку с иллюстрацией",
     cancel: "Отмена",
     left: "Осталось {time}",
     today_at: "сегодня {time}",
@@ -842,6 +932,12 @@ const STRINGS = {
     show_tabs: "Показувати вкладки списків",
     show_add: "Показувати поле додавання",
     show_completed: "Показувати зроблене",
+    to_do: "зробити",
+    overdue_item: "{item} прострочено",
+    due_today_n: "На сьогодні: {n}",
+    due_today_item: "{item} на сьогодні",
+    done_n: "Зроблено: {n}",
+    show_hero: "Показувати зведення з ілюстрацією",
     cancel: "Скасувати",
     left: "Залишилось {time}",
     today_at: "сьогодні {time}",
@@ -894,6 +990,12 @@ const STRINGS = {
     show_tabs: "Listák füleinek megjelenítése",
     show_add: "Hozzáadó mező megjelenítése",
     show_completed: "Kész elemek megjelenítése",
+    to_do: "teendő",
+    overdue_item: "{item} lejárt",
+    due_today_n: "Ma esedékes: {n}",
+    due_today_item: "{item} ma esedékes",
+    done_n: "Kész: {n}",
+    show_hero: "Illusztrált összegzés megjelenítése",
     cancel: "Mégse",
     left: "Még {time}",
     today_at: "ma {time}",
@@ -946,6 +1048,12 @@ const STRINGS = {
     show_tabs: "Zobraziť karty zoznamov",
     show_add: "Zobraziť pole na pridanie",
     show_completed: "Zobraziť hotové",
+    to_do: "na urobenie",
+    overdue_item: "{item} po termíne",
+    due_today_n: "Na dnes: {n}",
+    due_today_item: "{item} na dnes",
+    done_n: "Hotovo: {n}",
+    show_hero: "Zobraziť ilustrovaný súhrn",
     cancel: "Zrušiť",
     left: "Zostáva {time}",
     today_at: "dnes {time}",
@@ -998,6 +1106,12 @@ const STRINGS = {
     show_tabs: "Zobrazit karty seznamů",
     show_add: "Zobrazit pole pro přidání",
     show_completed: "Zobrazit hotové",
+    to_do: "k udělání",
+    overdue_item: "{item} po termínu",
+    due_today_n: "Na dnes: {n}",
+    due_today_item: "{item} na dnes",
+    done_n: "Hotovo: {n}",
+    show_hero: "Zobrazit ilustrovaný souhrn",
     cancel: "Zrušit",
     left: "Zbývá {time}",
     today_at: "dnes {time}",
@@ -1050,6 +1164,12 @@ const STRINGS = {
     show_tabs: "Prikaži zavihke seznamov",
     show_add: "Prikaži polje za dodajanje",
     show_completed: "Prikaži narejeno",
+    to_do: "za narediti",
+    overdue_item: "{item} zamuja",
+    due_today_n: "Za danes: {n}",
+    due_today_item: "{item} za danes",
+    done_n: "Narejeno: {n}",
+    show_hero: "Prikaži ilustriran povzetek",
     cancel: "Prekliči",
     left: "Še {time}",
     today_at: "danes {time}",
@@ -1102,6 +1222,12 @@ const STRINGS = {
     show_tabs: "Rādīt sarakstu cilnes",
     show_add: "Rādīt pievienošanas lauku",
     show_completed: "Rādīt izdarītos",
+    to_do: "jāizdara",
+    overdue_item: "{item} nokavēts",
+    due_today_n: "Šodien: {n}",
+    due_today_item: "{item} šodien",
+    done_n: "Izdarīts: {n}",
+    show_hero: "Rādīt ilustrēto kopsavilkumu",
     cancel: "Atcelt",
     left: "Atlikušas {time}",
     today_at: "šodien {time}",
@@ -1154,6 +1280,12 @@ const STRINGS = {
     show_tabs: "Εμφάνιση καρτελών λιστών",
     show_add: "Εμφάνιση πεδίου προσθήκης",
     show_completed: "Εμφάνιση ολοκληρωμένων",
+    to_do: "για να γίνουν",
+    overdue_item: "{item} εκπρόθεσμο",
+    due_today_n: "Για σήμερα: {n}",
+    due_today_item: "{item} για σήμερα",
+    done_n: "Ολοκληρώθηκαν: {n}",
+    show_hero: "Εμφάνιση της εικονογραφημένης σύνοψης",
     cancel: "Ακύρωση",
     left: "Απομένουν {time}",
     today_at: "σήμερα {time}",
@@ -1333,6 +1465,45 @@ const BASE_STYLE = `
   .ring-svg circle { fill: none; }
   .ring-svg .track { stroke: color-mix(in srgb, var(--c, var(--td-accent)) 18%, transparent); }
   .ring-svg .prog { stroke: var(--c, var(--td-accent)); stroke-linecap: round; transition: stroke-dashoffset 1s linear; }
+  /* Hero, as on the garden and tempo cards: a flat illustration on the left, a big value and a few colored lines on the right. */
+  .hero { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .hero-art { flex: none; width: 120px; display: grid; place-items: center; }
+  .hero-art svg { width: 100%; height: auto; display: block; }
+  .hero-body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+  .hero-kick { font-size: 12px; color: var(--secondary-text-color); }
+  .big { display: flex; align-items: baseline; gap: 6px; min-width: 0; }
+  .big .icon { width: 24px; height: 24px; align-self: center; color: var(--c, var(--td-accent)); }
+  .big b { font-size: 30px; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .big span { font-size: 14px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hero .line { font-size: 12.5px; }
+  /* Rows, as the watering zones: a round icon (grey at rest, tinted otherwise, a ring while it runs), name, colored state, a button. */
+  .row { display: flex; align-items: center; gap: 12px; min-width: 0; }
+  .row-icon { position: relative; width: 40px; height: 40px; border-radius: 50%; flex: none; display: grid; place-items: center;
+              --t: var(--c, var(--td-idle)); background: color-mix(in srgb, var(--t) 18%, transparent); color: color-mix(in srgb, var(--t) 70%, var(--primary-text-color)); }
+  .row-icon.idle { background: color-mix(in srgb, var(--primary-text-color) 8%, transparent); color: var(--secondary-text-color); }
+  .row-icon > .icon, .row-icon > ha-icon { width: 22px; height: 22px; --mdc-icon-size: 22px; }
+  .row-icon .ring-svg { inset: -2px; width: 44px; height: 44px; }
+  .badge { position: absolute; right: -3px; bottom: -3px; width: 17px; height: 17px; border-radius: 50%; display: grid; place-items: center;
+           background: var(--b, var(--td-ok)); color: #fff; box-shadow: 0 0 0 2px var(--ha-card-background, var(--card-background-color, #fff)); }
+  .badge .icon { width: 11px; height: 11px; }
+  .row-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
+  .row-name { font-size: 14px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row-state { font-size: 12.5px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .row-state.ok, .row-state.warn, .row-state.crit, .row-state.active, .row-state.accent { color: color-mix(in srgb, var(--c) 60%, var(--primary-text-color)); }
+  .rows { display: flex; flex-direction: column; gap: 8px; }
+  /* Tiles, as on room overview: grey, tinted with a border when they need a look; small badges below. */
+  .tiles { display: grid; gap: 8px; grid-template-columns: repeat(var(--cols, 2), minmax(0, 1fr)); }
+  .tile { min-width: 0; display: flex; flex-direction: column; gap: 6px; padding: 8px; border-radius: 10px; box-sizing: border-box;
+          background: var(--secondary-background-color, rgba(127,127,127,.12)); border: 1px solid transparent; }
+  .tile.tint { background: color-mix(in srgb, var(--c) 13%, var(--secondary-background-color, rgba(127,127,127,.12)));
+               border-color: color-mix(in srgb, var(--c) 30%, transparent); }
+  .tile-head { display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .tile .row-icon { width: 30px; height: 30px; } .tile .row-icon > .icon { width: 18px; height: 18px; }
+  .tile .row-state { font-size: 12px; }
+  .badges { display: flex; gap: 4px; flex-wrap: wrap; }
+  .pill { display: inline-flex; align-items: center; gap: 3px; font-size: 12px; padding: 1px 7px; border-radius: 10px;
+          color: color-mix(in srgb, var(--c, var(--td-idle)) 60%, var(--primary-text-color)); background: color-mix(in srgb, var(--c, var(--td-idle)) 14%, transparent); }
+  .pill .icon { width: 14px; height: 14px; color: var(--c, var(--td-idle)); }
   @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
   @container (max-width: 230px) {
     .chip { padding: 4px; flex: none; }
@@ -2086,7 +2257,7 @@ const TODO_STYLE = `
   .tab[aria-selected="true"] .n { color: inherit; }
   .tab:focus-visible { outline: 2px solid var(--primary-color, var(--td-accent)); outline-offset: 2px; }
   .adder { display: flex; gap: 8px; align-items: center; }
-  .field { font: inherit; font-size: 15px; width: 100%; box-sizing: border-box; padding: 9px 12px; border-radius: 10px; color: var(--primary-text-color); min-width: 0;
+  .field { font: inherit; font-size: 14px; width: 100%; box-sizing: border-box; padding: 8px 14px; border-radius: 18px; color: var(--primary-text-color); min-width: 0;
            background: transparent; border: 1px solid color-mix(in srgb, var(--primary-text-color) 20%, transparent); }
   .field::placeholder { color: var(--secondary-text-color); }
   .field:focus { outline: 2px solid var(--primary-color, var(--td-accent)); outline-offset: -1px; }
@@ -2113,8 +2284,19 @@ const TODO_STYLE = `
   .text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; padding: 4px 0; }
   .text .s { font-size: 15px; line-height: 1.3; overflow-wrap: break-word; min-width: 0; max-width: 100%; align-self: flex-start; }
   .text .d { font-size: 12px; color: var(--secondary-text-color); overflow-wrap: break-word; }
-  .due { display: inline-flex; align-items: center; gap: 4px; flex: none; }
-  .due .icon { width: 14px; height: 14px; }
+  .text .due { display: flex; align-items: center; gap: 4px; font-size: 12.5px; color: var(--secondary-text-color); }
+  .text .due .icon { width: 14px; height: 14px; }
+  .text .due.crit, .text .due.warn { color: color-mix(in srgb, var(--c) 60%, var(--primary-text-color)); }
+  .text .due.crit .icon, .text .due.warn .icon { color: var(--c); }
+  .item > .pill { flex: none; max-width: 40%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* The illustration: a list on a clipboard, a cart for a shopping list. Colors mixed with the card's background so
+     that it reads in a light and a dark theme. */
+  .art-paper { fill: color-mix(in srgb, #1e88e5 12%, var(--ha-card-background, var(--card-background-color, #fff))); stroke: #64b5f6; stroke-width: 2; }
+  .art-clip { fill: #64b5f6; }
+  .art-line { fill: color-mix(in srgb, #64b5f6 70%, var(--ha-card-background, var(--card-background-color, #fff))); }
+  .art-box { fill: var(--ha-card-background, var(--card-background-color, #fff)); stroke: #90caf9; stroke-width: 2; }
+  .art-box.on { fill: #43a047; stroke: #43a047; }
+  .content.mini .hero-art { width: 84px; }
   .more { font-size: 12px; color: var(--secondary-text-color); padding: 4px 0 0 42px; }
   .row-end { display: flex; justify-content: flex-end; margin-top: 4px; }
   .alldone { display: flex; align-items: center; gap: 8px; color: var(--secondary-text-color); font-size: 14px; padding: 6px 0; }
@@ -2124,16 +2306,33 @@ const TODO_STYLE = `
   @container (max-width: 300px) {
     .tab { padding: 4px 10px; font-size: 12px; }
     .text .s { font-size: 14px; }
-    .due .dtext { display: none; }
-    .due { padding: 4px; }
+    .hero-art { width: 88px; }
+    .big b { font-size: 26px; }
   }
   @container (max-width: 200px) {
     .check { margin: 9px 4px; }
     .item { gap: 6px; }
     .text .s { font-size: 13px; }
     .more { padding-left: 32px; }
+    .hero-art { display: none; }
+    .item > .pill { display: none; }
   }
 `;
+
+// The illustration of the summary: a list on a clipboard (one item ticked), with a cart for a shopping list.
+const todoArt = (shopping) => {
+  const rows = [30, 46, 62]
+    .map(
+      (y, i) =>
+        `<rect class="art-box${i ? "" : " on"}" x="${shopping ? 38 : 44}" y="${y}" width="10" height="10" rx="3"/>${i ? "" : `<path d="M${shopping ? 40 : 46} ${y + 5} l3 3 l5 -6" stroke="#fff" stroke-width="2" fill="none"/>`}<rect class="art-line" x="${shopping ? 53 : 59}" y="${y + 3}" width="${24 - i * 4}" height="4" rx="2"/>`,
+    )
+    .join("");
+  const x = shopping ? 30 : 36;
+  const cart = shopping
+    ? '<path d="M84 60 h18 l-4 18 h-12 z" fill="#ffb74d"/><circle cx="88" cy="82" r="3" fill="#8d6e63"/><circle cx="98" cy="82" r="3" fill="#8d6e63"/><path d="M80 56 h5 l3 6" stroke="#8d6e63" stroke-width="2" fill="none"/><circle cx="92" cy="56" r="4" fill="#e53935"/><path d="M95 52 q3 -4 6 -2" stroke="#43a047" stroke-width="2" fill="none"/>'
+    : '<path d="M88 30 l10 10 l-22 22 l-12 3 l3 -12 z" fill="#ffb74d"/><path d="M88 30 l10 10 l4 -4 l-10 -10 z" fill="#e57373"/>';
+  return `<svg viewBox="0 0 120 100" aria-hidden="true"><rect class="art-paper" x="${x}" y="14" width="56" height="74" rx="8"/><rect class="art-clip" x="${x + 16}" y="9" width="24" height="10" rx="4"/>${rows}${cart}</svg>`;
+};
 
 // The tick drawn in a checkbox.
 const TICK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
@@ -2244,14 +2443,16 @@ class TodoCard extends CardBase {
   _summary(m) {
     const list = this._list(m);
     const { todo, done } = this._split();
-    const overdue = todo.filter((it) => !it.ticking && dueOf(it)?.cls === "crit").length;
+    const late = todo.filter((it) => !it.ticking && dueOf(it)?.cls === "crit");
+    const dueToday = todo.filter((it) => !it.ticking && dueOf(it)?.cls === "warn");
+    const overdue = late.length;
     const count = Number(this._s(list.entity)?.state);
     const open = this._items ? todo.filter((it) => !it.ticking).length : Number.isFinite(count) ? count : null;
     let chip = null;
     if (overdue) chip = { cls: "crit", text: this._t("overdue_n", { n: overdue }) };
     else if (open) chip = { cls: "accent", text: this._t("todo_n", { n: open }) };
     else if (open === 0) chip = { cls: "ok", text: this._t("all_done") };
-    return { list, todo, done, open, overdue, chip };
+    return { list, todo, done, open, overdue, late, dueToday, chip };
   }
 
   _dueText(due) {
@@ -2269,10 +2470,11 @@ class TodoCard extends CardBase {
     const done = it.status === "completed" || it.ticking;
     const due = dueOf(it);
     const label = this._t(done ? "mark_todo" : "mark_done", { item: it.summary });
-    const chip = due
-      ? `<span class="chip due ${it.ticking || it.status === "completed" ? "idle" : due.cls}" title="${esc(this._dueText(due))}">${svgIcon(ICONS.calendar)}<span class="dtext">${esc(this._dueText(due))}</span></span>`
-      : "";
-    const text = `<span class="s">${esc(it.summary)}</span>${it.description ? `<span class="d">${esc(it.description)}</span>` : ""}`;
+    const dueLine = due ? `<span class="due ${done ? "idle" : due.cls}">${svgIcon(ICONS.calendar)}<span>${esc(this._dueText(due))}</span></span>` : "";
+    // A short detail (a quantity: "1 kg", "6") as a pill on the right, a longer one under the item.
+    const short = it.description && String(it.description).length <= 14;
+    const chip = short ? `<span class="pill" title="${esc(it.description)}">${esc(it.description)}</span>` : "";
+    const text = `<span class="s">${esc(it.summary)}</span>${it.description && !short ? `<span class="d">${esc(it.description)}</span>` : ""}${dueLine}`;
     return `<div class="item${done ? " done" : ""}${it.ticking ? " ticking" : ""}">
       <button class="check" role="checkbox" aria-checked="${done}" data-action="toggle" data-uid="${esc(it.uid)}" title="${esc(label)}" aria-label="${esc(label)}">${TICK}</button>
       ${canEdit ? `<div class="text clickable" role="button" tabindex="0" data-action="edit" data-uid="${esc(it.uid)}" aria-label="${esc(this._t("edit_item", { item: it.summary }))}">${text}</div>` : `<div class="text">${text}</div>`}
@@ -2306,6 +2508,27 @@ class TodoCard extends CardBase {
       <button class="btn round primary" data-action="add" title="${esc(this._t("add"))}" aria-label="${esc(this._t("add"))}">${svgIcon(ICONS.plus)}</button></div>`;
   }
 
+  // The summary: what is left to do, then what is late, due today and done, beside the illustration.
+  _heroLines(sum, max = 3) {
+    const lines = [];
+    const one = (list, one_, many) => (list.length === 1 ? this._t(one_, { item: list[0].summary }) : this._t(many, { n: list.length }));
+    if (sum.late.length) lines.push(["crit", ICONS.alert, one(sum.late, "overdue_item", "overdue_n")]);
+    if (sum.dueToday.length) lines.push(["warn", ICONS.calendar, one(sum.dueToday, "due_today_item", "due_today_n")]);
+    if (sum.done.length) lines.push(["ok", ICONS.done_all, this._t("done_n", { n: sum.done.length })]);
+    if (!sum.todo.length && this._items !== undefined) lines.unshift(["ok", ICONS.done_all, this._t("nothing_to_do")]);
+    return lines
+      .slice(0, max)
+      .map(([cls, icon, text]) => `<div class="line ${cls}">${svgIcon(icon)}<span>${esc(text)}</span></div>`)
+      .join("");
+  }
+
+  _hero(sum) {
+    if (this._config.show_hero === false) return "";
+    const open = sum.open ?? 0;
+    return `<div class="hero"><div class="hero-art">${todoArt(SHOPPING.has(sum.list.platform))}</div><div class="hero-body">
+      <div class="big"><b>${open}</b><span>${esc(this._t("to_do"))}</span></div>${this._heroLines(sum)}</div></div>`;
+  }
+
   _head(sum, title, sub) {
     const shopping = SHOPPING.has(sum.list.platform);
     return this._header({ icon: shopping ? ICONS.cart : ICONS.list, cls: sum.overdue ? "crit" : "accent", title, sub, chip: sum.chip });
@@ -2317,7 +2540,7 @@ class TodoCard extends CardBase {
     const c = this._config;
     const sum = this._summary(m);
     const { list } = sum;
-    const parts = [this._tabs(m, list), this._adder(list)];
+    const parts = [this._hero(sum), this._tabs(m, list), this._adder(list)];
     if (this._items === undefined) parts.push(`<div class="empty">${esc(this._t("loading"))}</div>`);
     else if (!sum.todo.length) parts.push(`<div class="alldone">${svgIcon(ICONS.done_all)}<span>${esc(this._t("nothing_to_do"))}</span></div>`);
     else parts.push(this._itemList(sum.todo, list, Number(c.max_items) || 0));
@@ -2427,12 +2650,17 @@ class TodoMiniCard extends withMini(TodoCard) {
     const c = this._config;
     const sum = this._summary(m);
     const { list } = sum;
-    const body =
-      this._items === undefined
-        ? `<div class="empty">${esc(this._t("loading"))}</div>`
-        : sum.todo.length
-          ? this._itemList(sum.todo, list, Number(c.max_items) || 3)
-          : `<div class="alldone">${svgIcon(ICONS.done_all)}<span>${esc(this._t("nothing_to_do"))}</span></div>`;
+    // The summary lines, then the first items still to do.
+    let body = `<div class="empty">${esc(this._t("loading"))}</div>`;
+    if (this._items !== undefined) {
+      const named = new Set([...sum.late, ...sum.dueToday].map((it) => it.uid));
+      const rest = sum.todo.filter((it) => !it.ticking && !named.has(it.uid));
+      const n = Number(c.max_items) || 2;
+      const names = rest.slice(0, n).map((it) => it.summary).join(", ");
+      const more = rest.length > n ? ` ${this._t("more_n", { n: rest.length - n })}` : "";
+      body = `${this._heroLines(sum, 2)}${names ? `<div class="line">${svgIcon(ICONS.list)}<span>${esc(names + more)}</span></div>` : ""}`;
+    }
+    const art = c.show_hero === false ? "" : `<div class="hero-art">${todoArt(SHOPPING.has(list.platform))}</div>`;
     const add =
       c.show_add !== false && this._supports(list, "create")
         ? `<div class="controls"><button class="btn round primary" data-action="add_dialog" title="${esc(this._t("add_to", { list: list.name }))}" aria-label="${esc(this._t("add_to", { list: list.name }))}">${svgIcon(ICONS.plus)}</button></div>`
@@ -2440,7 +2668,7 @@ class TodoMiniCard extends withMini(TodoCard) {
     return `<style>${BASE_STYLE}${TODO_STYLE}${MINI_STYLE}</style>
       <ha-card>
         ${this._head(sum, c.title || list.name, "")}
-        <div class="content mini"><div class="info">${body}</div>${add}</div>
+        <div class="content mini">${art}<div class="info">${body}</div>${add}</div>
       </ha-card>`;
   }
 
@@ -2464,6 +2692,7 @@ class TodoCardEditor extends EditorBase {
     return [
       ["show_title", true],
       ["show_subtitle", true],
+      ["show_hero", true],
       ["show_tabs", true],
       ["show_add", true],
       ["show_completed", true],

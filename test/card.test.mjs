@@ -147,10 +147,25 @@ test("a list with everything done says so", async () => {
   assert.match(html(), /chip ok[^>]*>.*All done/s);
 });
 
-test("mini card: the first items and the add button, which opens a popup; the detail button shows the full card", async () => {
+test("summary: the count left, then overdue, due today and done beside the illustration; it can be hidden", async () => {
+  const { html } = await mount();
+  assert.match(html(), /class="hero"/);
+  assert.match(html(), /<b>4<\/b><span>to do<\/span>/);
+  assert.match(html(), /line crit[^>]*>.*Change the ventilation filter overdue/s);
+  assert.match(html(), /line warn[^>]*>.*Take the bins out due today/s);
+  assert.match(html(), /line ok[^>]*>.*1 done/s);
+  // Due dates under the items, colored; a short detail as a pill.
+  assert.match(html(), /class="due crit"/);
+  const shop = await mount({ entity: "todo.courses" });
+  assert.match(shop.html(), /class="pill"[^>]*>1 kg</);
+  const off = await mount({ show_hero: false });
+  assert.doesNotMatch(off.html(), /class="hero"/);
+});
+
+test("mini card: the summary lines, the next items and the add button, which opens a popup; the detail button shows the full card", async () => {
   const { card, hass, html } = await mount({ entity: "todo.courses" }, "default", TodoMiniCard);
-  assert.equal((html().match(/class="item"/g) || []).length, 3);
-  assert.match(html(), /\+ 4 more/);
+  assert.match(html(), /2 done/);
+  assert.match(html(), /Tomatoes, Apples \+ 5 more/);
   click(card, { action: "add_dialog" });
   assert.match(html(), /Add to Shopping/);
   card._inputs.new = "Rice";

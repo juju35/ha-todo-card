@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.0 - 2026-11-16
+
+### Features
+- New look, shared with the other cards: a summary at the top beside an illustration (a clipboard, with a cart for a shopping list) with how many items are left to do and what is overdue, due today and done; due dates under each item in red or orange; a short detail (a quantity) as a pill on the right; a rounded field to add items.
+- Mini card: the illustration, what is overdue and due today, the next items and the add button.
+- New option `show_hero` to hide the summary.
+
 ## 1.0.0 - 2026-11-16
 
 First release.
