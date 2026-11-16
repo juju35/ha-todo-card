@@ -2653,7 +2653,9 @@ class TodoCard extends CardBase {
 
   // The date pickers' icon in the dashboard's theme.
   _scheme() {
-    return this._hass?.themes?.darkMode ? ":host { --td-scheme: dark; }" : "";
+    // A theme without the dark mode flag: the system's preference.
+    const dark = this._hass?.themes?.darkMode ?? window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+    return dark ? ":host { --td-scheme: dark; }" : "";
   }
 
   _render() {
@@ -2705,8 +2707,8 @@ class TodoCard extends CardBase {
       return true;
     }
     if (action === "add_dialog") {
+      // The text typed in the add field goes on into the popup, to give it a due date.
       this._inputs.due = "";
-      this._inputs.new = "";
       this._openDialog({ add: true, entity: list.entity, name: list.name, due: this._dueKind(list) });
       return true;
     }
