@@ -341,7 +341,7 @@ test("mini card: items without a uid still show in the line of the next items", 
   );
   // The overdue item is named in its own line; the next ones follow in the list line.
   assert.match(html(), /Overdue: Change the ventilation filter/);
-  assert.match(html(), /<div class="line"><svg[^]*?<span>[^<]*Book the boiler service/);
+  assert.match(html(), /<div class="line"><svg[\s\S]*?<span>[^<]*Book the boiler service/);
 });
 
 test("empty list: \"Nothing to do\" once; while loading, no count", async () => {
