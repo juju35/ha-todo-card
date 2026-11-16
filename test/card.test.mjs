@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { mockData, NOW } from "../scripts/mock-states.mjs";
 import { load } from "./load.mjs";
 
-const td = load({ names: ["resolve", "dueOf", "sortItems", "STRINGS", "LANGUAGES"] });
+const td = load({ names: ["resolve", "dueOf", "sortItems", "STRINGS", "LANGUAGES", "CARD_ICONS"] });
 const TodoCard = td.element("todo-card");
 const TodoMiniCard = td.element("todo-mini-card");
 // Objects from the sandbox have the sandbox's prototypes: compared as plain JSON.
@@ -42,6 +42,19 @@ const mount = async (config = {}, variant = "default", Card = TodoCard, opts = {
   await new Promise((r) => setTimeout(r, 0));
   // Intl puts narrow no-break spaces in times ("7:00 PM"): plain spaces for the assertions.
   return { card, hass, html: () => card.shadowRoot.innerHTML.replace(/[   ]/g, " ") };
+};
+
+// A card on mock data changed by `change(data)` before it is mounted.
+const mountWith = async (config, change, Card = TodoCard) => {
+  const card = new Card();
+  card._connected = true;
+  card.setConfig(config);
+  const hass = makeHass();
+  change(hass);
+  card.hass = hass;
+  card.connectedCallback();
+  await new Promise((r) => setTimeout(r, 0));
+  return { card, hass, html: () => card.shadowRoot.innerHTML.replace(/[\u2009\u202f\u00a0]/g, " ") };
 };
 
 const click = (card, dataset) => card._onClick({ composedPath: () => [{ dataset }], stopPropagation() {}, detail: 1 });
@@ -147,10 +160,25 @@ test("a list with everything done says so", async () => {
   assert.match(html(), /chip ok[^>]*>.*All done/s);
 });
 
-test("mini card: the first items and the add button, which opens a popup; the detail button shows the full card", async () => {
+test("summary: the count left, then overdue, due today and done beside the illustration; it can be hidden", async () => {
+  const { html } = await mount();
+  assert.match(html(), /class="hero"/);
+  assert.match(html(), /<b>4<\/b><span>to do<\/span>/);
+  assert.match(html(), /line crit[^>]*>.*Overdue: Change the ventilation filter/s);
+  assert.match(html(), /line warn[^>]*>.*Due today: Take the bins out/s);
+  assert.match(html(), /line ok[^>]*>.*1 done/s);
+  // Due dates under the items, colored; a short detail as a pill.
+  assert.match(html(), /class="due crit"/);
+  const shop = await mount({ entity: "todo.courses" });
+  assert.match(shop.html(), /class="pill"[^>]*>1 kg</);
+  const off = await mount({ show_hero: false });
+  assert.doesNotMatch(off.html(), /class="hero"/);
+});
+
+test("mini card: the summary lines, the next items and the add button, which opens a popup; the detail button shows the full card", async () => {
   const { card, hass, html } = await mount({ entity: "todo.courses" }, "default", TodoMiniCard);
-  assert.equal((html().match(/class="item"/g) || []).length, 3);
-  assert.match(html(), /\+ 4 more/);
+  assert.match(html(), /2 done/);
+  assert.match(html(), /Tomatoes, Apples \+ 5 more/);
   click(card, { action: "add_dialog" });
   assert.match(html(), /Add to Shopping/);
   card._inputs.new = "Rice";
@@ -214,4 +242,116 @@ test("every clickable element can be reached and used from the keyboard", async 
     assert.match(m[0], /role="button"/, m[0]);
     assert.match(m[0], /tabindex="0"/, m[0]);
   }
+});
+
+test("a list that can't be updated (create only, e.g. Picnic): checkboxes disabled, no edit", async () => {
+  const { card, hass, html } = await mountWith({ entity: "todo.courses" }, (h) => {
+    h.states["todo.courses"].attributes.supported_features = 1;
+  });
+  assert.match(html(), /class="check"[^>]*aria-disabled="true" disabled/);
+  assert.doesNotMatch(html(), /data-action="toggle"|data-action="edit"/);
+  const before = hass.calls.length;
+  click(card, { action: "toggle", uid: "c2" });
+  assert.equal(hass.calls.filter((c) => c[1] === "update_item").length, 0);
+  assert.equal(hass.calls.length, before);
+});
+
+test("items without a uid are ticked, edited and deleted by their name", async () => {
+  const { card, hass, html } = await mountWith({ entity: "todo.maison" }, (h) => {
+    for (const it of h.subs["todo/item/subscribe|todo.maison"].items) delete it.uid;
+  });
+  assert.match(html(), /data-action="toggle" data-uid="Book the boiler service"/);
+  click(card, { action: "toggle", uid: "Book the boiler service" });
+  same(hass.calls.at(-1), ["todo", "update_item", { entity_id: "todo.maison", item: "Book the boiler service", status: "completed" }]);
+  click(card, { action: "edit", uid: "Book the boiler service" });
+  card._dialogAction("remove");
+  same(hass.calls.at(-1), ["todo", "remove_item", { entity_id: "todo.maison", item: "Book the boiler service" }]);
+});
+
+test("shopping lists of AnyList and KitchenOwl get the cart; Alexa and Grocy only when named so; other lists don't", async () => {
+  assert.ok(!(await mount({ entity: "todo.maison" })).html().includes(td.CARD_ICONS.cart));
+  for (const platform of ["anylist", "kitchenowl"]) {
+    const { html } = await mountWith({ entity: "todo.maison" }, (h) => {
+      h.entities["todo.maison"].platform = platform;
+    });
+    assert.ok(html().includes(td.CARD_ICONS.cart), platform);
+  }
+  for (const platform of ["alexa_devices", "grocy"]) {
+    const tasks = await mountWith({ entity: "todo.maison" }, (h) => {
+      h.entities["todo.maison"].platform = platform;
+    });
+    assert.ok(!tasks.html().includes(td.CARD_ICONS.cart), `${platform} tasks`);
+    const shop = await mountWith({ entity: "todo.maison" }, (h) => {
+      h.entities["todo.maison"].platform = platform;
+      h.states["todo.maison"].attributes.friendly_name = "Shopping list";
+    });
+    assert.ok(shop.html().includes(td.CARD_ICONS.cart), `${platform} shopping`);
+  }
+});
+
+test("due dates: set, changed and cleared from the edit popup; set when adding", async () => {
+  const { card, hass, html } = await mount();
+  // todo.maison takes a date and a time (SET_DUE_DATETIME).
+  const it = card._items.find((i) => i.due);
+  click(card, { action: "edit", uid: it.uid });
+  assert.match(html(), /type="datetime-local" data-keep="due"/);
+  card._inputs.due = "2026-11-20T08:30";
+  card._dialogAction("dialog_ok");
+  same(hass.calls.at(-1)[2].due_datetime, "2026-11-20 08:30:00");
+  card._dialogClosedAt = 0;
+  click(card, { action: "edit", uid: it.uid });
+  card._inputs.due = "";
+  card._dialogAction("dialog_ok");
+  assert.equal(hass.calls.at(-1)[2].due_datetime, null);
+  card._dialogClosedAt = 0;
+  // Unchanged: no due date sent.
+  click(card, { action: "edit", uid: it.uid });
+  card._inputs.edit_name = "Renamed";
+  card._dialogAction("dialog_ok");
+  assert.equal("due_datetime" in hass.calls.at(-1)[2], false);
+  card._dialogClosedAt = 0;
+  // Add with a due date, from the calendar button beside the field.
+  assert.match(html(), /data-action="add_dialog"/);
+  click(card, { action: "add_dialog" });
+  card._inputs.new = "Call the plumber";
+  card._inputs.due = "2026-11-21T10:00";
+  card._dialogAction("dialog_ok");
+  same(hass.calls.at(-1), ["todo", "add_item", { entity_id: "todo.maison", item: "Call the plumber", due_datetime: "2026-11-21 10:00:00" }]);
+});
+
+test("due dates on a list that takes a date only", async () => {
+  const { card, hass, html } = await mountWith({ entity: "todo.maison" }, (h) => {
+    h.states["todo.maison"].attributes.supported_features = 1 + 2 + 4 + 16 + 64;
+  });
+  const it = card._items.find((i) => i.due);
+  click(card, { action: "edit", uid: it.uid });
+  assert.match(html(), /type="date" data-keep="due"/);
+  card._inputs.due = "2026-11-22";
+  card._dialogAction("dialog_ok");
+  same(hass.calls.at(-1)[2].due_date, "2026-11-22");
+});
+
+test("mini card: items without a uid still show in the line of the next items", async () => {
+  const { html } = await mountWith(
+    { entity: "todo.maison" },
+    (h) => {
+      for (const it of h.subs["todo/item/subscribe|todo.maison"].items) delete it.uid;
+    },
+    TodoMiniCard,
+  );
+  // The overdue item is named in its own line; the next ones follow in the list line.
+  assert.match(html(), /Overdue: Change the ventilation filter/);
+  assert.match(html(), /<div class="line"><svg[\s\S]*?<span>[^<]*Book the boiler service/);
+});
+
+test("empty list: \"Nothing to do\" once; while loading, no count", async () => {
+  const empty = await mountWith({ entity: "todo.maison" }, (h) => {
+    h.subs["todo/item/subscribe|todo.maison"].items = [];
+  });
+  assert.equal((empty.html().match(/Nothing to do/g) || []).length, 1);
+  const loading = await mountWith({ entity: "todo.maison" }, (h) => {
+    delete h.subs["todo/item/subscribe|todo.maison"];
+    h.states["todo.maison"] = { ...h.states["todo.maison"], state: "unknown" };
+  });
+  assert.doesNotMatch(loading.html(), /<b>0<\/b><span>to do/);
 });

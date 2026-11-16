@@ -39,15 +39,17 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 
 ## Features
 
-- Two cards: a full **To-do Card** (`custom:todo-card`) and a compact **To-do Mini Card** (`custom:todo-mini-card`)
+- Two cards: a full **To-do Card** (`custom:todo-card`) and a compact **To-do Mini Card** (`custom:todo-mini-card`): the illustration, what is overdue and due today, the next items and a button to add one
+- A **summary** at the top beside an illustration (a clipboard, with a cart for a shopping list): how many items are left to do, then what is overdue, due today and done
 - **Tabs** between your lists, each with its number of items to do
 - **Tick off** an item with a tap on its box (and back): the box fills, the tick draws and a line strikes the item before it moves to the completed ones (see [Animations](#animations))
 - **Add** items from the field at the top (Enter or +); on the mini card, + opens a popup at the top of the card
-- **Due dates** as chips: overdue in red, today in orange, then tomorrow, the day or the date; **details** (Bring!'s specification, a task's description) under the item
+- **Due dates** under the item: overdue in red, today in orange, then tomorrow, the day or the date; a short **detail** (Bring!'s specification: *1 kg*, *6*) as a pill on the right, a longer one (a task's description) under the item
 - **Edit** an item with a tap on its text: rename it, change its details or delete it, in a popup at the top of the card
 - **Completed items** in a folded section, with *Clear completed*
 - Header icon in a tinted round badge (a cart for shopping lists), and a status chip on the title's line: *7 to do*, *1 overdue*, *All done*
-- Only the buttons a list supports: no field on a read-only list, no edit where items cannot be changed
+- **Due dates set from the card**: a date (or date and time) field in the edit popup and in the add popup (the calendar button beside the field), for the lists that take one; empty it to clear the due date
+- Only the buttons a list supports: no field on a read-only list, checkboxes greyed out and no edit where items cannot be changed (a Picnic cart); items without an id are changed by their name
 - Collapsible completed section, folded back to its default by a click elsewhere on the page
 - Detail button on the mini card (top right): it switches the mini card to the full card's content and back; a click anywhere outside the card brings the compact view back
 - Visual editor in the dashboard UI for both cards (no YAML needed)
@@ -58,9 +60,9 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 
 | Integration | What the cards use |
 |---|---|
-| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/homeassistant.png" alt="" width="16"> [Local To-do](https://www.home-assistant.io/integrations/local_todo/) and [Shopping list](https://www.home-assistant.io/integrations/shopping_list/) (core) | Everything: add, tick off, rename, details, due dates, delete |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/homeassistant.png" alt="" width="16"> [Local To-do](https://www.home-assistant.io/integrations/local_todo/) and [Shopping list](https://www.home-assistant.io/integrations/shopping_list/) (core) | Everything: add, tick off, rename, details, due dates (set and changed from the card), delete |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/bring.png" alt="" width="16"> [Bring!](https://www.home-assistant.io/integrations/bring/) (core) | Items with their specification as details |
-| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/todoist.png" alt="" width="16"> [Todoist](https://www.home-assistant.io/integrations/todoist/) (core) | Tasks with due dates and descriptions |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/todoist.png" alt="" width="16"> [Todoist](https://www.home-assistant.io/integrations/todoist/) (core) | Tasks with due dates (set from the card) and descriptions |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/google_tasks.png" alt="" width="16"> [Google Tasks](https://www.home-assistant.io/integrations/google_tasks/) (core) | Tasks with due dates and notes |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/caldav.png" alt="" width="16"> [CalDAV](https://www.home-assistant.io/integrations/caldav/) (core) | Task lists (Nextcloud, iCloud and other CalDAV servers) |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/mealie.png" alt="" width="16"> [Mealie](https://www.home-assistant.io/integrations/mealie/) (core) | Shopping lists |
@@ -72,6 +74,9 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/remember_the_milk.png" alt="" width="16"> [Remember The Milk](https://www.home-assistant.io/integrations/remember_the_milk/) (core) | Lists |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/icloud.png" alt="" width="16"> [Apple iCloud](https://www.home-assistant.io/integrations/icloud/) (core) | Reminders |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/alexa_devices.png" alt="" width="16"> [Alexa Devices](https://www.home-assistant.io/integrations/alexa_devices/) (core) | Alexa shopping and to-do lists |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/any_list.png" alt="" width="16"> [AnyList](https://github.com/ozonejunkieau/ha-anylist) (custom) | Shopping lists |
+| [Grocy](https://github.com/custom-components/grocy) (custom) | Shopping list and chores |
+| [KitchenOwl](https://github.com/TomBursch/kitchenowl-ha) (custom) | Shopping lists |
 | Any other to-do integration | Its lists: what it supports (its `supported_features`) decides which buttons show |
 
 The cards use Home Assistant's to-do entities and services (`todo.add_item`, `todo.update_item`, `todo.remove_item`, `todo.remove_completed_items`), so they work with any integration that provides a to-do list.
@@ -145,6 +150,7 @@ sort: due
 max_items: 10
 show_title: true
 show_subtitle: true
+show_hero: true
 show_tabs: true
 show_add: true
 show_completed: true
@@ -167,10 +173,11 @@ zoom: true
 | `title` | both | The list's name (Lists with tabs) | Card title |
 | `show_title` | both | `true` | Show the title in the header |
 | `show_subtitle` | full | `true` | Show the subtitle (the list shown, or how many items to do) |
+| `show_hero` | both | `true` | Summary with the illustration (full card), illustration (mini card) |
 | `entities` | both | Every list | To-do lists: entity ids, or objects with `entity` and `name` |
 | `entity` | both | First list | List shown first (the mini card shows this one) |
 | `sort` | both | `manual` | Order of the items to do: `manual` (as the list keeps them), `due` (by due date, undated last) or `alpha` |
-| `max_items` | both | All (mini: 3) | How many items to do are shown; the others are counted (*+ 4 more*) |
+| `max_items` | both | All (mini: 2) | How many items to do are shown (the mini card names them after the overdue and today's ones); the others are counted (*+ 4 more*) |
 | `show_tabs` | full | `true` | Tabs between the lists (with several lists) |
 | `show_add` | both | `true` | Field (full card) or button (mini card) to add an item |
 | `show_completed` | both | `true` | Completed items section |
@@ -225,7 +232,7 @@ The detail button (top right) shows the full card's content:
 
 ### Narrow cards
 
-The full card at 6 columns of a phone's Sections view (the due dates as icons) and the mini card at its minimum width:
+The full card at 6 columns of a phone's Sections view and the mini card at its minimum width:
 
 | Light | Dark |
 |---|---|
