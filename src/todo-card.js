@@ -23,7 +23,7 @@ const CARD_ICONS = {
 // Supported features of a to-do list entity (TodoListEntityFeature).
 const FEATURE = { create: 1, delete: 2, update: 4, move: 8, due_date: 16, due_datetime: 32, description: 64 };
 // Lists that are shopping lists: a cart for an icon.
-const SHOPPING = new Set(["shopping_list", "bring", "ourgroceries", "any_list", "picnic", "cookidoo", "mealie"]);
+const SHOPPING = new Set(["shopping_list", "bring", "ourgroceries", "any_list", "anylist", "picnic", "cookidoo", "mealie", "alexa_devices", "kitchenowl", "grocy"]);
 // How long a ticked item shows its tick before it moves (or until the list reports it done).
 const TICK_MS = 1200;
 
@@ -68,6 +68,9 @@ const STRINGS = {
     due_today_item: "{item} due today",
     done_n: "{n} done",
     show_hero: "Show the summary with the illustration",
+    due: "Due date",
+    add_with_due: "Add with a due date",
+    read_only: "This list can't be changed from Home Assistant",
     cancel: "Cancel",
     left: "{time} left",
     today_at: "today {time}",
@@ -126,6 +129,9 @@ const STRINGS = {
     due_today_item: "{item} pour aujourd'hui",
     done_n: "{n} faits",
     show_hero: "Afficher le résumé illustré",
+    due: "Échéance",
+    add_with_due: "Ajouter avec une échéance",
+    read_only: "Cette liste ne peut pas être modifiée depuis Home Assistant",
     cancel: "Annuler",
     left: "{time} restantes",
     today_at: "aujourd'hui {time}",
@@ -184,6 +190,9 @@ const STRINGS = {
     due_today_item: "{item} heute fällig",
     done_n: "{n} erledigt",
     show_hero: "Zusammenfassung mit Illustration anzeigen",
+    due: "Fälligkeit",
+    add_with_due: "Mit Fälligkeit hinzufügen",
+    read_only: "Diese Liste kann in Home Assistant nicht geändert werden",
     cancel: "Abbrechen",
     left: "Noch {time}",
     today_at: "heute {time}",
@@ -242,6 +251,9 @@ const STRINGS = {
     due_today_item: "{item} para hoy",
     done_n: "{n} hechos",
     show_hero: "Mostrar el resumen ilustrado",
+    due: "Fecha límite",
+    add_with_due: "Añadir con fecha límite",
+    read_only: "Esta lista no se puede modificar desde Home Assistant",
     cancel: "Cancelar",
     left: "Quedan {time}",
     today_at: "hoy {time}",
@@ -300,6 +312,9 @@ const STRINGS = {
     due_today_item: "{item} in scadenza oggi",
     done_n: "{n} fatti",
     show_hero: "Mostra il riepilogo illustrato",
+    due: "Scadenza",
+    add_with_due: "Aggiungi con scadenza",
+    read_only: "Questo elenco non può essere modificato da Home Assistant",
     cancel: "Annulla",
     left: "{time} rimanenti",
     today_at: "oggi {time}",
@@ -358,6 +373,9 @@ const STRINGS = {
     due_today_item: "{item} vandaag",
     done_n: "{n} gedaan",
     show_hero: "Samenvatting met illustratie tonen",
+    due: "Vervaldatum",
+    add_with_due: "Toevoegen met vervaldatum",
+    read_only: "Deze lijst kan niet vanuit Home Assistant worden gewijzigd",
     cancel: "Annuleren",
     left: "Nog {time}",
     today_at: "vandaag {time}",
@@ -416,6 +434,9 @@ const STRINGS = {
     due_today_item: "{item} para hoje",
     done_n: "{n} feitos",
     show_hero: "Mostrar o resumo ilustrado",
+    due: "Data limite",
+    add_with_due: "Adicionar com data limite",
+    read_only: "Esta lista não pode ser alterada a partir do Home Assistant",
     cancel: "Cancelar",
     left: "Faltam {time}",
     today_at: "hoje {time}",
@@ -474,6 +495,9 @@ const STRINGS = {
     due_today_item: "{item} na dziś",
     done_n: "Zrobione: {n}",
     show_hero: "Pokaż podsumowanie z ilustracją",
+    due: "Termin",
+    add_with_due: "Dodaj z terminem",
+    read_only: "Tej listy nie można zmienić z poziomu Home Assistant",
     cancel: "Anuluj",
     left: "Pozostało {time}",
     today_at: "dziś {time}",
@@ -532,6 +556,9 @@ const STRINGS = {
     due_today_item: "{item} за данас",
     done_n: "Урађено: {n}",
     show_hero: "Прикажи илустровани резиме",
+    due: "Рок",
+    add_with_due: "Додај са роком",
+    read_only: "Ова листа се не може мењати из Home Assistant-а",
     cancel: "Откажи",
     left: "Преостало {time}",
     today_at: "данас {time}",
@@ -590,6 +617,9 @@ const STRINGS = {
     due_today_item: "{item} za danas",
     done_n: "Urađeno: {n}",
     show_hero: "Prikaži ilustrovani rezime",
+    due: "Rok",
+    add_with_due: "Dodaj sa rokom",
+    read_only: "Ova lista se ne može menjati iz Home Assistant-a",
     cancel: "Otkaži",
     left: "Preostalo {time}",
     today_at: "danas {time}",
@@ -648,6 +678,9 @@ const STRINGS = {
     due_today_item: "{item} pentru azi",
     done_n: "{n} făcute",
     show_hero: "Afișează rezumatul ilustrat",
+    due: "Termen",
+    add_with_due: "Adaugă cu termen",
+    read_only: "Această listă nu poate fi modificată din Home Assistant",
     cancel: "Anulează",
     left: "Mai sunt {time}",
     today_at: "azi {time}",
@@ -706,6 +739,9 @@ const STRINGS = {
     due_today_item: "{item} i dag",
     done_n: "{n} udført",
     show_hero: "Vis resuméet med illustration",
+    due: "Forfaldsdato",
+    add_with_due: "Tilføj med forfaldsdato",
+    read_only: "Denne liste kan ikke ændres fra Home Assistant",
     cancel: "Annuller",
     left: "{time} tilbage",
     today_at: "i dag {time}",
@@ -764,6 +800,9 @@ const STRINGS = {
     due_today_item: "{item} i dag",
     done_n: "{n} klara",
     show_hero: "Visa sammanfattningen med illustration",
+    due: "Förfallodatum",
+    add_with_due: "Lägg till med förfallodatum",
+    read_only: "Den här listan kan inte ändras från Home Assistant",
     cancel: "Avbryt",
     left: "{time} kvar",
     today_at: "i dag {time}",
@@ -822,6 +861,9 @@ const STRINGS = {
     due_today_item: "{item} за днес",
     done_n: "Готови: {n}",
     show_hero: "Показване на илюстрираното резюме",
+    due: "Срок",
+    add_with_due: "Добавяне със срок",
+    read_only: "Този списък не може да се променя от Home Assistant",
     cancel: "Отказ",
     left: "Остават {time}",
     today_at: "днес {time}",
@@ -880,6 +922,9 @@ const STRINGS = {
     due_today_item: "{item} на сегодня",
     done_n: "Сделано: {n}",
     show_hero: "Показывать сводку с иллюстрацией",
+    due: "Срок",
+    add_with_due: "Добавить со сроком",
+    read_only: "Этот список нельзя изменить из Home Assistant",
     cancel: "Отмена",
     left: "Осталось {time}",
     today_at: "сегодня {time}",
@@ -938,6 +983,9 @@ const STRINGS = {
     due_today_item: "{item} на сьогодні",
     done_n: "Зроблено: {n}",
     show_hero: "Показувати зведення з ілюстрацією",
+    due: "Термін",
+    add_with_due: "Додати з терміном",
+    read_only: "Цей список не можна змінити з Home Assistant",
     cancel: "Скасувати",
     left: "Залишилось {time}",
     today_at: "сьогодні {time}",
@@ -996,6 +1044,9 @@ const STRINGS = {
     due_today_item: "{item} ma esedékes",
     done_n: "Kész: {n}",
     show_hero: "Illusztrált összegzés megjelenítése",
+    due: "Határidő",
+    add_with_due: "Hozzáadás határidővel",
+    read_only: "Ez a lista nem módosítható a Home Assistantból",
     cancel: "Mégse",
     left: "Még {time}",
     today_at: "ma {time}",
@@ -1054,6 +1105,9 @@ const STRINGS = {
     due_today_item: "{item} na dnes",
     done_n: "Hotovo: {n}",
     show_hero: "Zobraziť ilustrovaný súhrn",
+    due: "Termín",
+    add_with_due: "Pridať s termínom",
+    read_only: "Tento zoznam sa nedá zmeniť z Home Assistant",
     cancel: "Zrušiť",
     left: "Zostáva {time}",
     today_at: "dnes {time}",
@@ -1112,6 +1166,9 @@ const STRINGS = {
     due_today_item: "{item} na dnes",
     done_n: "Hotovo: {n}",
     show_hero: "Zobrazit ilustrovaný souhrn",
+    due: "Termín",
+    add_with_due: "Přidat s termínem",
+    read_only: "Tento seznam nelze změnit z Home Assistant",
     cancel: "Zrušit",
     left: "Zbývá {time}",
     today_at: "dnes {time}",
@@ -1170,6 +1227,9 @@ const STRINGS = {
     due_today_item: "{item} za danes",
     done_n: "Narejeno: {n}",
     show_hero: "Prikaži ilustriran povzetek",
+    due: "Rok",
+    add_with_due: "Dodaj z rokom",
+    read_only: "Tega seznama ni mogoče spremeniti iz Home Assistanta",
     cancel: "Prekliči",
     left: "Še {time}",
     today_at: "danes {time}",
@@ -1228,6 +1288,9 @@ const STRINGS = {
     due_today_item: "{item} šodien",
     done_n: "Izdarīts: {n}",
     show_hero: "Rādīt ilustrēto kopsavilkumu",
+    due: "Termiņš",
+    add_with_due: "Pievienot ar termiņu",
+    read_only: "Šo sarakstu nevar mainīt no Home Assistant",
     cancel: "Atcelt",
     left: "Atlikušas {time}",
     today_at: "šodien {time}",
@@ -1286,6 +1349,9 @@ const STRINGS = {
     due_today_item: "{item} για σήμερα",
     done_n: "Ολοκληρώθηκαν: {n}",
     show_hero: "Εμφάνιση της εικονογραφημένης σύνοψης",
+    due: "Προθεσμία",
+    add_with_due: "Προσθήκη με προθεσμία",
+    read_only: "Αυτή η λίστα δεν μπορεί να αλλάξει από το Home Assistant",
     cancel: "Ακύρωση",
     left: "Απομένουν {time}",
     today_at: "σήμερα {time}",
@@ -2236,6 +2302,29 @@ const dueOf = (item, now = Date.now()) => {
   return { at, allDay, cls: overdue ? "crit" : day === today ? "warn" : "idle" };
 };
 
+// An item's key: its uid, else its summary (the to-do services accept either as `item`).
+const keyOf = (it) => it?.uid || it?.summary || "";
+
+// A due date as the value of a date field ("2026-11-17") or of a date and time field ("2026-11-17T08:00").
+const dueValue = (due, withTime) => {
+  if (!due) return "";
+  const pad = (n) => String(n).padStart(2, "0");
+  if (/^\d{4}-\d{2}-\d{2}$/.test(String(due))) return withTime ? `${due}T00:00` : String(due);
+  const at = parseTime(due);
+  if (at === null) return "";
+  const d = new Date(at);
+  const day = `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+  return withTime ? `${day}T${pad(d.getHours())}:${pad(d.getMinutes())}` : day;
+};
+
+// The service fields for a due date field's value: due_datetime when the list takes a time, else due_date; null clears.
+const dueFields = (value, withTime) => {
+  const v = String(value || "").trim();
+  if (!v) return { [withTime ? "due_datetime" : "due_date"]: null };
+  if (withTime) return { due_datetime: v.includes("T") ? `${v.replace("T", " ")}:00` : `${v} 00:00:00` };
+  return { due_date: v.slice(0, 10) };
+};
+
 // Items in the order asked: as the list keeps them (manual), by due date (undated last) or by name.
 const sortItems = (items, sort) => {
   const list = [...items];
@@ -2249,6 +2338,8 @@ const sortItems = (items, sort) => {
 // ---------------------------------------------------------------------------
 
 const TODO_STYLE = `
+  .due-field { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--secondary-text-color); }
+  .check:disabled { cursor: default; opacity: .45; }
   .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
   .tab { font: inherit; font-size: 13px; font-weight: 500; border: none; cursor: pointer; padding: 6px 12px; border-radius: 16px; min-height: 32px;
          background: var(--secondary-background-color, rgba(127,127,127,.12)); color: var(--primary-text-color); display: inline-flex; align-items: center; gap: 6px; }
@@ -2423,6 +2514,17 @@ class TodoCard extends CardBase {
     return ((this._s(list.entity)?.attributes?.supported_features ?? 0) & FEATURE[feature]) !== 0;
   }
 
+  // The kind of due date the list takes: "datetime" (a date and a time), "date", or null.
+  _dueKind(list) {
+    if (this._supports(list, "due_datetime")) return "datetime";
+    return this._supports(list, "due_date") ? "date" : null;
+  }
+
+  _dueField(kind) {
+    if (!kind) return "";
+    return `<label class="due-field"><span>${esc(this._t("due"))}</span><input class="field" type="${kind === "datetime" ? "datetime-local" : "date"}" data-keep="due" aria-label="${esc(this._t("due"))}"></label>`;
+  }
+
   // The to-do items and the completed ones, with an item just ticked still among the to-do items while it animates.
   _split() {
     const now = Date.now();
@@ -2430,7 +2532,7 @@ class TodoCard extends CardBase {
     const todo = [];
     const done = [];
     for (const it of this._items || []) {
-      const t = ticked.get(it.uid);
+      const t = ticked.get(keyOf(it));
       const live = t && now - t.at < TICK_MS;
       if (live && t.to === "completed") todo.push({ ...it, ticking: true });
       else if (live && t.to === "needs_action") todo.push({ ...it, status: "needs_action" });
@@ -2467,6 +2569,7 @@ class TodoCard extends CardBase {
   }
 
   _item(it, canEdit) {
+    const key = keyOf(it);
     const done = it.status === "completed" || it.ticking;
     const due = dueOf(it);
     const label = this._t(done ? "mark_todo" : "mark_done", { item: it.summary });
@@ -2476,8 +2579,12 @@ class TodoCard extends CardBase {
     const chip = short ? `<span class="pill" title="${esc(it.description)}">${esc(it.description)}</span>` : "";
     const text = `<span class="s">${esc(it.summary)}</span>${it.description && !short ? `<span class="d">${esc(it.description)}</span>` : ""}${dueLine}`;
     return `<div class="item${done ? " done" : ""}${it.ticking ? " ticking" : ""}">
-      <button class="check" role="checkbox" aria-checked="${done}" data-action="toggle" data-uid="${esc(it.uid)}" title="${esc(label)}" aria-label="${esc(label)}">${TICK}</button>
-      ${canEdit ? `<div class="text clickable" role="button" tabindex="0" data-action="edit" data-uid="${esc(it.uid)}" aria-label="${esc(this._t("edit_item", { item: it.summary }))}">${text}</div>` : `<div class="text">${text}</div>`}
+      ${
+        canEdit
+          ? `<button class="check" role="checkbox" aria-checked="${done}" data-action="toggle" data-uid="${esc(key)}" title="${esc(label)}" aria-label="${esc(label)}">${TICK}</button>`
+          : `<button class="check" role="checkbox" aria-checked="${done}" aria-disabled="true" disabled title="${esc(this._t("read_only"))}" aria-label="${esc(it.summary)}">${TICK}</button>`
+      }
+      ${canEdit ? `<div class="text clickable" role="button" tabindex="0" data-action="edit" data-uid="${esc(key)}" aria-label="${esc(this._t("edit_item", { item: it.summary }))}">${text}</div>` : `<div class="text">${text}</div>`}
       ${chip}
     </div>`;
   }
@@ -2504,8 +2611,11 @@ class TodoCard extends CardBase {
   _adder(list) {
     if (this._config.show_add === false || !this._supports(list, "create")) return "";
     const label = this._t("add_placeholder", { list: list.name });
+    const due = this._dueKind(list)
+      ? `<button class="btn round" data-action="add_dialog" title="${esc(this._t("add_with_due"))}" aria-label="${esc(this._t("add_with_due"))}">${svgIcon(ICONS.calendar)}</button>`
+      : "";
     return `<div class="adder"><input class="field" type="text" data-keep="new" data-submit="add" placeholder="${esc(label)}" aria-label="${esc(label)}" enterkeyhint="done" autocomplete="off">
-      <button class="btn round primary" data-action="add" title="${esc(this._t("add"))}" aria-label="${esc(this._t("add"))}">${svgIcon(ICONS.plus)}</button></div>`;
+      ${due}<button class="btn round primary" data-action="add" title="${esc(this._t("add"))}" aria-label="${esc(this._t("add"))}">${svgIcon(ICONS.plus)}</button></div>`;
   }
 
   // The summary: what is left to do, then what is late, due today and done, beside the illustration.
@@ -2559,8 +2669,8 @@ class TodoCard extends CardBase {
       </ha-card>`;
   }
 
-  _uidItem(uid) {
-    return (this._items || []).find((it) => it.uid === uid);
+  _uidItem(key) {
+    return (this._items || []).find((it) => keyOf(it) === key);
   }
 
   _action(action, el) {
@@ -2582,12 +2692,18 @@ class TodoCard extends CardBase {
       this._call("todo", "remove_completed_items", { entity_id: list.entity });
       return true;
     }
+    if (action === "add_dialog") {
+      this._inputs.due = "";
+      this._openDialog({ add: true, entity: list.entity, name: list.name, due: this._dueKind(list) });
+      return true;
+    }
     const it = this._uidItem(el.dataset.uid);
     if (!it) return false;
+    if (!this._supports(list, "update")) return false;
     if (action === "toggle") {
       const to = it.status === "completed" ? "needs_action" : "completed";
-      this._call("todo", "update_item", { entity_id: list.entity, item: it.uid, status: to });
-      this._ticked = new Map(this._ticked).set(it.uid, { to, at: Date.now() });
+      this._call("todo", "update_item", { entity_id: list.entity, item: keyOf(it), status: to });
+      this._ticked = new Map(this._ticked).set(keyOf(it), { to, at: Date.now() });
       // Drawn again once the tick is over (_split then shows the item where the list puts it).
       setTimeout(() => {
         this._lastDeps = null;
@@ -2599,7 +2715,17 @@ class TodoCard extends CardBase {
     if (action === "edit") {
       this._inputs.edit_name = it.summary;
       this._inputs.edit_desc = it.description || "";
-      this._openDialog({ uid: it.uid, entity: list.entity, summary: it.summary, description: this._supports(list, "description"), remove: this._supports(list, "delete") });
+      const due = this._dueKind(list);
+      this._inputs.due = dueValue(it.due, due === "datetime");
+      this._openDialog({
+        uid: keyOf(it),
+        entity: list.entity,
+        summary: it.summary,
+        description: this._supports(list, "description"),
+        remove: this._supports(list, "delete"),
+        due,
+        dueWas: this._inputs.due,
+      });
       return true;
     }
     return false;
@@ -2609,17 +2735,20 @@ class TodoCard extends CardBase {
     const d = this._dialog;
     if (action === "dialog_ok" && d.add) {
       const text = String(this._inputs.new || "").trim();
+      const due = d.due && String(this._inputs.due || "").trim() ? dueFields(this._inputs.due, d.due === "datetime") : {};
       this._closeDialog();
-      if (text) this._call("todo", "add_item", { entity_id: d.entity, item: text });
+      if (text) this._call("todo", "add_item", { entity_id: d.entity, item: text, ...due });
       this._inputs.new = "";
+      this._inputs.due = "";
       this._update();
     } else if (action === "dialog_ok") {
       const name = String(this._inputs.edit_name || "").trim();
       const data = { entity_id: d.entity, item: d.uid };
       if (name && name !== d.summary) data.rename = name;
       if (d.description) data.description = String(this._inputs.edit_desc || "");
+      if (d.due && String(this._inputs.due || "") !== d.dueWas) Object.assign(data, dueFields(this._inputs.due, d.due === "datetime"));
       this._closeDialog();
-      if (data.rename !== undefined || d.description) this._call("todo", "update_item", data);
+      if (Object.keys(data).length > 2) this._call("todo", "update_item", data);
     } else if (action === "remove") {
       this._closeDialog();
       this._call("todo", "remove_item", { entity_id: d.entity, item: d.uid });
@@ -2630,11 +2759,12 @@ class TodoCard extends CardBase {
     const d = this._dialog;
     if (d.add) {
       const label = this._t("add_placeholder", { list: d.name });
-      return this._modal(this._t("add_to", { list: d.name }), `<input class="field" type="text" data-keep="new" data-submit="dialog_ok" placeholder="${esc(label)}" aria-label="${esc(label)}" autocomplete="off">`, this._t("add"), ICONS.plus);
+      const body = `<input class="field" type="text" data-keep="new" data-submit="dialog_ok" placeholder="${esc(label)}" aria-label="${esc(label)}" autocomplete="off">${this._dueField(d.due)}`;
+      return this._modal(this._t("add_to", { list: d.name }), body, this._t("add"), ICONS.plus);
     }
     const fields = `<input class="field" type="text" data-keep="edit_name" data-submit="dialog_ok" aria-label="${esc(this._t("name"))}" autocomplete="off">${
       d.description ? `<input class="field" type="text" data-keep="edit_desc" data-submit="dialog_ok" placeholder="${esc(this._t("details"))}" aria-label="${esc(this._t("details"))}" autocomplete="off">` : ""
-    }${d.remove ? `<div><button class="btn danger" data-action="remove">${svgIcon(ICONS.delete)}<span>${esc(this._t("delete"))}</span></button></div>` : ""}`;
+    }${this._dueField(d.due)}${d.remove ? `<div><button class="btn danger" data-action="remove">${svgIcon(ICONS.delete)}<span>${esc(this._t("delete"))}</span></button></div>` : ""}`;
     return this._modal(this._t("edit_item", { item: d.summary }), fields, this._t("save"), ICONS.check);
   }
 }
@@ -2670,16 +2800,6 @@ class TodoMiniCard extends withMini(TodoCard) {
         ${this._head(sum, c.title || list.name, "")}
         <div class="content mini">${art}<div class="info">${body}</div>${add}</div>
       </ha-card>`;
-  }
-
-  _action(action, el, ev) {
-    if (action === "add_dialog") {
-      const list = this._list(this._resolve());
-      this._inputs.new = "";
-      this._openDialog({ add: true, entity: list.entity, name: list.name });
-      return true;
-    }
-    return super._action(action, el, ev);
   }
 }
 

@@ -48,7 +48,8 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 - **Edit** an item with a tap on its text: rename it, change its details or delete it, in a popup at the top of the card
 - **Completed items** in a folded section, with *Clear completed*
 - Header icon in a tinted round badge (a cart for shopping lists), and a status chip on the title's line: *7 to do*, *1 overdue*, *All done*
-- Only the buttons a list supports: no field on a read-only list, no edit where items cannot be changed
+- **Due dates set from the card**: a date (or date and time) field in the edit popup and in the add popup (the calendar button beside the field), for the lists that take one; empty it to clear the due date
+- Only the buttons a list supports: no field on a read-only list, checkboxes greyed out and no edit where items cannot be changed (a Picnic cart); items without an id are changed by their name
 - Collapsible completed section, folded back to its default by a click elsewhere on the page
 - Detail button on the mini card (top right): it switches the mini card to the full card's content and back; a click anywhere outside the card brings the compact view back
 - Visual editor in the dashboard UI for both cards (no YAML needed)
@@ -59,9 +60,9 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 
 | Integration | What the cards use |
 |---|---|
-| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/homeassistant.png" alt="" width="16"> [Local To-do](https://www.home-assistant.io/integrations/local_todo/) and [Shopping list](https://www.home-assistant.io/integrations/shopping_list/) (core) | Everything: add, tick off, rename, details, due dates, delete |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/homeassistant.png" alt="" width="16"> [Local To-do](https://www.home-assistant.io/integrations/local_todo/) and [Shopping list](https://www.home-assistant.io/integrations/shopping_list/) (core) | Everything: add, tick off, rename, details, due dates (set and changed from the card), delete |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/bring.png" alt="" width="16"> [Bring!](https://www.home-assistant.io/integrations/bring/) (core) | Items with their specification as details |
-| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/todoist.png" alt="" width="16"> [Todoist](https://www.home-assistant.io/integrations/todoist/) (core) | Tasks with due dates and descriptions |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/todoist.png" alt="" width="16"> [Todoist](https://www.home-assistant.io/integrations/todoist/) (core) | Tasks with due dates (set from the card) and descriptions |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/google_tasks.png" alt="" width="16"> [Google Tasks](https://www.home-assistant.io/integrations/google_tasks/) (core) | Tasks with due dates and notes |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/caldav.png" alt="" width="16"> [CalDAV](https://www.home-assistant.io/integrations/caldav/) (core) | Task lists (Nextcloud, iCloud and other CalDAV servers) |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/mealie.png" alt="" width="16"> [Mealie](https://www.home-assistant.io/integrations/mealie/) (core) | Shopping lists |
@@ -73,6 +74,9 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/remember_the_milk.png" alt="" width="16"> [Remember The Milk](https://www.home-assistant.io/integrations/remember_the_milk/) (core) | Lists |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/icloud.png" alt="" width="16"> [Apple iCloud](https://www.home-assistant.io/integrations/icloud/) (core) | Reminders |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/images/alexa_devices.png" alt="" width="16"> [Alexa Devices](https://www.home-assistant.io/integrations/alexa_devices/) (core) | Alexa shopping and to-do lists |
+|  [AnyList](https://github.com/ozonejunkieau/ha-anylist) (custom) | Shopping lists |
+|  [Grocy](https://github.com/custom-components/grocy) (custom) | Shopping list and chores |
+|  [KitchenOwl](https://github.com/TomBursch/kitchenowl-ha) (custom) | Shopping lists |
 | Any other to-do integration | Its lists: what it supports (its `supported_features`) decides which buttons show |
 
 The cards use Home Assistant's to-do entities and services (`todo.add_item`, `todo.update_item`, `todo.remove_item`, `todo.remove_completed_items`), so they work with any integration that provides a to-do list.

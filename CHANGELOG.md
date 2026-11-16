@@ -6,6 +6,12 @@
 - New look, shared with the other cards: a summary at the top beside an illustration (a clipboard, with a cart for a shopping list) with how many items are left to do and what is overdue, due today and done; due dates under each item in red or orange; a short detail (a quantity) as a pill on the right; a rounded field to add items.
 - Mini card: the illustration, what is overdue and due today, the next items and the add button.
 - New option `show_hero` to hide the summary.
+- Due dates set, changed and cleared from the card, for the lists that take one: a date (or date and time) field in the edit popup and in the add popup, opened by a calendar button beside the add field.
+
+### Fixes
+- Lists that can't update items (a Picnic cart): the checkboxes are greyed out and nothing calls a service the list refuses.
+- Items without an id are ticked, edited and deleted by their name.
+- Shopping lists of AnyList (custom `anylist`), Alexa, KitchenOwl and Grocy get the cart icon and illustration.
 
 ## 1.0.0 - 2026-11-16
 
