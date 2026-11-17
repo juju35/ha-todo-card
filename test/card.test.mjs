@@ -102,7 +102,29 @@ test("the items of the list shown come from the to-do subscription; another tab 
   );
   assert.match(html(), /Tomatoes/);
   assert.match(html(), /1 kg/);
-  assert.match(html(), /chip accent[^>]*>.*7 to do/s);
+  // Nothing late on the shopping list: the pill says so, the count is the hero's big number.
+  assert.match(html(), /chip accent[^>]*>.*Up to date/s);
+  assert.match(html(), /<b>7<\/b><span>to do<\/span>/);
+});
+
+test("the body does not repeat the pill word for word, except when the pill keeps only its dot", async () => {
+  const { card, hass, html } = await mount();
+  // A second item overdue: the pill says "2 overdue", the hero's line saying the same is hidden (.pill-echo).
+  card._items = card._items.map((it) => (it.uid === "m2" ? { ...it, due: "2026-11-15" } : it));
+  card.hass = { ...hass };
+  assert.match(html(), /chip crit[^>]*>.*2 overdue/s);
+  assert.match(html(), /class="line crit pill-echo"[^>]*>.*2 overdue/s);
+  assert.match(html(), /\.line\.pill-echo \{ display: none; \}/);
+  assert.match(html(), /@container td-card \(max-width: 200px\) \{ \.td-banner ~ \.content \.line\.pill-echo \{ display: flex; \} \}/);
+  // Due today only: the pill says how many; the single-list subtitle no longer repeats the count.
+  const today = await mount({ entity: "todo.maison", entities: ["todo.maison"] });
+  today.card._items = today.card._items.filter((it) => it.uid !== "m1");
+  today.card.hass = { ...today.hass };
+  assert.match(today.html(), /chip warn[^>]*>.*1 due today/s);
+  assert.doesNotMatch(today.html(), /class="sub"/);
+  // The mini card: the count still to do leads the line of the other items.
+  const mini = await mount({ entity: "todo.courses" }, "default", TodoMiniCard);
+  assert.match(mini.html(), /7 to do · Tomatoes, Apples/);
 });
 
 test("tick an item off: the service is called and the item shows its tick before it moves", async () => {
@@ -354,4 +376,62 @@ test("empty list: \"Nothing to do\" once; while loading, no count", async () => 
     h.states["todo.maison"] = { ...h.states["todo.maison"], state: "unknown" };
   });
   assert.doesNotMatch(loading.html(), /<b>0<\/b><span>to do/);
+});
+
+test("illustrated header: the dark theme shows the night picture even while the sun is up; forced day/night win", async () => {
+  for (const Card of [TodoCard, TodoMiniCard]) {
+    const banner = async (darkMode, config = {}) => {
+      const { html } = await mountWith(config, (h) => {
+        h.states["sun.sun"] = { entity_id: "sun.sun", state: "above_horizon", attributes: {} };
+        h.themes = { darkMode };
+      }, Card);
+      return html().match(/class="td-banner[^"]*"/)[0];
+    };
+    assert.match(await banner(true), / night"/);
+    assert.doesNotMatch(await banner(false), / night"/);
+    assert.doesNotMatch(await banner(true, { illustration_theme: "day" }), / night"/);
+    assert.match(await banner(false, { illustration_theme: "night" }), / night"/);
+  }
+});
+
+test("illustrated header: the scene and the icon follow the list's state; night by the sun or forced; classic header", async () => {
+  const late = await mount({ entities: ["todo.maison"] });
+  assert.match(late.html(), /class="td-banner td-todo td-overdue"/);
+  assert.match(late.html(), /class="type-icon crit"/);
+  assert.match(late.html(), /class="td-note"/);
+  const shop = await mount({ entity: "todo.courses", entities: ["todo.courses"] });
+  assert.match(shop.html(), /class="td-banner td-shop td-pending"/);
+  assert.match(shop.html(), /class="type-icon accent"/);
+  const done = await mount({ entity: "todo.projets", entities: ["todo.projets"] }, "done");
+  assert.match(done.html(), /td-banner td-todo td-done/);
+  assert.match(done.html(), /class="type-icon ok"/);
+  // Two cards never share a mask id.
+  assert.notEqual(late.html().match(/id="td-mask-(\d+)"/)[1], shop.html().match(/id="td-mask-(\d+)"/)[1]);
+  const night = await mountWith({}, (h) => {
+    h.states["sun.sun"] = { entity_id: "sun.sun", state: "below_horizon", attributes: {} };
+  });
+  assert.match(night.html(), /td-banner[^"]* night"/);
+  const day = await mountWith({ illustration_theme: "day" }, (h) => {
+    h.states["sun.sun"] = { entity_id: "sun.sun", state: "below_horizon", attributes: {} };
+  });
+  assert.doesNotMatch(day.html(), /td-banner[^"]* night"/);
+  const forced = await mount({ illustration_theme: "night" }, "default", TodoMiniCard);
+  assert.match(forced.html(), /td-banner[^"]* night"/);
+  const classic = await mount({ illustration: false });
+  assert.doesNotMatch(classic.html(), /td-banner/);
+  assert.match(classic.html(), /class="header"/);
+  assert.match(classic.html(), /class="hero-art"/);
+});
+
+test("the status pill sits on the title row right after the title, in both headers, placed by measurement", async () => {
+  for (const illustration of [true, false]) {
+    const { html } = await mount({ entity: "todo.maison", illustration });
+    assert.match(html(), /<div class="trow"><div class="name">Lists<\/div><span class="chip crit"/, `illustration ${illustration}`);
+    // Under the subtitle (measured, see _fitPill and pill-layout.test.mjs), the subtitle is cut to one line, its whole
+    // text in its tooltip; the dot alone at 200 px or less.
+    assert.match(html(), /<div class="sub" title="Home">/);
+    assert.match(html(), /\.titles\.below \.trow \{ display: contents; \}/);
+    assert.match(html(), /@container td-card \(max-width: 200px\) \{ \.titles \.trow > \.chip \{ padding: 4px; \}/);
+    assert.doesNotMatch(html(), /td-titles/, "no fixed width threshold for the pill");
+  }
 });

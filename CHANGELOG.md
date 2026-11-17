@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0 - 2026-11-17
+
+### Features
+- Illustrated, animated header (90 px) on the full and the mini card: the title on the left, a scene on the right over a 10 px tiled floor strip. A to-do list is stuck on a kitchen fridge (the pencil writes while items are left, a red note swings on the freezer when something is overdue, a green tick magnet and sparkles once all is done); a shopping list is at the end of a supermarket aisle with a trolley rolling along the shelves (parked and full once all is bought).
+- The header icon's colour follows the list's state: accent with items to do, red when something is overdue, green once all is done, grey while loading.
+- Night version after sunset (`sun.sun`) or with the dark theme; new options `illustration` (`false`: the classic header) and `illustration_theme` (`auto`, `day`, `night`), in the visual editors of both cards.
+- The status pill, in the icon's colour, is placed by measurement in every header (illustrated or classic, full and mini card) and every language: on the title row right after the title only when the whole title and its whole label fit there, otherwise on its own line under the subtitle (cut to one line); only its dot when the banner has no room left above its ground strip, and on a card of 200 px or less. The mini card's detail button sits in the banner's top-right corner, in the frosted style of the other cards, the picture stepping aside for it.
+- On a wide mini card, the scene steps a little further left: its top shelf no longer touches the corner expand / collapse button.
+- Night picture with the dark theme even while the sun is up (a day picture would glare on a dark dashboard); `illustration_theme: day | night` still forces one.
+
+### Fixes
+- The body no longer repeats the header pill: the pill says how the list stands ("2 overdue", "1 due today", "Up to date", "All done") and the hero keeps the count still to do; a hero line saying word for word what the pill says comes back only when the pill keeps just its dot. The mini card gives the count at the head of its items line. On a narrow card the add field's placeholder ends in an ellipsis instead of a cut letter.
+
 ## 1.1.0 - 2026-11-16
 
 ### Features
