@@ -75,7 +75,7 @@ const STRINGS = {
     show_hero: "Show the summary with the illustration",
     illustration: "Animated illustration",
     illustration_theme: "Illustration theme",
-    theme_auto: "Automatic (sun or dark theme)",
+    theme_auto: "Automatic: night with a dark theme, day with a light theme",
     theme_day: "Day",
     theme_night: "Night",
     due: "Due date",
@@ -142,7 +142,7 @@ const STRINGS = {
     show_hero: "Afficher le résumé illustré",
     illustration: "Illustration animée",
     illustration_theme: "Thème de l’illustration",
-    theme_auto: "Automatique (soleil ou thème sombre)",
+    theme_auto: "Automatique : nuit avec un thème sombre, jour avec un thème clair",
     theme_day: "Jour",
     theme_night: "Nuit",
     due: "Échéance",
@@ -209,7 +209,7 @@ const STRINGS = {
     show_hero: "Zusammenfassung mit Illustration anzeigen",
     illustration: "Animierte Illustration",
     illustration_theme: "Thema der Illustration",
-    theme_auto: "Automatisch (Sonne oder dunkles Design)",
+    theme_auto: "Automatisch: Nacht bei dunklem Thema, Tag bei hellem Thema",
     theme_day: "Tag",
     theme_night: "Nacht",
     due: "Fälligkeit",
@@ -276,7 +276,7 @@ const STRINGS = {
     show_hero: "Mostrar el resumen ilustrado",
     illustration: "Ilustración animada",
     illustration_theme: "Tema de la ilustración",
-    theme_auto: "Automático (sol o tema oscuro)",
+    theme_auto: "Automático: noche con un tema oscuro, día con un tema claro",
     theme_day: "Día",
     theme_night: "Noche",
     due: "Fecha límite",
@@ -343,7 +343,7 @@ const STRINGS = {
     show_hero: "Mostra il riepilogo illustrato",
     illustration: "Illustrazione animata",
     illustration_theme: "Tema dell’illustrazione",
-    theme_auto: "Automatico (sole o tema scuro)",
+    theme_auto: "Automatico: notte con un tema scuro, giorno con un tema chiaro",
     theme_day: "Giorno",
     theme_night: "Notte",
     due: "Scadenza",
@@ -410,7 +410,7 @@ const STRINGS = {
     show_hero: "Samenvatting met illustratie tonen",
     illustration: "Geanimeerde illustratie",
     illustration_theme: "Thema van de illustratie",
-    theme_auto: "Automatisch (zon of donker thema)",
+    theme_auto: "Automatisch: nacht met een donker thema, dag met een licht thema",
     theme_day: "Dag",
     theme_night: "Nacht",
     due: "Vervaldatum",
@@ -477,7 +477,7 @@ const STRINGS = {
     show_hero: "Mostrar o resumo ilustrado",
     illustration: "Ilustração animada",
     illustration_theme: "Tema da ilustração",
-    theme_auto: "Automático (sol ou tema escuro)",
+    theme_auto: "Automático: noite com um tema escuro, dia com um tema claro",
     theme_day: "Dia",
     theme_night: "Noite",
     due: "Data limite",
@@ -544,7 +544,7 @@ const STRINGS = {
     show_hero: "Pokaż podsumowanie z ilustracją",
     illustration: "Animowana ilustracja",
     illustration_theme: "Motyw ilustracji",
-    theme_auto: "Automatycznie (słońce lub ciemny motyw)",
+    theme_auto: "Automatycznie: noc przy ciemnym motywie, dzień przy jasnym motywie",
     theme_day: "Dzień",
     theme_night: "Noc",
     due: "Termin",
@@ -611,7 +611,7 @@ const STRINGS = {
     show_hero: "Прикажи илустровани резиме",
     illustration: "Анимирана илустрација",
     illustration_theme: "Тема илустрације",
-    theme_auto: "Аутоматски (сунце или тамна тема)",
+    theme_auto: "Аутоматски: ноћ уз тамну тему, дан уз светлу тему",
     theme_day: "Дан",
     theme_night: "Ноћ",
     due: "Рок",
@@ -678,7 +678,7 @@ const STRINGS = {
     show_hero: "Prikaži ilustrovani rezime",
     illustration: "Animirana ilustracija",
     illustration_theme: "Tema ilustracije",
-    theme_auto: "Automatski (sunce ili tamna tema)",
+    theme_auto: "Automatski: noć uz tamnu temu, dan uz svetlu temu",
     theme_day: "Dan",
     theme_night: "Noć",
     due: "Rok",
@@ -745,7 +745,7 @@ const STRINGS = {
     show_hero: "Afișează rezumatul ilustrat",
     illustration: "Ilustrație animată",
     illustration_theme: "Tema ilustrației",
-    theme_auto: "Automat (soare sau temă întunecată)",
+    theme_auto: "Automat: noapte cu o temă întunecată, zi cu o temă luminoasă",
     theme_day: "Zi",
     theme_night: "Noapte",
     due: "Termen",
@@ -812,7 +812,7 @@ const STRINGS = {
     show_hero: "Vis resuméet med illustration",
     illustration: "Animeret illustration",
     illustration_theme: "Illustrationens tema",
-    theme_auto: "Automatisk (sol eller mørkt tema)",
+    theme_auto: "Automatisk: nat med et mørkt tema, dag med et lyst tema",
     theme_day: "Dag",
     theme_night: "Nat",
     due: "Forfaldsdato",
@@ -879,7 +879,7 @@ const STRINGS = {
     show_hero: "Visa sammanfattningen med illustration",
     illustration: "Animerad illustration",
     illustration_theme: "Illustrationens tema",
-    theme_auto: "Automatiskt (sol eller mörkt tema)",
+    theme_auto: "Automatiskt: natt med ett mörkt tema, dag med ett ljust tema",
     theme_day: "Dag",
     theme_night: "Natt",
     due: "Förfallodatum",
@@ -946,7 +946,7 @@ const STRINGS = {
     show_hero: "Показване на илюстрираното резюме",
     illustration: "Анимирана илюстрация",
     illustration_theme: "Тема на илюстрацията",
-    theme_auto: "Автоматично (слънце или тъмна тема)",
+    theme_auto: "Автоматично: нощ с тъмна тема, ден със светла тема",
     theme_day: "Ден",
     theme_night: "Нощ",
     due: "Срок",
@@ -1013,7 +1013,7 @@ const STRINGS = {
     show_hero: "Показывать сводку с иллюстрацией",
     illustration: "Анимированная иллюстрация",
     illustration_theme: "Тема иллюстрации",
-    theme_auto: "Автоматически (солнце или тёмная тема)",
+    theme_auto: "Автоматически: ночь при тёмной теме, день при светлой теме",
     theme_day: "День",
     theme_night: "Ночь",
     due: "Срок",
@@ -1080,7 +1080,7 @@ const STRINGS = {
     show_hero: "Показувати зведення з ілюстрацією",
     illustration: "Анімована ілюстрація",
     illustration_theme: "Тема ілюстрації",
-    theme_auto: "Автоматично (сонце або темна тема)",
+    theme_auto: "Автоматично: ніч з темною темою, день зі світлою темою",
     theme_day: "День",
     theme_night: "Ніч",
     due: "Термін",
@@ -1147,7 +1147,7 @@ const STRINGS = {
     show_hero: "Illusztrált összegzés megjelenítése",
     illustration: "Animált illusztráció",
     illustration_theme: "Az illusztráció témája",
-    theme_auto: "Automatikus (nap vagy sötét téma)",
+    theme_auto: "Automatikus: éjszaka sötét témával, nappal világos témával",
     theme_day: "Nappal",
     theme_night: "Éjszaka",
     due: "Határidő",
@@ -1214,7 +1214,7 @@ const STRINGS = {
     show_hero: "Zobraziť ilustrovaný súhrn",
     illustration: "Animovaná ilustrácia",
     illustration_theme: "Téma ilustrácie",
-    theme_auto: "Automaticky (slnko alebo tmavá téma)",
+    theme_auto: "Automaticky: noc s tmavou témou, deň so svetlou témou",
     theme_day: "Deň",
     theme_night: "Noc",
     due: "Termín",
@@ -1281,7 +1281,7 @@ const STRINGS = {
     show_hero: "Zobrazit ilustrovaný souhrn",
     illustration: "Animovaná ilustrace",
     illustration_theme: "Motiv ilustrace",
-    theme_auto: "Automaticky (slunce nebo tmavý motiv)",
+    theme_auto: "Automaticky: noc s tmavým motivem, den se světlým motivem",
     theme_day: "Den",
     theme_night: "Noc",
     due: "Termín",
@@ -1348,7 +1348,7 @@ const STRINGS = {
     show_hero: "Prikaži ilustriran povzetek",
     illustration: "Animirana ilustracija",
     illustration_theme: "Tema ilustracije",
-    theme_auto: "Samodejno (sonce ali temna tema)",
+    theme_auto: "Samodejno: noč s temno temo, dan s svetlo temo",
     theme_day: "Dan",
     theme_night: "Noč",
     due: "Rok",
@@ -1415,7 +1415,7 @@ const STRINGS = {
     show_hero: "Rādīt ilustrēto kopsavilkumu",
     illustration: "Animēta ilustrācija",
     illustration_theme: "Ilustrācijas motīvs",
-    theme_auto: "Automātiski (saule vai tumšais motīvs)",
+    theme_auto: "Automātiski: nakts ar tumšu tēmu, diena ar gaišu tēmu",
     theme_day: "Diena",
     theme_night: "Nakts",
     due: "Termiņš",
@@ -1482,7 +1482,7 @@ const STRINGS = {
     show_hero: "Εμφάνιση της εικονογραφημένης σύνοψης",
     illustration: "Κινούμενη εικονογράφηση",
     illustration_theme: "Θέμα εικονογράφησης",
-    theme_auto: "Αυτόματο (ήλιος ή σκούρο θέμα)",
+    theme_auto: "Αυτόματο: νύχτα με σκούρο θέμα, μέρα με ανοιχτό θέμα",
     theme_day: "Ημέρα",
     theme_night: "Νύχτα",
     due: "Προθεσμία",
@@ -2647,13 +2647,12 @@ const todoArt = (shopping, state = "pending") => {
 // Where a list stands, for the header's picture and the colour of its icon.
 const listState = (sum) => (sum.overdue ? "overdue" : sum.open === 0 ? "done" : "pending");
 
-// Night picture: forced by illustration_theme, else the sun below the horizon or Home Assistant's dark theme (dark mode alone without a usable sun).
+// Night picture: forced by illustration_theme, else Home Assistant's dark theme alone (a light theme keeps the day
+// picture after sunset).
 const isNight = (hass, config) => {
   const theme = config.illustration_theme;
   if (theme === "night") return true;
   if (theme === "day") return false;
-  const sun = hass?.states?.["sun.sun"]?.state;
-  if (sun === "below_horizon" || sun === "above_horizon") return sun === "below_horizon" || !!hass?.themes?.darkMode;
   return !!hass?.themes?.darkMode;
 };
 
@@ -2823,8 +2822,7 @@ class TodoCard extends CardBase {
   }
 
   _extraDeps() {
-    // The sun turns the picture to night.
-    return [this._items, this._tab, this._ticked, this._hass?.states?.["sun.sun"]?.state];
+    return [this._items, this._tab, this._ticked];
   }
 
   _configChanged() {

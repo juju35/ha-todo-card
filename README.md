@@ -40,7 +40,7 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 ## Features
 
 - Two cards: a full **To-do Card** (`custom:todo-card`) and a compact **To-do Mini Card** (`custom:todo-mini-card`): the illustrated header, what is overdue and due today, the next items and a button to add one
-- **Illustrated header** (90 px, on both cards): the title on the left, an animated scene on the right over a tiled floor strip. A to-do list is stuck on a kitchen fridge (the pencil writes while items are left, a red note swings on the freezer when something is overdue, a green tick magnet and sparkles once all is done); a shopping list is at the end of a supermarket aisle, with a trolley rolling along the shelves (parked and full once all is bought). Night version after sunset (`sun.sun`, else the dark theme), forced with `illustration_theme`; `illustration: false` brings back the classic header (see [Animations](#animations))
+- **Illustrated header** (90 px, on both cards): the title on the left, an animated scene on the right over a tiled floor strip. A to-do list is stuck on a kitchen fridge (the pencil writes while items are left, a red note swings on the freezer when something is overdue, a green tick magnet and sparkles once all is done); a shopping list is at the end of a supermarket aisle, with a trolley rolling along the shelves (parked and full once all is bought). Night version with a dark Home Assistant theme, forced with `illustration_theme`; `illustration: false` brings back the classic header (see [Animations](#animations))
 - A **summary** at the top: how many items are left to do, then what is overdue, due today and done (beside the clipboard illustration with the classic header)
 - **Tabs** between your lists, each with its number of items to do
 - **Tick off** an item with a tap on its box (and back): the box fills, the tick draws and a line strikes the item before it moves to the completed ones (see [Animations](#animations))
@@ -177,7 +177,7 @@ zoom: true
 | `show_title` | both | `true` | Show the title in the header |
 | `show_subtitle` | full | `true` | Show the subtitle (the list shown, or how many items to do) |
 | `illustration` | both | `true` | Illustrated, animated header (kitchen fridge or supermarket aisle, following the list's state). `false`: the classic header, with the clipboard illustration in the summary |
-| `illustration_theme` | both | `auto` | Header picture: `auto` (night when `sun.sun` is below the horizon or with Home Assistant's dark theme, even while the sun is up), `day` or `night` |
+| `illustration_theme` | both | `auto` | Header picture: `auto` (follows the Home Assistant theme: night with a dark theme, day with a light theme), `day` or `night` |
 | `show_hero` | both | `true` | Summary (full card); with `illustration: false`, the clipboard illustration too (full and mini card) |
 | `entities` | both | Every list | To-do lists: entity ids, or objects with `entity` and `name` |
 | `entity` | both | First list | List shown first (the mini card shows this one) |
