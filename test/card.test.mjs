@@ -422,3 +422,16 @@ test("illustrated header: the scene and the icon follow the list's state; night 
   assert.match(classic.html(), /class="header"/);
   assert.match(classic.html(), /class="hero-art"/);
 });
+
+test("the status pill sits on the title row right after the title, in both headers, placed by measurement", async () => {
+  for (const illustration of [true, false]) {
+    const { html } = await mount({ entity: "todo.maison", illustration });
+    assert.match(html(), /<div class="trow"><div class="name">Lists<\/div><span class="chip crit"/, `illustration ${illustration}`);
+    // Under the subtitle (measured, see _fitPill and pill-layout.test.mjs), the subtitle is cut to one line, its whole
+    // text in its tooltip; the dot alone at 200 px or less.
+    assert.match(html(), /<div class="sub" title="Home">/);
+    assert.match(html(), /\.titles\.below \.trow \{ display: contents; \}/);
+    assert.match(html(), /@container td-card \(max-width: 200px\) \{ \.titles \.trow > \.chip \{ padding: 4px; \}/);
+    assert.doesNotMatch(html(), /td-titles/, "no fixed width threshold for the pill");
+  }
+});
