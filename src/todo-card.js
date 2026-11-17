@@ -2492,6 +2492,8 @@ const TODO_STYLE = `
   /* The date pickers' icon follows the dashboard theme, not the system's. */
   .field { color-scheme: var(--td-scheme, light); }
   .field::placeholder { color: var(--secondary-text-color); }
+  /* A narrow card: the placeholder ("Add to Home…") ends in an ellipsis rather than a cut letter. */
+  .adder .field { text-overflow: ellipsis; }
   .field:focus { outline: 2px solid var(--primary-color, var(--td-accent)); outline-offset: -1px; }
   .items { display: flex; flex-direction: column; }
   .item { display: flex; align-items: center; gap: 10px; min-height: 40px; min-width: 0; }
