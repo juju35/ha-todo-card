@@ -378,7 +378,7 @@ test("empty list: \"Nothing to do\" once; while loading, no count", async () => 
   assert.doesNotMatch(loading.html(), /<b>0<\/b><span>to do/);
 });
 
-test("illustrated header: the dark theme shows the night picture even while the sun is up; forced day/night win", async () => {
+test("illustrated header: the theme alone picks the night picture, whatever the sun; forced day/night win", async () => {
   for (const Card of [TodoCard, TodoMiniCard]) {
     const banner = async (darkMode, config = {}) => {
       const { html } = await mountWith(config, (h) => {
@@ -394,7 +394,7 @@ test("illustrated header: the dark theme shows the night picture even while the 
   }
 });
 
-test("illustrated header: the scene and the icon follow the list's state; night by the sun or forced; classic header", async () => {
+test("illustrated header: the scene and the icon follow the list's state; night by the dark theme or forced; classic header", async () => {
   const late = await mount({ entities: ["todo.maison"] });
   assert.match(late.html(), /class="td-banner td-todo td-overdue"/);
   assert.match(late.html(), /class="type-icon crit"/);
@@ -407,8 +407,12 @@ test("illustrated header: the scene and the icon follow the list's state; night 
   assert.match(done.html(), /class="type-icon ok"/);
   // Two cards never share a mask id.
   assert.notEqual(late.html().match(/id="td-mask-(\d+)"/)[1], shop.html().match(/id="td-mask-(\d+)"/)[1]);
-  const night = await mountWith({}, (h) => {
+  const lightAfterSunset = await mountWith({}, (h) => {
     h.states["sun.sun"] = { entity_id: "sun.sun", state: "below_horizon", attributes: {} };
+  });
+  assert.doesNotMatch(lightAfterSunset.html(), /td-banner[^"]* night"/, "light theme after sunset: day");
+  const night = await mountWith({}, (h) => {
+    h.themes = { darkMode: true };
   });
   assert.match(night.html(), /td-banner[^"]* night"/);
   const day = await mountWith({ illustration_theme: "day" }, (h) => {
