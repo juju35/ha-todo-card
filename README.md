@@ -39,15 +39,16 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 
 ## Features
 
-- Two cards: a full **To-do Card** (`custom:todo-card`) and a compact **To-do Mini Card** (`custom:todo-mini-card`): the illustration, what is overdue and due today, the next items and a button to add one
-- A **summary** at the top beside an illustration (a clipboard, with a cart for a shopping list): how many items are left to do, then what is overdue, due today and done
+- Two cards: a full **To-do Card** (`custom:todo-card`) and a compact **To-do Mini Card** (`custom:todo-mini-card`): the illustrated header, what is overdue and due today, the next items and a button to add one
+- **Illustrated header** (90 px, on both cards): the title on the left, an animated scene on the right over a tiled floor strip. A to-do list is stuck on a kitchen fridge (the pencil writes while items are left, a red note swings on the freezer when something is overdue, a green tick magnet and sparkles once all is done); a shopping list is at the end of a supermarket aisle, with a trolley rolling along the shelves (parked and full once all is bought). Night version after sunset (`sun.sun`, else the dark theme), forced with `illustration_theme`; `illustration: false` brings back the classic header (see [Animations](#animations))
+- A **summary** at the top: how many items are left to do, then what is overdue, due today and done (beside the clipboard illustration with the classic header)
 - **Tabs** between your lists, each with its number of items to do
 - **Tick off** an item with a tap on its box (and back): the box fills, the tick draws and a line strikes the item before it moves to the completed ones (see [Animations](#animations))
 - **Add** items from the field at the top (Enter or +); on the mini card, + opens a popup at the top of the card
 - **Due dates** under the item: overdue in red, today in orange, then tomorrow, the day or the date; a short **detail** (Bring!'s specification: *1 kg*, *6*) as a pill on the right, a longer one (a task's description) under the item
 - **Edit** an item with a tap on its text: rename it, change its details or delete it, in a popup at the top of the card
 - **Completed items** in a folded section, with *Clear completed*
-- Header icon in a tinted round badge (a cart for shopping lists), and a status chip on the title's line: *7 to do*, *1 overdue*, *All done*
+- Header icon in a round badge (a cart for shopping lists) whose colour follows the list's state (accent: items to do, red: overdue, green: all done, grey: loading), and a status chip under the title: *7 to do*, *1 overdue*, *All done*
 - **Due dates set from the card**: a date (or date and time) field in the edit popup and in the add popup (the calendar button beside the field), for the lists that take one; empty it to clear the due date
 - Only the buttons a list supports: no field on a read-only list, checkboxes greyed out and no edit where items cannot be changed (a Picnic cart); items without an id are changed by their name
 - Collapsible completed section, folded back to its default by a click elsewhere on the page
@@ -148,6 +149,8 @@ entities:
 entity: todo.shopping_list
 sort: due
 max_items: 10
+illustration: true
+illustration_theme: auto
 show_title: true
 show_subtitle: true
 show_hero: true
@@ -173,7 +176,9 @@ zoom: true
 | `title` | both | The list's name (Lists with tabs) | Card title |
 | `show_title` | both | `true` | Show the title in the header |
 | `show_subtitle` | full | `true` | Show the subtitle (the list shown, or how many items to do) |
-| `show_hero` | both | `true` | Summary with the illustration (full card), illustration (mini card) |
+| `illustration` | both | `true` | Illustrated, animated header (kitchen fridge or supermarket aisle, following the list's state). `false`: the classic header, with the clipboard illustration in the summary |
+| `illustration_theme` | both | `auto` | Header picture: `auto` (night when `sun.sun` is below the horizon, else with the dark theme), `day` or `night` |
+| `show_hero` | both | `true` | Summary (full card); with `illustration: false`, the clipboard illustration too (full and mini card) |
 | `entities` | both | Every list | To-do lists: entity ids, or objects with `entity` and `name` |
 | `entity` | both | First list | List shown first (the mini card shows this one) |
 | `sort` | both | `manual` | Order of the items to do: `manual` (as the list keeps them), `due` (by due date, undated last) or `alpha` |
@@ -196,6 +201,15 @@ An item ticked off: its box fills, its tick draws and a line strikes it, then it
 | Light | Dark |
 |---|---|
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/tick.gif" alt="tick animation" width="400"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/tick-dark.gif" alt="tick animation dark" width="400"> |
+
+The illustrated header follows the list's state: items left (the pencil writes), something overdue (the red note swings), all done (tick magnet and sparkles), and a shopping list (the trolley rolls along the aisle). The dark captures show the night version:
+
+| Light | Dark |
+|---|---|
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-pending.gif" alt="header, items left" width="380"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-pending-dark.gif" alt="header, items left, night" width="380"> |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-overdue.gif" alt="header, overdue" width="380"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-overdue-dark.gif" alt="header, overdue, night" width="380"> |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-done.gif" alt="header, all done" width="380"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-done-dark.gif" alt="header, all done, night" width="380"> |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-shop.gif" alt="header, shopping list" width="380"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/header-shop-dark.gif" alt="header, shopping list, night" width="380"> |
 
 ### Full card
 

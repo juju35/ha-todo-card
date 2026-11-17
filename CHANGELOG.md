@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0 - 2026-11-17
+
+### Features
+- Illustrated, animated header (90 px) on the full and the mini card: the title on the left, a scene on the right over a 10 px tiled floor strip. A to-do list is stuck on a kitchen fridge (the pencil writes while items are left, a red note swings on the freezer when something is overdue, a green tick magnet and sparkles once all is done); a shopping list is at the end of a supermarket aisle with a trolley rolling along the shelves (parked and full once all is bought).
+- The header icon's colour follows the list's state: accent with items to do, red when something is overdue, green once all is done, grey while loading.
+- Night version after sunset (`sun.sun`, else the dark theme); new options `illustration` (`false`: the classic header) and `illustration_theme` (`auto`, `day`, `night`), in the visual editors of both cards.
+
 ## 1.1.0 - 2026-11-16
 
 ### Features

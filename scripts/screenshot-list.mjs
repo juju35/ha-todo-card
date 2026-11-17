@@ -16,5 +16,16 @@ export const shots = twins([
 ]);
 
 // One looping GIF per distinct animated state:
-//   tick — an item ticked off: its box fills, its tick draws, a line strikes it
-export const gifs = twins([{ file: "tick", type: "todo-card", width: 460, config: { entity: "todo.courses", max_items: 4, show_completed: false }, clicks: ['[data-action="toggle"][data-uid="c2"]'], seconds: 1.2 }]);
+//   tick           — an item ticked off: its box fills, its tick draws, a line strikes it
+//   header-pending — a to-do list with items left: the pencil writes on the list stuck on the fridge
+//   header-overdue — something late: the red note swings on the freezer door
+//   header-done    — all done: the tick magnet and the sparkles around the list
+//   header-shop    — a shopping list: the trolley rolls along the aisle
+const header = (file, entity, variant, seconds) => ({ file, type: "todo-mini-card", width: 380, variant, config: { entity, zoom: false, show_add: false }, seconds });
+export const gifs = twins([
+  { file: "tick", type: "todo-card", width: 460, config: { entity: "todo.courses", max_items: 4, show_completed: false }, clicks: ['[data-action="toggle"][data-uid="c2"]'], seconds: 1.2 },
+  header("header-pending", "todo.projets", "default", 1.4),
+  header("header-overdue", "todo.maison", "default", 3.2),
+  header("header-done", "todo.projets", "done", 1.8),
+  header("header-shop", "todo.courses", "default", 6),
+]);

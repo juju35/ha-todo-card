@@ -72,6 +72,11 @@ const STRINGS = {
     due_today_item: "Due today: {item}",
     done_n: "{n} done",
     show_hero: "Show the summary with the illustration",
+    illustration: "Animated illustration",
+    illustration_theme: "Illustration theme",
+    theme_auto: "Automatic (sun)",
+    theme_day: "Day",
+    theme_night: "Night",
     due: "Due date",
     add_with_due: "Add with a due date",
     read_only: "This list can't be changed from Home Assistant",
@@ -133,6 +138,11 @@ const STRINGS = {
     due_today_item: "Pour aujourd'hui : {item}",
     done_n: "{n} faits",
     show_hero: "Afficher le résumé illustré",
+    illustration: "Illustration animée",
+    illustration_theme: "Thème de l’illustration",
+    theme_auto: "Automatique (soleil)",
+    theme_day: "Jour",
+    theme_night: "Nuit",
     due: "Échéance",
     add_with_due: "Ajouter avec une échéance",
     read_only: "Cette liste ne peut pas être modifiée depuis Home Assistant",
@@ -194,6 +204,11 @@ const STRINGS = {
     due_today_item: "Heute fällig: {item}",
     done_n: "{n} erledigt",
     show_hero: "Zusammenfassung mit Illustration anzeigen",
+    illustration: "Animierte Illustration",
+    illustration_theme: "Thema der Illustration",
+    theme_auto: "Automatisch (Sonne)",
+    theme_day: "Tag",
+    theme_night: "Nacht",
     due: "Fälligkeit",
     add_with_due: "Mit Fälligkeit hinzufügen",
     read_only: "Diese Liste kann in Home Assistant nicht geändert werden",
@@ -255,6 +270,11 @@ const STRINGS = {
     due_today_item: "Para hoy: {item}",
     done_n: "{n} hechos",
     show_hero: "Mostrar el resumen ilustrado",
+    illustration: "Ilustración animada",
+    illustration_theme: "Tema de la ilustración",
+    theme_auto: "Automático (sol)",
+    theme_day: "Día",
+    theme_night: "Noche",
     due: "Fecha límite",
     add_with_due: "Añadir con fecha límite",
     read_only: "Esta lista no se puede modificar desde Home Assistant",
@@ -316,6 +336,11 @@ const STRINGS = {
     due_today_item: "In scadenza oggi: {item}",
     done_n: "{n} fatti",
     show_hero: "Mostra il riepilogo illustrato",
+    illustration: "Illustrazione animata",
+    illustration_theme: "Tema dell’illustrazione",
+    theme_auto: "Automatico (sole)",
+    theme_day: "Giorno",
+    theme_night: "Notte",
     due: "Scadenza",
     add_with_due: "Aggiungi con scadenza",
     read_only: "Questo elenco non può essere modificato da Home Assistant",
@@ -377,6 +402,11 @@ const STRINGS = {
     due_today_item: "Vandaag: {item}",
     done_n: "{n} gedaan",
     show_hero: "Samenvatting met illustratie tonen",
+    illustration: "Geanimeerde illustratie",
+    illustration_theme: "Thema van de illustratie",
+    theme_auto: "Automatisch (zon)",
+    theme_day: "Dag",
+    theme_night: "Nacht",
     due: "Vervaldatum",
     add_with_due: "Toevoegen met vervaldatum",
     read_only: "Deze lijst kan niet vanuit Home Assistant worden gewijzigd",
@@ -438,6 +468,11 @@ const STRINGS = {
     due_today_item: "Para hoje: {item}",
     done_n: "{n} feitos",
     show_hero: "Mostrar o resumo ilustrado",
+    illustration: "Ilustração animada",
+    illustration_theme: "Tema da ilustração",
+    theme_auto: "Automático (sol)",
+    theme_day: "Dia",
+    theme_night: "Noite",
     due: "Data limite",
     add_with_due: "Adicionar com data limite",
     read_only: "Esta lista não pode ser alterada a partir do Home Assistant",
@@ -499,6 +534,11 @@ const STRINGS = {
     due_today_item: "Na dziś: {item}",
     done_n: "Zrobione: {n}",
     show_hero: "Pokaż podsumowanie z ilustracją",
+    illustration: "Animowana ilustracja",
+    illustration_theme: "Motyw ilustracji",
+    theme_auto: "Automatycznie (słońce)",
+    theme_day: "Dzień",
+    theme_night: "Noc",
     due: "Termin",
     add_with_due: "Dodaj z terminem",
     read_only: "Tej listy nie można zmienić z poziomu Home Assistant",
@@ -560,6 +600,11 @@ const STRINGS = {
     due_today_item: "За данас: {item}",
     done_n: "Урађено: {n}",
     show_hero: "Прикажи илустровани резиме",
+    illustration: "Анимирана илустрација",
+    illustration_theme: "Тема илустрације",
+    theme_auto: "Аутоматски (сунце)",
+    theme_day: "Дан",
+    theme_night: "Ноћ",
     due: "Рок",
     add_with_due: "Додај са роком",
     read_only: "Ова листа се не може мењати из Home Assistant-а",
@@ -621,6 +666,11 @@ const STRINGS = {
     due_today_item: "Za danas: {item}",
     done_n: "Urađeno: {n}",
     show_hero: "Prikaži ilustrovani rezime",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Automatski (sunce)",
+    theme_day: "Dan",
+    theme_night: "Noć",
     due: "Rok",
     add_with_due: "Dodaj sa rokom",
     read_only: "Ova lista se ne može menjati iz Home Assistant-a",
@@ -682,6 +732,11 @@ const STRINGS = {
     due_today_item: "Pentru azi: {item}",
     done_n: "{n} făcute",
     show_hero: "Afișează rezumatul ilustrat",
+    illustration: "Ilustrație animată",
+    illustration_theme: "Tema ilustrației",
+    theme_auto: "Automat (soare)",
+    theme_day: "Zi",
+    theme_night: "Noapte",
     due: "Termen",
     add_with_due: "Adaugă cu termen",
     read_only: "Această listă nu poate fi modificată din Home Assistant",
@@ -743,6 +798,11 @@ const STRINGS = {
     due_today_item: "I dag: {item}",
     done_n: "{n} udført",
     show_hero: "Vis resuméet med illustration",
+    illustration: "Animeret illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatisk (sol)",
+    theme_day: "Dag",
+    theme_night: "Nat",
     due: "Forfaldsdato",
     add_with_due: "Tilføj med forfaldsdato",
     read_only: "Denne liste kan ikke ændres fra Home Assistant",
@@ -804,6 +864,11 @@ const STRINGS = {
     due_today_item: "I dag: {item}",
     done_n: "{n} klara",
     show_hero: "Visa sammanfattningen med illustration",
+    illustration: "Animerad illustration",
+    illustration_theme: "Illustrationens tema",
+    theme_auto: "Automatiskt (sol)",
+    theme_day: "Dag",
+    theme_night: "Natt",
     due: "Förfallodatum",
     add_with_due: "Lägg till med förfallodatum",
     read_only: "Den här listan kan inte ändras från Home Assistant",
@@ -865,6 +930,11 @@ const STRINGS = {
     due_today_item: "За днес: {item}",
     done_n: "Готови: {n}",
     show_hero: "Показване на илюстрираното резюме",
+    illustration: "Анимирана илюстрация",
+    illustration_theme: "Тема на илюстрацията",
+    theme_auto: "Автоматично (слънце)",
+    theme_day: "Ден",
+    theme_night: "Нощ",
     due: "Срок",
     add_with_due: "Добавяне със срок",
     read_only: "Този списък не може да се променя от Home Assistant",
@@ -926,6 +996,11 @@ const STRINGS = {
     due_today_item: "На сегодня: {item}",
     done_n: "Сделано: {n}",
     show_hero: "Показывать сводку с иллюстрацией",
+    illustration: "Анимированная иллюстрация",
+    illustration_theme: "Тема иллюстрации",
+    theme_auto: "Автоматически (солнце)",
+    theme_day: "День",
+    theme_night: "Ночь",
     due: "Срок",
     add_with_due: "Добавить со сроком",
     read_only: "Этот список нельзя изменить из Home Assistant",
@@ -987,6 +1062,11 @@ const STRINGS = {
     due_today_item: "На сьогодні: {item}",
     done_n: "Зроблено: {n}",
     show_hero: "Показувати зведення з ілюстрацією",
+    illustration: "Анімована ілюстрація",
+    illustration_theme: "Тема ілюстрації",
+    theme_auto: "Автоматично (сонце)",
+    theme_day: "День",
+    theme_night: "Ніч",
     due: "Термін",
     add_with_due: "Додати з терміном",
     read_only: "Цей список не можна змінити з Home Assistant",
@@ -1048,6 +1128,11 @@ const STRINGS = {
     due_today_item: "Ma esedékes: {item}",
     done_n: "Kész: {n}",
     show_hero: "Illusztrált összegzés megjelenítése",
+    illustration: "Animált illusztráció",
+    illustration_theme: "Az illusztráció témája",
+    theme_auto: "Automatikus (nap)",
+    theme_day: "Nappal",
+    theme_night: "Éjszaka",
     due: "Határidő",
     add_with_due: "Hozzáadás határidővel",
     read_only: "Ez a lista nem módosítható a Home Assistantból",
@@ -1109,6 +1194,11 @@ const STRINGS = {
     due_today_item: "Na dnes: {item}",
     done_n: "Hotovo: {n}",
     show_hero: "Zobraziť ilustrovaný súhrn",
+    illustration: "Animovaná ilustrácia",
+    illustration_theme: "Téma ilustrácie",
+    theme_auto: "Automaticky (slnko)",
+    theme_day: "Deň",
+    theme_night: "Noc",
     due: "Termín",
     add_with_due: "Pridať s termínom",
     read_only: "Tento zoznam sa nedá zmeniť z Home Assistant",
@@ -1170,6 +1260,11 @@ const STRINGS = {
     due_today_item: "Na dnes: {item}",
     done_n: "Hotovo: {n}",
     show_hero: "Zobrazit ilustrovaný souhrn",
+    illustration: "Animovaná ilustrace",
+    illustration_theme: "Motiv ilustrace",
+    theme_auto: "Automaticky (slunce)",
+    theme_day: "Den",
+    theme_night: "Noc",
     due: "Termín",
     add_with_due: "Přidat s termínem",
     read_only: "Tento seznam nelze změnit z Home Assistant",
@@ -1231,6 +1326,11 @@ const STRINGS = {
     due_today_item: "Za danes: {item}",
     done_n: "Narejeno: {n}",
     show_hero: "Prikaži ilustriran povzetek",
+    illustration: "Animirana ilustracija",
+    illustration_theme: "Tema ilustracije",
+    theme_auto: "Samodejno (sonce)",
+    theme_day: "Dan",
+    theme_night: "Noč",
     due: "Rok",
     add_with_due: "Dodaj z rokom",
     read_only: "Tega seznama ni mogoče spremeniti iz Home Assistanta",
@@ -1292,6 +1392,11 @@ const STRINGS = {
     due_today_item: "Šodien: {item}",
     done_n: "Izdarīts: {n}",
     show_hero: "Rādīt ilustrēto kopsavilkumu",
+    illustration: "Animēta ilustrācija",
+    illustration_theme: "Ilustrācijas motīvs",
+    theme_auto: "Automātiski (saule)",
+    theme_day: "Diena",
+    theme_night: "Nakts",
     due: "Termiņš",
     add_with_due: "Pievienot ar termiņu",
     read_only: "Šo sarakstu nevar mainīt no Home Assistant",
@@ -1353,6 +1458,11 @@ const STRINGS = {
     due_today_item: "Για σήμερα: {item}",
     done_n: "Ολοκληρώθηκαν: {n}",
     show_hero: "Εμφάνιση της εικονογραφημένης σύνοψης",
+    illustration: "Κινούμενη εικονογράφηση",
+    illustration_theme: "Θέμα εικονογράφησης",
+    theme_auto: "Αυτόματα (ήλιος)",
+    theme_day: "Ημέρα",
+    theme_night: "Νύχτα",
     due: "Προθεσμία",
     add_with_due: "Προσθήκη με προθεσμία",
     read_only: "Αυτή η λίστα δεν μπορεί να αλλάξει από το Home Assistant",
@@ -2416,20 +2526,144 @@ const TODO_STYLE = `
   }
 `;
 
-// The illustration of the summary: a list on a clipboard (one item ticked), with a cart for a shopping list.
-const todoArt = (shopping) => {
+// The illustration of the summary: a list on a clipboard (one item ticked), with a cart for a shopping list. `state`
+// shows where the list stands: "pending" (one item ticked, the pencil at work), "done" (every box ticked) or
+// "overdue" (the first box red, an exclamation mark in it).
+const todoArt = (shopping, state = "pending") => {
   const rows = [30, 46, 62]
-    .map(
-      (y, i) =>
-        `<rect class="art-box${i ? "" : " on"}" x="${shopping ? 38 : 44}" y="${y}" width="10" height="10" rx="3"/>${i ? "" : `<path d="M${shopping ? 40 : 46} ${y + 5} l3 3 l5 -6" stroke="#fff" stroke-width="2" fill="none"/>`}<rect class="art-line" x="${shopping ? 53 : 59}" y="${y + 3}" width="${24 - i * 4}" height="4" rx="2"/>`,
-    )
+    .map((y, i) => {
+      const bx = shopping ? 38 : 44;
+      const box = state === "done" ? "on" : state === "overdue" ? (i ? "" : "late") : i ? "" : "on";
+      const mark =
+        box === "on"
+          ? `<path d="M${bx + 2} ${y + 5} l3 3 l5 -6" stroke="#fff" stroke-width="2" fill="none"/>`
+          : box === "late"
+            ? `<path d="M${bx + 5} ${y + 2.4} v3.4 M${bx + 5} ${y + 7.6} v.1" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>`
+            : "";
+      return `<rect class="art-box${box ? ` ${box}` : ""}" x="${bx}" y="${y}" width="10" height="10" rx="3"/>${mark}<rect class="art-line" x="${shopping ? 53 : 59}" y="${y + 3}" width="${24 - i * 4}" height="4" rx="2"/>`;
+    })
     .join("");
   const x = shopping ? 30 : 36;
   const cart = shopping
     ? '<path d="M84 60 h18 l-4 18 h-12 z" fill="#ffb74d"/><circle cx="88" cy="82" r="3" fill="#8d6e63"/><circle cx="98" cy="82" r="3" fill="#8d6e63"/><path d="M80 56 h5 l3 6" stroke="#8d6e63" stroke-width="2" fill="none"/><circle cx="92" cy="56" r="4" fill="#e53935"/><path d="M95 52 q3 -4 6 -2" stroke="#43a047" stroke-width="2" fill="none"/>'
-    : '<path d="M88 30 l10 10 l-22 22 l-12 3 l3 -12 z" fill="#ffb74d"/><path d="M88 30 l10 10 l4 -4 l-10 -10 z" fill="#e57373"/>';
+    : '<g class="art-pen"><path d="M88 30 l10 10 l-22 22 l-12 3 l3 -12 z" fill="#ffb74d"/><path d="M88 30 l10 10 l4 -4 l-10 -10 z" fill="#e57373"/></g>';
   return `<svg viewBox="0 0 120 100" aria-hidden="true"><rect class="art-paper" x="${x}" y="14" width="56" height="74" rx="8"/><rect class="art-clip" x="${x + 16}" y="9" width="24" height="10" rx="4"/>${rows}${cart}</svg>`;
 };
+
+// Where a list stands, for the header's picture and the colour of its icon.
+const listState = (sum) => (sum.overdue ? "overdue" : sum.open === 0 ? "done" : "pending");
+
+// Night picture: forced by illustration_theme, else the sun below the horizon, else Home Assistant's dark mode.
+const isNight = (hass, config) => {
+  const theme = config.illustration_theme;
+  if (theme === "night") return true;
+  if (theme === "day") return false;
+  const sun = hass?.states?.["sun.sun"]?.state;
+  if (sun === "below_horizon" || sun === "above_horizon") return sun === "below_horizon";
+  return !!hass?.themes?.darkMode;
+};
+
+// The card's list (todoArt) placed in the scene: an inner <svg> cropped to the clipboard.
+const placedArt = (shopping, state, x, y, w, h) =>
+  todoArt(shopping, state).replace('<svg viewBox="0 0 120 100"', `<svg class="td-list" x="${x}" y="${y}" width="${w}" height="${h}" viewBox="${shopping ? "26 5 80 84" : "32 5 72 84"}"`);
+
+// The header's picture, 200 × 80 at the right of the banner, over a 10 px tiled floor strip edge to edge.
+// A to-do list: a kitchen, the list stuck on the fridge door (a red note on the freezer when something is late,
+// a green tick magnet once all is done). A shopping list: a supermarket aisle, a trolley rolling along the shelves
+// (parked and full once all is bought), the list on the floor at the end of the aisle.
+// `uid` keeps each card's mask id apart on a page with several cards.
+const sceneSvg = (shopping, state, uid) => {
+  const fade = `<defs><linearGradient id="td-fade-${uid}" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="34" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient><mask id="td-mask-${uid}" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="80"><rect width="200" height="80" fill="url(#td-fade-${uid})"/></mask></defs>`;
+  const sparks = [
+    [150, 20],
+    [196, 30],
+    [144, 52],
+  ]
+    .map(([cx, cy], i) => `<path class="td-spark" style="animation-delay:${i * 0.5}s" d="M${cx} ${cy - 3.4}l1 2.4 2.4 1-2.4 1-1 2.4-1-2.4-2.4-1 2.4-1Z"/>`)
+    .join("");
+  let body;
+  if (shopping) {
+    const colors = ["#e5484d", "#f5b400", "#43a047", "#2f80ed", "#d4537e", "#1d9e75"];
+    const shelves = [0, 1, 2]
+      .map(
+        (r) =>
+          `${Array.from({ length: 14 }, (_, i) => `<rect class="td-product" x="${44 + i * 11}" y="${4 + r * 20}" width="8" height="10" rx="1.2" fill="${colors[(i + r) % 6]}"/>`).join("")}<rect class="td-shelf" x="40" y="${14 + r * 20}" width="160" height="2.4"/>`,
+      )
+      .join("");
+    const load = state === "done" ? '<rect x="-1" y="-24" width="7" height="8" rx="1" fill="#43a047"/><rect x="7" y="-26" width="6" height="10" rx="1" fill="#2f80ed"/><rect x="14" y="-23" width="7" height="7" rx="1" fill="#e5484d"/>' : "";
+    const trolley = `<g class="td-trolley"><g transform="translate(52 78)">${load}<path class="td-cart" d="M-8 -22H-4L0 -6H22L25 -18H-2"/><circle class="td-wheel" cx="2" cy="-2" r="2"/><circle class="td-wheel" cx="19" cy="-2" r="2"/></g></g>`;
+    const tag = state === "overdue" ? '<g class="td-alert"><circle cx="194" cy="46" r="4.6"/><path d="M194 43.4v3M194 48.6v.1"/></g>' : "";
+    body = `<g mask="url(#td-mask-${uid})">${shelves}</g>${trolley}${placedArt(true, state, 164, 44, 34, 36)}${tag}${state === "done" ? sparks : ""}`;
+  } else {
+    const doors = [4, 44, 84].map((x, i) => `<rect class="td-door" x="${x}" y="58" width="${i === 2 ? 34 : 36}" height="20" rx="1.5"/>`).join("");
+    const note = state === "overdue" ? '<g class="td-note"><rect x="174" y="12" width="13" height="12" rx="1"/><path d="M180.5 14.6v4.2M180.5 21.2v.1"/></g>' : "";
+    const magnet = state === "done" ? '<g class="td-magnet"><circle cx="180" cy="18" r="5"/><path d="M177.6 18.2l1.7 1.7 3.2-3.6"/></g>' : '<circle cx="180" cy="18" r="2.4" fill="#f5b400"/>';
+    body = `<g mask="url(#td-mask-${uid})"><rect class="td-counter" x="0" y="54" width="122" height="2"/><rect class="td-cabinet" x="0" y="56" width="120" height="24"/>${doors}</g>
+      <g class="td-fridge"><rect class="td-fridge-body" x="150" y="6" width="44" height="74" rx="4"/><line class="td-fridge-line" x1="150" y1="32" x2="194" y2="32"/><rect class="td-handle" x="188" y="14" width="2" height="12" rx="1"/><rect class="td-handle" x="188" y="38" width="2" height="16" rx="1"/><circle cx="160" cy="14" r="2.4" fill="#e5484d"/>${magnet}${note}</g>
+      ${placedArt(false, state, 154, 36, 28, 33)}${state === "done" ? sparks : ""}`;
+  }
+  return `<div class="td-ground" aria-hidden="true"></div><svg class="td-scene" viewBox="0 0 200 80" preserveAspectRatio="xMaxYMax meet" aria-hidden="true" focusable="false">${fade}${body}</svg>`;
+};
+
+// The banner: a kitchen or a supermarket wall, the title on its left, the picture on its right, day and night.
+const BANNER_STYLE = `
+  .td-banner { position: relative; overflow: hidden; height: 90px; --td-wall: #eef3f4; background: var(--td-wall); color: #10283f; }
+  .td-banner.td-shop { --td-wall: #f4f1ec; }
+  .td-banner.night { --td-wall: #283040; color: #fff; }
+  .td-banner.night.td-shop { --td-wall: #262c3a; }
+  .td-scene { position: absolute; right: 0; bottom: 10px; width: min(200px, 58%); height: 80px; overflow: visible; }
+  .td-ground { position: absolute; left: 0; right: 0; bottom: 0; height: 10px;
+               background: repeating-linear-gradient(90deg, #d9dfe3 0 18px, #c6cdd2 18px 19px); box-shadow: inset 0 2px 0 #b8c0c6; }
+  .night .td-ground { background: repeating-linear-gradient(90deg, #3a4250 0 18px, #2e3542 18px 19px); box-shadow: inset 0 2px 0 #4a5262; }
+  .td-htext { position: absolute; left: 12px; top: 6px; bottom: 16px; right: calc(min(200px, 58%) + 4px); display: flex; align-items: center; gap: 10px; min-width: 0; }
+  .td-htext .titles { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .td-htext .name { font-weight: 600; }
+  .td-htext .sub { display: flex; align-items: center; gap: 6px; min-width: 0; font-size: 12.5px; color: #3d5670; }
+  .night .td-htext .sub { color: rgba(255,255,255,.8); }
+  .td-htext .sub > .txt { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .td-htext .chip { max-width: 100%; line-height: 16px; background: rgba(255,255,255,.72); color: color-mix(in srgb, var(--c) 62%, #10283f); }
+  .night .td-htext .chip { background: rgba(10,20,40,.5); color: color-mix(in srgb, var(--c) 45%, #fff); }
+  /* The round icon on a frosted badge; its colour is the list's state (accent: to do, green: all done, red: late, grey: loading). */
+  .td-banner .type-icon { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px rgba(47,125,225,.18); }
+  .td-banner .type-icon .icon { fill: color-mix(in srgb, var(--c) 82%, #10283f); }
+  .td-banner.night .type-icon { background: rgba(255,255,255,.12); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); }
+  .td-banner.night .type-icon .icon { fill: color-mix(in srgb, var(--c) 72%, #fff); }
+  .td-banner .zoom { position: absolute; top: 6px; right: 6px; margin: 0; color: #10283f; background: rgba(255,255,255,.55); }
+  .td-banner.night .zoom { color: #fff; background: rgba(10,20,40,.45); }
+  /* Kitchen. */
+  .td-counter { fill: #cfd9de; } .td-cabinet { fill: #fff; } .td-door { fill: #e8eef1; stroke: #cfd9de; stroke-width: .6; }
+  .night .td-counter { fill: #3a4456; } .night .td-cabinet { fill: #323b4e; } .night .td-door { fill: #3d475c; stroke: #4a5568; }
+  .td-fridge-body { fill: #f6f8fa; stroke: #c9d2da; } .td-fridge-line { stroke: #c9d2da; } .td-handle { fill: #9aa3ae; }
+  .night .td-fridge-body { fill: #3d475c; stroke: #55617a; } .night .td-fridge-line { stroke: #55617a; }
+  .td-note rect { fill: #ff8a80; } .td-note path { stroke: #b71c1c; stroke-width: 1.8; stroke-linecap: round; }
+  .td-note { transform-box: fill-box; transform-origin: 50% 0; animation: td-swing 1.6s ease-in-out infinite alternate; }
+  .td-magnet circle { fill: #43a047; } .td-magnet path { fill: none; stroke: #fff; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+  .td-magnet { transform-box: fill-box; transform-origin: center; animation: td-pop .6s ease-out both; }
+  /* Supermarket. */
+  .td-shelf { fill: #b9a68a; } .night .td-shelf { fill: #4a5568; }
+  .td-product { opacity: .9; } .night .td-product { opacity: .6; }
+  .td-cart { fill: none; stroke: #5f6b7a; stroke-width: 1.4; stroke-linejoin: round; } .td-wheel { fill: #5f6b7a; }
+  .night .td-cart { stroke: #9aa3ae; } .night .td-wheel { fill: #9aa3ae; }
+  .td-pending .td-trolley { animation: td-roll 3s ease-in-out infinite alternate; }
+  .td-done .td-trolley { transform: translateX(62px); }
+  .td-alert circle { fill: #e53935; } .td-alert path { stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
+  .td-alert { animation: td-blink 1.2s steps(2) infinite; }
+  /* The card's list, in fixed colours on the scene. */
+  .td-list .art-paper { fill: #eaf3fd; } .td-list .art-box { fill: #fff; } .td-list .art-line { fill: #a9cdf0; }
+  .night .td-list .art-paper { fill: #2c3a52; } .night .td-list .art-box { fill: #1f2838; } .night .td-list .art-line { fill: #4f6f96; }
+  .td-list .art-box.on { fill: #43a047; } .td-list .art-box.late { fill: #e53935; }
+  .td-pending .art-pen { transform-box: fill-box; transform-origin: 0 100%; animation: td-write 1.4s ease-in-out infinite; }
+  .td-spark { fill: #ffc940; opacity: 0; animation: td-twinkle 1.8s ease-in-out infinite; }
+  @keyframes td-roll { from { transform: translateX(0); } to { transform: translateX(64px); } }
+  @keyframes td-write { 0%, 100% { transform: translate(0, 0) rotate(0); } 25% { transform: translate(-3px, 2px) rotate(-4deg); } 50% { transform: translate(-6px, 0) rotate(0); } 75% { transform: translate(-3px, 2px) rotate(-4deg); } }
+  @keyframes td-swing { from { transform: rotate(-6deg); } to { transform: rotate(6deg); } }
+  @keyframes td-pop { 0% { transform: scale(0); } 70% { transform: scale(1.2); } 100% { transform: scale(1); } }
+  @keyframes td-blink { 50% { opacity: .25; } }
+  @keyframes td-twinkle { 0%, 100% { opacity: 0; transform: scale(.6); } 50% { opacity: 1; transform: scale(1); } }
+  .td-spark { transform-box: fill-box; transform-origin: center; }
+  /* A narrow card: no room for the picture beside the text, the wall and the floor stay. */
+  @container (max-width: 300px) { .td-scene { display: none; } .td-htext { right: 36px; } }
+`;
 
 // The tick drawn in a checkbox.
 const TICK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
@@ -2438,7 +2672,15 @@ const TICK = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4
 // Cards
 // ---------------------------------------------------------------------------
 
+let _uidCount = 0;
+
 class TodoCard extends CardBase {
+  constructor() {
+    super();
+    // Keeps the ids of each card's picture apart on a page with several cards.
+    this._uid = ++_uidCount;
+  }
+
   static get defaultCollapsed() {
     return ["completed"];
   }
@@ -2464,7 +2706,8 @@ class TodoCard extends CardBase {
   }
 
   _extraDeps() {
-    return [this._items, this._tab, this._ticked];
+    // The sun turns the picture to night.
+    return [this._items, this._tab, this._ticked, this._hass?.states?.["sun.sun"]?.state];
   }
 
   _configChanged() {
@@ -2642,13 +2885,33 @@ class TodoCard extends CardBase {
     if (this._config.show_hero === false) return "";
     const loading = sum.open === null || sum.open === undefined;
     const big = loading ? "" : `<div class="big"><b>${sum.open}</b><span>${esc(this._t("to_do"))}</span></div>`;
-    return `<div class="hero"><div class="hero-art">${todoArt(isShopping(sum.list))}</div><div class="hero-body">
+    // With the illustrated header, the list's picture is in the banner.
+    const art = this._config.illustration === false ? `<div class="hero-art">${todoArt(isShopping(sum.list), listState(sum))}</div>` : "";
+    return `<div class="hero">${art}<div class="hero-body">
       ${big}${this._heroLines(sum)}</div></div>`;
   }
 
+  // The header: the illustrated banner (`illustration: false`: the classic header). The icon's colour is the list's
+  // state: grey while loading, red when something is late, green once all is done, the accent otherwise.
   _head(sum, title, sub) {
     const shopping = isShopping(sum.list);
-    return this._header({ icon: shopping ? ICONS.cart : ICONS.list, cls: sum.overdue ? "crit" : "accent", title, sub, chip: sum.chip });
+    const state = listState(sum);
+    const loading = sum.open === null || sum.open === undefined;
+    const cls = loading && !sum.overdue ? "idle" : { overdue: "crit", done: "ok", pending: "accent" }[state];
+    const icon = shopping ? ICONS.cart : ICONS.list;
+    if (this._config.illustration === false) return this._header({ icon, cls, title, sub, chip: sum.chip });
+    const night = isNight(this._hass, this._config);
+    const chip = sum.chip ? `<span class="chip ${sum.chip.cls}" title="${esc(sum.chip.text)}"><span class="dot"></span><span class="chip-text">${esc(sum.chip.text)}</span></span>` : "";
+    const rest = sub && sub !== sum.chip?.text ? `<span class="txt">${esc(sub)}</span>` : "";
+    return `<div class="td-banner td-${shopping ? "shop" : "todo"} td-${state}${night ? " night" : ""}">${sceneSvg(shopping, state, this._uid)}
+      <div class="td-htext"><div class="type-icon ${cls}">${svgIcon(icon)}</div><div class="titles"><div class="name">${esc(title)}</div>${
+        chip || rest ? `<div class="sub">${chip}${rest}</div>` : ""
+      }</div></div>${this._zoomButton()}</div>`;
+  }
+
+  // The banner's styles, only when it is shown.
+  _bannerStyle() {
+    return this._config.illustration === false ? "" : BANNER_STYLE;
   }
 
   // The date pickers' icon in the dashboard's theme.
@@ -2676,7 +2939,7 @@ class TodoCard extends CardBase {
     }
     const title = c.title || (m.lists.length > 1 && c.show_tabs !== false ? this._t("lists") : list.name);
     const sub = m.lists.length > 1 && c.show_tabs !== false ? list.name : sum.open ? this._t("todo_n", { n: sum.open }) : "";
-    return `<style>${BASE_STYLE}${TODO_STYLE}${this._scheme()}</style>
+    return `<style>${BASE_STYLE}${TODO_STYLE}${this._bannerStyle()}${this._scheme()}</style>
       <ha-card>
         ${this._head(sum, title, sub)}
         <div class="content">${parts.filter(Boolean).join("")}</div>
@@ -2805,12 +3068,12 @@ class TodoMiniCard extends withMini(TodoCard) {
       const more = rest.length > n ? ` ${this._t("more_n", { n: rest.length - n })}` : "";
       body = `${this._heroLines(sum, 2)}${names ? `<div class="line">${svgIcon(ICONS.list)}<span>${esc(names + more)}</span></div>` : ""}`;
     }
-    const art = c.show_hero === false ? "" : `<div class="hero-art">${todoArt(isShopping(list))}</div>`;
+    const art = c.show_hero === false || c.illustration !== false ? "" : `<div class="hero-art">${todoArt(isShopping(list), listState(sum))}</div>`;
     const add =
       c.show_add !== false && this._supports(list, "create")
         ? `<div class="controls"><button class="btn round primary" data-action="add_dialog" title="${esc(this._t("add_to", { list: list.name }))}" aria-label="${esc(this._t("add_to", { list: list.name }))}">${svgIcon(ICONS.plus)}</button></div>`
         : "";
-    return `<style>${BASE_STYLE}${TODO_STYLE}${MINI_STYLE}${this._scheme()}</style>
+    return `<style>${BASE_STYLE}${TODO_STYLE}${MINI_STYLE}${this._bannerStyle()}${this._scheme()}</style>
       <ha-card>
         ${this._head(sum, c.title || list.name, "")}
         <div class="content mini">${art}<div class="info">${body}</div>${add}</div>
@@ -2825,6 +3088,7 @@ class TodoMiniCard extends withMini(TodoCard) {
 class TodoCardEditor extends EditorBase {
   static get toggles() {
     return [
+      ["illustration", true],
       ["show_title", true],
       ["show_subtitle", true],
       ["show_hero", true],
@@ -2835,7 +3099,7 @@ class TodoCardEditor extends EditorBase {
   }
 
   static get defaults() {
-    return { sort: "manual", collapsed: ["completed"] };
+    return { sort: "manual", collapsed: ["completed"], illustration_theme: "auto" };
   }
 
   static get sections() {
@@ -2855,6 +3119,7 @@ class TodoCardEditor extends EditorBase {
           { name: "max_items", selector: { number: { min: 0, max: 100, step: 1, mode: "box" } } },
         ],
       },
+      { name: "illustration_theme", selector: { select: { mode: "dropdown", options: ["auto", "day", "night"].map((value) => ({ value, label: tr(`theme_${value}`) })) } } },
     ];
   }
 }

@@ -355,3 +355,32 @@ test("empty list: \"Nothing to do\" once; while loading, no count", async () => 
   });
   assert.doesNotMatch(loading.html(), /<b>0<\/b><span>to do/);
 });
+
+test("illustrated header: the scene and the icon follow the list's state; night by the sun or forced; classic header", async () => {
+  const late = await mount({ entities: ["todo.maison"] });
+  assert.match(late.html(), /class="td-banner td-todo td-overdue"/);
+  assert.match(late.html(), /class="type-icon crit"/);
+  assert.match(late.html(), /class="td-note"/);
+  const shop = await mount({ entity: "todo.courses", entities: ["todo.courses"] });
+  assert.match(shop.html(), /class="td-banner td-shop td-pending"/);
+  assert.match(shop.html(), /class="type-icon accent"/);
+  const done = await mount({ entity: "todo.projets", entities: ["todo.projets"] }, "done");
+  assert.match(done.html(), /td-banner td-todo td-done/);
+  assert.match(done.html(), /class="type-icon ok"/);
+  // Two cards never share a mask id.
+  assert.notEqual(late.html().match(/id="td-mask-(\d+)"/)[1], shop.html().match(/id="td-mask-(\d+)"/)[1]);
+  const night = await mountWith({}, (h) => {
+    h.states["sun.sun"] = { entity_id: "sun.sun", state: "below_horizon", attributes: {} };
+  });
+  assert.match(night.html(), /td-banner[^"]* night"/);
+  const day = await mountWith({ illustration_theme: "day" }, (h) => {
+    h.states["sun.sun"] = { entity_id: "sun.sun", state: "below_horizon", attributes: {} };
+  });
+  assert.doesNotMatch(day.html(), /td-banner[^"]* night"/);
+  const forced = await mount({ illustration_theme: "night" }, "default", TodoMiniCard);
+  assert.match(forced.html(), /td-banner[^"]* night"/);
+  const classic = await mount({ illustration: false });
+  assert.doesNotMatch(classic.html(), /td-banner/);
+  assert.match(classic.html(), /class="header"/);
+  assert.match(classic.html(), /class="hero-art"/);
+});
