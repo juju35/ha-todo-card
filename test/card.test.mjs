@@ -102,7 +102,29 @@ test("the items of the list shown come from the to-do subscription; another tab 
   );
   assert.match(html(), /Tomatoes/);
   assert.match(html(), /1 kg/);
-  assert.match(html(), /chip accent[^>]*>.*7 to do/s);
+  // Nothing late on the shopping list: the pill says so, the count is the hero's big number.
+  assert.match(html(), /chip accent[^>]*>.*Up to date/s);
+  assert.match(html(), /<b>7<\/b><span>to do<\/span>/);
+});
+
+test("the body does not repeat the pill word for word, except when the pill keeps only its dot", async () => {
+  const { card, hass, html } = await mount();
+  // A second item overdue: the pill says "2 overdue", the hero's line saying the same is hidden (.pill-echo).
+  card._items = card._items.map((it) => (it.uid === "m2" ? { ...it, due: "2026-11-15" } : it));
+  card.hass = { ...hass };
+  assert.match(html(), /chip crit[^>]*>.*2 overdue/s);
+  assert.match(html(), /class="line crit pill-echo"[^>]*>.*2 overdue/s);
+  assert.match(html(), /\.line\.pill-echo \{ display: none; \}/);
+  assert.match(html(), /@container td-card \(max-width: 200px\) \{ \.td-banner ~ \.content \.line\.pill-echo \{ display: flex; \} \}/);
+  // Due today only: the pill says how many; the single-list subtitle no longer repeats the count.
+  const today = await mount({ entity: "todo.maison", entities: ["todo.maison"] });
+  today.card._items = today.card._items.filter((it) => it.uid !== "m1");
+  today.card.hass = { ...today.hass };
+  assert.match(today.html(), /chip warn[^>]*>.*1 due today/s);
+  assert.doesNotMatch(today.html(), /class="sub"/);
+  // The mini card: the count still to do leads the line of the other items.
+  const mini = await mount({ entity: "todo.courses" }, "default", TodoMiniCard);
+  assert.match(mini.html(), /7 to do · Tomatoes, Apples/);
 });
 
 test("tick an item off: the service is called and the item shows its tick before it moves", async () => {

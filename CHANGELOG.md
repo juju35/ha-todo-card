@@ -10,6 +10,9 @@
 - On a wide mini card, the scene steps a little further left: its top shelf no longer touches the corner expand / collapse button.
 - Night picture with the dark theme even while the sun is up (a day picture would glare on a dark dashboard); `illustration_theme: day | night` still forces one.
 
+### Fixes
+- The body no longer repeats the header pill: the pill says how the list stands ("2 overdue", "1 due today", "Up to date", "All done") and the hero keeps the count still to do; a hero line saying word for word what the pill says comes back only when the pill keeps just its dot. The mini card gives the count at the head of its items line.
+
 ## 1.1.0 - 2026-11-16
 
 ### Features

@@ -36,6 +36,7 @@ const STRINGS = {
     lists: "Lists",
     todo_n: "{n} to do",
     overdue_n: "{n} overdue",
+    up_to_date: "Up to date",
     all_done: "All done",
     mark_done: "Mark {item} as done",
     mark_todo: "Mark {item} as to do",
@@ -102,6 +103,7 @@ const STRINGS = {
     lists: "Listes",
     todo_n: "{n} à faire",
     overdue_n: "{n} en retard",
+    up_to_date: "À jour",
     all_done: "Tout est fait",
     mark_done: "Marquer {item} comme fait",
     mark_todo: "Marquer {item} comme à faire",
@@ -168,6 +170,7 @@ const STRINGS = {
     lists: "Listen",
     todo_n: "{n} offen",
     overdue_n: "{n} überfällig",
+    up_to_date: "Auf dem neuesten Stand",
     all_done: "Alles erledigt",
     mark_done: "{item} als erledigt markieren",
     mark_todo: "{item} als offen markieren",
@@ -234,6 +237,7 @@ const STRINGS = {
     lists: "Listas",
     todo_n: "{n} pendientes",
     overdue_n: "{n} con retraso",
+    up_to_date: "Al día",
     all_done: "Todo hecho",
     mark_done: "Marcar {item} como hecho",
     mark_todo: "Marcar {item} como pendiente",
@@ -300,6 +304,7 @@ const STRINGS = {
     lists: "Elenchi",
     todo_n: "{n} da fare",
     overdue_n: "{n} in ritardo",
+    up_to_date: "In pari",
     all_done: "Tutto fatto",
     mark_done: "Segna {item} come fatto",
     mark_todo: "Segna {item} come da fare",
@@ -366,6 +371,7 @@ const STRINGS = {
     lists: "Lijsten",
     todo_n: "{n} te doen",
     overdue_n: "{n} te laat",
+    up_to_date: "Op schema",
     all_done: "Alles gedaan",
     mark_done: "{item} als gedaan markeren",
     mark_todo: "{item} als te doen markeren",
@@ -432,6 +438,7 @@ const STRINGS = {
     lists: "Listas",
     todo_n: "{n} por fazer",
     overdue_n: "{n} em atraso",
+    up_to_date: "Em dia",
     all_done: "Tudo feito",
     mark_done: "Marcar {item} como feito",
     mark_todo: "Marcar {item} como por fazer",
@@ -498,6 +505,7 @@ const STRINGS = {
     lists: "Listy",
     todo_n: "Do zrobienia: {n}",
     overdue_n: "Zaległe: {n}",
+    up_to_date: "Na bieżąco",
     all_done: "Wszystko zrobione",
     mark_done: "Oznacz {item} jako zrobione",
     mark_todo: "Oznacz {item} jako do zrobienia",
@@ -564,6 +572,7 @@ const STRINGS = {
     lists: "Листе",
     todo_n: "За урадити: {n}",
     overdue_n: "Касни: {n}",
+    up_to_date: "Ажурно",
     all_done: "Све урађено",
     mark_done: "Означи {item} као урађено",
     mark_todo: "Означи {item} као неурађено",
@@ -630,6 +639,7 @@ const STRINGS = {
     lists: "Liste",
     todo_n: "Za uraditi: {n}",
     overdue_n: "Kasni: {n}",
+    up_to_date: "Ažurno",
     all_done: "Sve urađeno",
     mark_done: "Označi {item} kao urađeno",
     mark_todo: "Označi {item} kao neurađeno",
@@ -696,6 +706,7 @@ const STRINGS = {
     lists: "Liste",
     todo_n: "{n} de făcut",
     overdue_n: "{n} întârziate",
+    up_to_date: "La zi",
     all_done: "Totul e gata",
     mark_done: "Marchează {item} ca făcut",
     mark_todo: "Marchează {item} ca de făcut",
@@ -762,6 +773,7 @@ const STRINGS = {
     lists: "Lister",
     todo_n: "{n} at gøre",
     overdue_n: "{n} forsinket",
+    up_to_date: "Ajour",
     all_done: "Alt er gjort",
     mark_done: "Markér {item} som gjort",
     mark_todo: "Markér {item} som ikke gjort",
@@ -828,6 +840,7 @@ const STRINGS = {
     lists: "Listor",
     todo_n: "{n} att göra",
     overdue_n: "{n} försenade",
+    up_to_date: "I fas",
     all_done: "Allt klart",
     mark_done: "Markera {item} som klar",
     mark_todo: "Markera {item} som att göra",
@@ -894,6 +907,7 @@ const STRINGS = {
     lists: "Списъци",
     todo_n: "За правене: {n}",
     overdue_n: "Просрочени: {n}",
+    up_to_date: "Навреме",
     all_done: "Всичко е готово",
     mark_done: "Отбележи {item} като готово",
     mark_todo: "Отбележи {item} като за правене",
@@ -960,6 +974,7 @@ const STRINGS = {
     lists: "Списки",
     todo_n: "Сделать: {n}",
     overdue_n: "Просрочено: {n}",
+    up_to_date: "Всё в срок",
     all_done: "Всё сделано",
     mark_done: "Отметить {item} как сделанное",
     mark_todo: "Отметить {item} как несделанное",
@@ -1026,6 +1041,7 @@ const STRINGS = {
     lists: "Списки",
     todo_n: "Зробити: {n}",
     overdue_n: "Прострочено: {n}",
+    up_to_date: "Усе вчасно",
     all_done: "Усе зроблено",
     mark_done: "Позначити {item} як зроблене",
     mark_todo: "Позначити {item} як незроблене",
@@ -1092,6 +1108,7 @@ const STRINGS = {
     lists: "Listák",
     todo_n: "{n} teendő",
     overdue_n: "{n} késésben",
+    up_to_date: "Naprakész",
     all_done: "Minden kész",
     mark_done: "{item} késznek jelölése",
     mark_todo: "{item} teendőnek jelölése",
@@ -1158,6 +1175,7 @@ const STRINGS = {
     lists: "Zoznamy",
     todo_n: "Na urobenie: {n}",
     overdue_n: "Po termíne: {n}",
+    up_to_date: "Včas",
     all_done: "Všetko hotové",
     mark_done: "Označiť {item} ako hotové",
     mark_todo: "Označiť {item} ako nehotové",
@@ -1224,6 +1242,7 @@ const STRINGS = {
     lists: "Seznamy",
     todo_n: "K udělání: {n}",
     overdue_n: "Po termínu: {n}",
+    up_to_date: "Včas",
     all_done: "Vše hotovo",
     mark_done: "Označit {item} jako hotové",
     mark_todo: "Označit {item} jako nehotové",
@@ -1290,6 +1309,7 @@ const STRINGS = {
     lists: "Seznami",
     todo_n: "Za narediti: {n}",
     overdue_n: "Zamuja: {n}",
+    up_to_date: "Na tekočem",
     all_done: "Vse narejeno",
     mark_done: "Označi {item} kot narejeno",
     mark_todo: "Označi {item} kot nenarejeno",
@@ -1356,6 +1376,7 @@ const STRINGS = {
     lists: "Saraksti",
     todo_n: "Jāizdara: {n}",
     overdue_n: "Nokavēti: {n}",
+    up_to_date: "Laikā",
     all_done: "Viss izdarīts",
     mark_done: "Atzīmēt {item} kā izdarītu",
     mark_todo: "Atzīmēt {item} kā neizdarītu",
@@ -1422,6 +1443,7 @@ const STRINGS = {
     lists: "Λίστες",
     todo_n: "{n} εκκρεμή",
     overdue_n: "{n} καθυστερημένα",
+    up_to_date: "Εντάξει",
     all_done: "Όλα έγιναν",
     mark_done: "Σήμανση του {item} ως ολοκληρωμένου",
     mark_todo: "Σήμανση του {item} ως εκκρεμούς",
@@ -1656,6 +1678,9 @@ const BASE_STYLE = `
   .big b { font-size: 30px; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
   .big span { font-size: 14px; color: var(--secondary-text-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .hero .line { font-size: 12.5px; }
+  /* What the header pill already says is not repeated below it, unless the pill keeps only its dot. */
+  .line.pill-echo { display: none; }
+  @container td-card (max-width: 230px) { .header ~ .content .line.pill-echo { display: flex; } }
   /* Rows, as the watering zones: a round icon (grey at rest, tinted otherwise, a ring while it runs), name, colored state, a button. */
   .row { display: flex; align-items: center; gap: 12px; min-width: 0; }
   .row-icon { position: relative; width: 40px; height: 40px; border-radius: 50%; flex: none; display: grid; place-items: center;
@@ -2642,6 +2667,7 @@ const BANNER_STYLE = `
     .td-banner .chip { order: 3; max-width: 100%; }
   }
   @container td-card (max-width: 200px) { .td-banner .chip { padding: 4px; } .td-banner .chip .chip-text { display: none; } }
+  @container td-card (max-width: 200px) { .td-banner ~ .content .line.pill-echo { display: flex; } }
   /* The round icon on a frosted badge; its colour is the list's state (accent: to do, green: all done, red: late, grey: loading). */
   .td-banner .type-icon { background: rgba(255,255,255,.62); box-shadow: inset 0 0 0 1px rgba(47,125,225,.18); }
   .td-banner .type-icon .icon { fill: color-mix(in srgb, var(--c) 82%, #10283f); }
@@ -2831,9 +2857,13 @@ class TodoCard extends CardBase {
     const overdue = late.length;
     const count = Number(this._s(list.entity)?.state);
     const open = this._items ? todo.filter((it) => !it.ticking).length : Number.isFinite(count) ? count : null;
+    // The pill says how the list stands (late, due today, up to date, all done); the count of items still to do is the
+    // hero's big number. Before the items are loaded, the dates are not known: the pill gives the entity's count.
     let chip = null;
     if (overdue) chip = { cls: "crit", text: this._t("overdue_n", { n: overdue }) };
-    else if (open) chip = { cls: "accent", text: this._t("todo_n", { n: open }) };
+    else if (dueToday.length) chip = { cls: "warn", text: this._t("due_today_n", { n: dueToday.length }) };
+    else if (open && this._items === undefined) chip = { cls: "accent", text: this._t("todo_n", { n: open }) };
+    else if (open) chip = { cls: "accent", text: this._t("up_to_date") };
     else if (open === 0) chip = { cls: "ok", text: this._t("all_done") };
     return { list, todo, done, open, overdue, late, dueToday, chip };
   }
@@ -2907,9 +2937,13 @@ class TodoCard extends CardBase {
     if (sum.dueToday.length) lines.push(["warn", ICONS.calendar, one(sum.dueToday, "due_today_item", "due_today_n")]);
     if (sum.done.length) lines.push(["ok", ICONS.done_all, this._t("done_n", { n: sum.done.length })]);
     if (!sum.todo.length && this._items !== undefined) lines.unshift(["ok", ICONS.done_all, this._t("nothing_to_do")]);
+    // A line that says word for word what the header pill says is hidden (.pill-echo); it comes back on a card so
+    // narrow that the pill keeps only its dot.
+    const pill = sum.chip?.text;
+    let shown = 0;
     return lines
-      .slice(0, max)
-      .map(([cls, icon, text]) => `<div class="line ${cls}">${svgIcon(icon)}<span>${esc(text)}</span></div>`)
+      .filter(([, , text]) => text === pill || shown++ < max)
+      .map(([cls, icon, text]) => `<div class="line ${cls}${text === pill ? " pill-echo" : ""}">${svgIcon(icon)}<span>${esc(text)}</span></div>`)
       .join("");
   }
 
@@ -2970,7 +3004,7 @@ class TodoCard extends CardBase {
       parts.push(this._section("completed", ICONS.done_all, this._t("completed"), sum.done.length, `${this._itemList(sum.done, list, 0)}${clear}`));
     }
     const title = c.title || (m.lists.length > 1 && c.show_tabs !== false ? this._t("lists") : list.name);
-    const sub = m.lists.length > 1 && c.show_tabs !== false ? list.name : sum.open ? this._t("todo_n", { n: sum.open }) : "";
+    const sub = m.lists.length > 1 && c.show_tabs !== false ? list.name : sum.open && c.show_hero === false ? this._t("todo_n", { n: sum.open }) : "";
     return `<style>${BASE_STYLE}${TODO_STYLE}${this._bannerStyle()}${this._scheme()}</style>
       <ha-card>
         ${this._head(sum, title, sub)}
@@ -3098,7 +3132,10 @@ class TodoMiniCard extends withMini(TodoCard) {
       const n = Number(c.max_items) || 2;
       const names = rest.slice(0, n).map((it) => it.summary).join(", ");
       const more = rest.length > n ? ` ${this._t("more_n", { n: rest.length - n })}` : "";
-      body = `${this._heroLines(sum, 2)}${names ? `<div class="line">${svgIcon(ICONS.list)}<span>${esc(names + more)}</span></div>` : ""}`;
+      // The pill says how the list stands: the count still to do leads the line of the other items.
+      const count = sum.open ? this._t("todo_n", { n: sum.open }) : "";
+      const text = [count, names + more].filter(Boolean).join(" · ");
+      body = `${this._heroLines(sum, 2)}${text ? `<div class="line">${svgIcon(ICONS.list)}<span>${esc(text)}</span></div>` : ""}`;
     }
     const art = c.show_hero === false || c.illustration !== false ? "" : `<div class="hero-art">${todoArt(isShopping(list), listState(sum))}</div>`;
     const add =
