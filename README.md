@@ -177,7 +177,7 @@ zoom: true
 | `show_title` | both | `true` | Show the title in the header |
 | `show_subtitle` | full | `true` | Show the subtitle (the list shown, or how many items to do) |
 | `illustration` | both | `true` | Illustrated, animated header (kitchen fridge or supermarket aisle, following the list's state). `false`: the classic header, with the clipboard illustration in the summary |
-| `illustration_theme` | both | `auto` | Header picture: `auto` (night when `sun.sun` is below the horizon, else with the dark theme), `day` or `night` |
+| `illustration_theme` | both | `auto` | Header picture: `auto` (night when `sun.sun` is below the horizon or with Home Assistant's dark theme, even while the sun is up), `day` or `night` |
 | `show_hero` | both | `true` | Summary (full card); with `illustration: false`, the clipboard illustration too (full and mini card) |
 | `entities` | both | Every list | To-do lists: entity ids, or objects with `entity` and `name` |
 | `entity` | both | First list | List shown first (the mini card shows this one) |

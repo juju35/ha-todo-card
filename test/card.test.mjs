@@ -356,6 +356,22 @@ test("empty list: \"Nothing to do\" once; while loading, no count", async () => 
   assert.doesNotMatch(loading.html(), /<b>0<\/b><span>to do/);
 });
 
+test("illustrated header: the dark theme shows the night picture even while the sun is up; forced day/night win", async () => {
+  for (const Card of [TodoCard, TodoMiniCard]) {
+    const banner = async (darkMode, config = {}) => {
+      const { html } = await mountWith(config, (h) => {
+        h.states["sun.sun"] = { entity_id: "sun.sun", state: "above_horizon", attributes: {} };
+        h.themes = { darkMode };
+      }, Card);
+      return html().match(/class="td-banner[^"]*"/)[0];
+    };
+    assert.match(await banner(true), / night"/);
+    assert.doesNotMatch(await banner(false), / night"/);
+    assert.doesNotMatch(await banner(true, { illustration_theme: "day" }), / night"/);
+    assert.match(await banner(false, { illustration_theme: "night" }), / night"/);
+  }
+});
+
 test("illustrated header: the scene and the icon follow the list's state; night by the sun or forced; classic header", async () => {
   const late = await mount({ entities: ["todo.maison"] });
   assert.match(late.html(), /class="td-banner td-todo td-overdue"/);

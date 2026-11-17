@@ -5,9 +5,10 @@
 ### Features
 - Illustrated, animated header (90 px) on the full and the mini card: the title on the left, a scene on the right over a 10 px tiled floor strip. A to-do list is stuck on a kitchen fridge (the pencil writes while items are left, a red note swings on the freezer when something is overdue, a green tick magnet and sparkles once all is done); a shopping list is at the end of a supermarket aisle with a trolley rolling along the shelves (parked and full once all is bought).
 - The header icon's colour follows the list's state: accent with items to do, red when something is overdue, green once all is done, grey while loading.
-- Night version after sunset (`sun.sun`, else the dark theme); new options `illustration` (`false`: the classic header) and `illustration_theme` (`auto`, `day`, `night`), in the visual editors of both cards.
+- Night version after sunset (`sun.sun`) or with the dark theme; new options `illustration` (`false`: the classic header) and `illustration_theme` (`auto`, `day`, `night`), in the visual editors of both cards.
 - The status pill sits on the title row of the illustrated header, right after the title, in the icon's colour; it drops under the subtitle when room runs short and keeps only its dot on a very narrow card. The mini card's detail button sits in the banner's top-right corner, in the frosted style of the other cards, the picture stepping aside for it.
 - On a wide mini card, the scene steps a little further left: its top shelf no longer touches the corner expand / collapse button.
+- Night picture with the dark theme even while the sun is up (a day picture would glare on a dark dashboard); `illustration_theme: day | night` still forces one.
 
 ## 1.1.0 - 2026-11-16
 
