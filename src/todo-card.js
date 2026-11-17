@@ -2687,12 +2687,13 @@ const BANNER_STYLE = `
   @keyframes td-blink { 50% { opacity: .25; } }
   @keyframes td-twinkle { 0%, 100% { opacity: 0; transform: scale(.6); } 50% { opacity: 1; transform: scale(1); } }
   .td-spark { transform-box: fill-box; transform-origin: center; }
-  /* A narrow card: no room for the picture beside the text, the wall and the floor stay. */
-  /* The mini card: the picture steps aside for the detail button in the top-right corner. */
+  /* The mini card: the picture steps aside for the detail button in the top-right corner (5 + 24 px), its top shelf
+     ending 7 px left of it, at full size. */
   @container td-card (min-width: 301px) {
-    .td-banner:has(> .zoom) .td-scene { right: 30px; }
-    .td-banner:has(> .zoom) .td-htext { right: calc(min(200px, 58%) - 6px); }
+    .td-banner:has(> .zoom) .td-scene { right: 36px; }
+    .td-banner:has(> .zoom) .td-htext { right: calc(min(200px, 58%)); }
   }
+  /* A narrow card: no room for the picture beside the text, the wall and the floor stay. */
   @container td-card (max-width: 300px) { .td-scene { display: none; } .td-htext { right: 36px; } }
 `;
 

@@ -7,6 +7,7 @@
 - The header icon's colour follows the list's state: accent with items to do, red when something is overdue, green once all is done, grey while loading.
 - Night version after sunset (`sun.sun`, else the dark theme); new options `illustration` (`false`: the classic header) and `illustration_theme` (`auto`, `day`, `night`), in the visual editors of both cards.
 - The status pill sits on the title row of the illustrated header, right after the title, in the icon's colour; it drops under the subtitle when room runs short and keeps only its dot on a very narrow card. The mini card's detail button sits in the banner's top-right corner, in the frosted style of the other cards, the picture stepping aside for it.
+- On a wide mini card, the scene steps a little further left: its top shelf no longer touches the corner expand / collapse button.
 
 ## 1.1.0 - 2026-11-16
 
