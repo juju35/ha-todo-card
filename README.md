@@ -54,6 +54,7 @@ Every to-do list of Home Assistant is shown when nothing is configured; pick the
 - Collapsible completed section, folded back to its default by a click elsewhere on the page
 - Detail button on the mini card (top right): it switches the mini card to the full card's content and back; a click anywhere outside the card brings the compact view back
 - Visual editor in the dashboard UI for both cards (no YAML needed)
+- Optional **sidebar panel**: Home Assistant's To-do page in the look of the cards (illustrated banner, one tab per list, summary tiles), with everything it does: tick off, add, edit (name, description, due date), delete, **reorder by drag and drop**, clear the completed items, the list's information, create a list and delete a Local To-do list (see [Sidebar panel](#sidebar-panel-optional))
 - Light and dark mode, English, French, German, Spanish, Serbian (Cyrillic and Latin), Italian, Dutch, European Portuguese, Polish, Romanian, Danish, Swedish, Bulgarian, Russian, Ukrainian, Hungarian, Slovak, Czech, Slovenian, Latvian and Greek
 - Single file, no external dependency
 
@@ -192,6 +193,40 @@ zoom: true
 
 `entities` as objects are YAML only; the visual editor edits them as a list of entities.
 
+## Sidebar panel (optional)
+
+The same bundle also holds a **To-do** page for the sidebar, in place of (or beside) Home Assistant's own: the cards never need it, add it only if you want it. It draws its own full-page layout (it does not embed the cards), laid out like the other panels:
+
+- the cards' **illustrated banner** across the top (the kitchen for a to-do list, the supermarket for a shopping list, night with a dark theme), with the list's name, its status pill, what is left and done, and round buttons: the list's **information** (more-info), **create a list** (opens the Local To-do setup) and **delete the list** (Local To-do lists, after a confirmation) — the last two for administrators only, as on Home Assistant's page;
+- one **text tab per list** under it, with its count of items to do; the list is in the address (`/todo-lists?entity_id=todo.home`, as on Home Assistant's page);
+- **summary tiles**: to do, overdue, due today, completed;
+- the **field to add** an item (with a due date from the calendar button), and the **order** of the items: as in the list, by due date or alphabetical (remembered in the browser);
+- the **items to do** — tick off, edit with a tap (name, description on several lines, due date, delete), **reorder** by dragging the handle (or with the arrow keys on it) when the list supports it — and the **completed items**, each with a delete button, and *Clear completed*.
+
+Declare it in `configuration.yaml`, pointing at the file the Marketplace installed, then restart Home Assistant:
+
+```yaml
+panel_custom:
+  - name: todo-panel
+    sidebar_title: To-do lists
+    sidebar_icon: mdi:clipboard-list
+    url_path: todo-lists
+    module_url: /local/community/ha-todo-card/todo-card.js
+    # require_admin: true   # to keep it for administrators
+    config:                 # optional
+      entities: [todo.home, todo.shopping]   # lists shown (default: every to-do list)
+      entity: todo.shopping                 # list opened first
+      sort: manual                          # manual, due or alpha (until another order is picked on the page)
+      hide_header: false                    # true: hide the banner (the tabs stay), non_admin: for non-administrators only
+      illustration_theme: auto              # auto, day or night
+```
+
+`config` also takes `language`. Home Assistant's own *To-do lists* entry can be hidden when editing the sidebar.
+
+| To-do list | Shopping list (dark theme) |
+|---|---|
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel.png" alt="panel" width="480"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-shopping-dark.png" alt="panel shopping dark" width="480"> |
+
 ## Screenshots
 
 ### Animations
@@ -253,6 +288,15 @@ The full card at 6 columns of a phone's Sections view and the mini card at its m
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/card-narrow.png" alt="narrow card" width="238"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/card-narrow-dark.png" alt="narrow card dark" width="238"> |
 | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/mini-card-narrow.png" alt="narrow mini card" width="170"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/mini-card-narrow-dark.png" alt="narrow mini card dark" width="170"> |
 
+### Sidebar panel
+
+| Light | Dark |
+|---|---|
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel.png" alt="panel" width="480"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-dark.png" alt="panel dark" width="480"> |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-shopping.png" alt="panel shopping" width="480"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-shopping-dark.png" alt="panel shopping dark" width="480"> |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-edit.png" alt="panel edit popup" width="480"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-edit-dark.png" alt="panel edit popup dark" width="480"> |
+| <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-phone.png" alt="panel on a phone" width="195"> | <img src="https://raw.githubusercontent.com/juju35/ha-todo-card/main/screenshots/panel-phone-dark.png" alt="panel on a phone dark" width="195"> |
+
 ## How it works
 
 - **Lists** are the `todo.*` entities; their state is the number of items to do, which the tabs show.
@@ -260,15 +304,16 @@ The full card at 6 columns of a phone's Sections view and the mini card at its m
 - **Features**: each list says what it supports (create, delete, update, due date, description); the card shows only the matching field and buttons.
 - **Due dates**: a date is overdue from the next day, a date and time from that time; today's in orange.
 - **Ticking off** calls `todo.update_item` with the new status; the item shows its tick for a moment, then moves where the list puts it.
+- **Reordering** (panel) calls `todo/item/move` with the item it now follows; **deleting a list** removes its Local To-do entry (`config_entries/delete`).
 
 ## Development
 
 ```bash
 npm install
-npm run build        # bundles src/todo-card.js into dist/todo-card.js (and its translation files)
+npm run build        # bundles src/todo-card.js + src/todo-panel.js into dist/todo-card.js (and its translation files)
 npm run check        # builds and checks the card (run in CI)
 npm test             # unit tests
-npm run screenshots  # renders the cards (and one GIF per animated state, needs ffmpeg) with mock data into screenshots/
+npm run screenshots  # renders the cards and the panel (and one GIF per animated state, needs ffmpeg) with mock data into screenshots/
 ```
 
 `dist/` is not committed: `npm run build` creates it locally, CI builds it on every push, and the release workflow attaches the built files to the release, which is where the Marketplace installs it from. The captures are rendered on a fixed clock with mock data (scripts/mock-states.mjs) and rewritten only when their pixels change, exactly; on a pull request, the **Screenshots** workflow commits them to the pull request's branch.
