@@ -348,7 +348,7 @@ class TodoPanel extends TodoCard {
     const bare = this._bare();
     const dialog = this._dialog ? `<style>${DIALOG_STYLE}</style>${this._dialogHtml()}` : "";
     const error = this._error ? `<div class="errbar" role="alert">${esc(this._error)}</div>` : "";
-    if (!m || !m.lists.length) {
+    if (!m?.lists.length) {
       const buttons = this._buttons(null);
       const create = m && this._admin() ? `<button class="btn primary" data-action="new_list">${svgIcon(PANEL_ICONS.new_list)}<span>${esc(this._t("create_list"))}</span></button>` : "";
       return `${style}<div class="ppage">${bare ? `<div class="tabbar"><ha-menu-button></ha-menu-button><div class="ptabs"></div><div class="tb-side">${buttons}</div></div>` : this._banner(null, buttons)}
@@ -503,7 +503,7 @@ class TodoPanel extends TodoCard {
     const startY = ev.clientY;
     let to = from;
     row.classList.add("dragging");
-    rows.forEach((r) => r !== row && r.classList.add("shift"));
+    for (const r of rows) if (r !== row) r.classList.add("shift");
     handle.setPointerCapture?.(ev.pointerId);
     const move = (e) => {
       const dy = e.clientY - startY;
