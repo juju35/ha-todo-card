@@ -1,4 +1,4 @@
-// Evaluates src/todo-card.js (a classic script, bundled as is by scripts/build.mjs) in a sandbox with minimal DOM
+// Evaluates src/todo-card.js and src/todo-panel.js (classic scripts sharing one scope, bundled by scripts/build.mjs) in a sandbox with minimal DOM
 // stand-ins and a clock fixed at the mocks' NOW, and returns the top-level names the tests ask for and the custom
 // elements it defined. No dependency, no browser.
 import { readFileSync } from "node:fs";
@@ -8,7 +8,7 @@ process.env.TZ = "UTC";
 import vm from "node:vm";
 import { NOW } from "../scripts/mock-states.mjs";
 
-const source = readFileSync(new URL("../src/todo-card.js", import.meta.url), "utf8");
+const source = ["todo-card.js", "todo-panel.js"].map((f) => readFileSync(new URL(`../src/${f}`, import.meta.url), "utf8")).join("\n");
 
 // Shadow root stand-in: keeps the HTML it is given and the listeners it gets.
 const fakeRoot = () => ({

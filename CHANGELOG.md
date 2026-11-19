@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 - 2026-11-19
+
+### Features
+- Optional sidebar panel (`todo-panel`, declared with `panel_custom`, loaded from the same file): Home Assistant's To-do page in the look of the other panels. The cards' illustrated banner across the top (kitchen or supermarket, night with a dark theme) with the list's status pill and round buttons (information, create a list, delete a Local To-do list — administrators only), one text tab per list under it (the list in the address, `?entity_id=`), summary tiles (to do, overdue, due today, completed), the add field and the order chips (remembered in the browser), the items to do — tick, edit (name, description on several lines, due date, delete), reorder by dragging the handle or with the arrow keys — and the completed items with a delete button each and *Clear completed*. Options: `entities`, `entity`, `sort`, `hide_header` (`true` or `non_admin`: the tabs stay, with the menu and the buttons), `illustration_theme`, `language`.
+
 ## 1.2.1 - 2026-11-18
 
 ### Fixes

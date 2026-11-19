@@ -13,6 +13,11 @@ export const shots = twins([
   // Narrow cards: the full card at 6 columns of a phone's Sections view and the mini card at its minimum width.
   { file: "card-narrow", type: "todo-card", width: 238, config: { max_items: 5 } },
   { file: "mini-card-narrow", type: "todo-mini-card", width: 170, config: { entity: "todo.maison" } },
+  // The sidebar panel: a list of tasks (kitchen banner), the shopping list (supermarket banner), the edit popup, a phone.
+  { file: "panel", type: "todo-panel", width: 960, config: {} },
+  { file: "panel-shopping", type: "todo-panel", width: 960, config: { entity: "todo.courses" } },
+  { file: "panel-edit", type: "todo-panel", width: 960, config: { entity: "todo.maison" }, clicks: ['[data-action="edit"][data-uid="m3"]'] },
+  { file: "panel-phone", type: "todo-panel", width: 390, config: { entity: "todo.courses" } },
 ]);
 
 // One looping GIF per distinct animated state:
