@@ -1725,6 +1725,53 @@ const BASE_ICONS = {
 };
 const ICONS = { ...BASE_ICONS, ...CARD_ICONS };
 
+// Shadow DOM patching: a new render rewrites the markup in place instead of replacing it (innerHTML), so the nodes
+// kept keep their size, running animations, focus, hover and scroll. Replacing them all on every change of the list
+// made the card show anew for a frame, the Sections view reflowing and the page jumping by itself. Elements with a
+// data-key are matched by it, the others by position; a node of another kind is replaced. A custom element written
+// empty (<ha-icon>) draws its own content: only the attributes the markup gives are updated.
+const patchChildren = (cur, next) => {
+  const old = [...cur.childNodes];
+  const fresh = [...next.childNodes];
+  const keyOf = (n) => (n.nodeType === 1 ? n.getAttribute("data-key") : null);
+  const byKey = new Map();
+  for (const o of old) {
+    const k = keyOf(o);
+    if (k !== null && !byKey.has(k)) byKey.set(k, o);
+  }
+  const used = new Set();
+  fresh.forEach((n, i) => {
+    const k = keyOf(n);
+    let o = k !== null ? byKey.get(k) : old[i];
+    if (!o || o.nodeType !== n.nodeType || o.nodeName !== n.nodeName || used.has(o) || (k === null && keyOf(o) !== null)) o = null;
+    const ref = cur.childNodes[i] ?? null;
+    if (!o) {
+      cur.insertBefore(n, ref);
+      return;
+    }
+    used.add(o);
+    if (o !== ref) cur.insertBefore(o, ref);
+    if (n.nodeType !== 1) {
+      if (o.nodeValue !== n.nodeValue) o.nodeValue = n.nodeValue;
+      return;
+    }
+    const own = n.localName.includes("-") && !n.firstChild;
+    if (!own) for (const { name } of [...o.attributes]) if (!n.hasAttribute(name)) o.removeAttribute(name);
+    for (const { name, value } of n.attributes) if (o.getAttribute(name) !== value) o.setAttribute(name, value);
+    if (!own) patchChildren(o, n);
+  });
+  while (cur.childNodes.length > fresh.length) cur.removeChild(cur.lastChild);
+};
+const morph = (root, html) => {
+  const tpl = root.childNodes && document.createElement("template");
+  if (!tpl?.content) {
+    root.innerHTML = html;
+    return;
+  }
+  tpl.innerHTML = html;
+  patchChildren(root, tpl.content);
+};
+
 const esc = (v) =>
   String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
@@ -2278,7 +2325,7 @@ class CardBase extends HTMLElement {
       const focused = this._dialog && active?.dataset?.action;
       const kept = this._dialog || this._byPointer ? null : this._focusedSpot();
       this._html = html;
-      this.shadowRoot.innerHTML = html;
+      morph(this.shadowRoot, html);
       this._fitPill();
       // Fields get back what was typed, and the caret when one had the focus.
       for (const el of this.shadowRoot.querySelectorAll?.("[data-keep]") || []) {
