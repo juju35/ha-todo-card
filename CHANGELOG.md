@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.1 - 2026-11-20
+
+### Performance
+- Dead code removed: the per-second countdown machinery (and its `left` string) and the unused `today_at` / `tomorrow_at` / `yesterday_at` strings, left over from the card template — every update no longer searches the card for countdowns, and the bundle and language files are smaller.
+
 ## 1.3.0 - 2026-11-19
 
 ### Features
