@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.4.0 - 2026-11-20
+
+### Features
+- Sidebar panel: a **count badge** on its sidebar entry, like Home Assistant's notifications count — the number of items to do in the panel's lists (`config.entities`, else every to-do list), kept up to date as the lists change and put back when the sidebar rebuilds its items. Shown on every page that loads the bundle (the dashboards' resource or the panel itself); `config: {badge: false}` turns it off.
+
+### Fixes
+- The page no longer jumps by itself: a change of the list (an item added, ticked or renamed, its entity updated) rebuilt the card's whole shadow DOM (168 nodes replaced on the full card, 107 on the mini card); the markup is now patched in place (0 replaced), so nothing shows anew for a frame and the focus, hover and animations are kept.
+
+### Performance
+- Dead code removed: the per-second countdown machinery (and its `left` string) and the unused `today_at` / `tomorrow_at` / `yesterday_at` strings, left over from the card template — every update no longer searches the card for countdowns, and the bundle and language files are smaller.
+
 ## 1.3.0 - 2026-11-19
 
 ### Features
