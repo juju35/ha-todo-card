@@ -219,9 +219,10 @@ panel_custom:
       sort: manual                          # manual, due or alpha (until another order is picked on the page)
       hide_header: false                    # true: hide the banner (the tabs stay), non_admin: for non-administrators only
       illustration_theme: auto              # auto, day or night
+      badge: true                           # false: no count badge on the sidebar entry
 ```
 
-`config` also takes `language`. Home Assistant's own *To-do lists* entry can be hidden when editing the sidebar.
+The sidebar entry shows a **count badge** with the number of items to do in the panel's lists, like Home Assistant's notifications count (on every page that loads the bundle: a dashboard with a to-do card or resource, or the panel itself). `config` also takes `language`. Home Assistant's own *To-do lists* entry can be hidden when editing the sidebar.
 
 | To-do list | Shopping list (dark theme) |
 |---|---|

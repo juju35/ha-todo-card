@@ -148,3 +148,27 @@ test("panel: the information button opens the list's more-info", async () => {
   assert.equal(panel.events.at(-1).type, "hass-more-info");
   assert.equal(panel.events.at(-1).detail.entityId, "todo.projets");
 });
+
+test("sidebar badge: the items to do of the panel's lists, per todo-panel entry, none with badge: false", () => {
+  const { todoBadgeCounts } = load({ names: ["todoBadgeCounts"] });
+  const states = {
+    "todo.home": { state: "3" },
+    "todo.shopping": { state: "2" },
+    "todo.broken": { state: "unavailable" },
+    "light.kitchen": { state: "on" },
+  };
+  const custom = (url_path, config = {}) => ({ component_name: "custom", url_path, config: { _panel_custom: { name: "todo-panel" }, ...config } });
+  const panels = {
+    a: custom("todo-lists"),
+    b: custom("shopping", { entities: ["todo.shopping"] }),
+    c: custom("quiet", { badge: false }),
+    d: { component_name: "custom", url_path: "other", config: { _panel_custom: { name: "other-panel" } } },
+    e: { component_name: "todo", url_path: "todo" },
+  };
+  assert.deepEqual(JSON.parse(JSON.stringify(todoBadgeCounts({ panels, states }))), [
+    { path: "todo-lists", count: 5 },
+    { path: "shopping", count: 2 },
+  ]);
+  assert.deepEqual(JSON.parse(JSON.stringify(todoBadgeCounts({ states }))), []);
+  assert.deepEqual(JSON.parse(JSON.stringify(todoBadgeCounts(undefined))), []);
+});
