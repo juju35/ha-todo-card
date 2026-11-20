@@ -82,10 +82,6 @@ const STRINGS = {
     add_with_due: "Add with a due date",
     read_only: "This list can't be changed from Home Assistant",
     cancel: "Cancel",
-    left: "{time} left",
-    today_at: "today {time}",
-    tomorrow_at: "tomorrow {time}",
-    yesterday_at: "yesterday {time}",
     zoom_in: "Show details",
     zoom_out: "Show less",
     title: "Title (optional)",
@@ -162,10 +158,6 @@ const STRINGS = {
     add_with_due: "Ajouter avec une échéance",
     read_only: "Cette liste ne peut pas être modifiée depuis Home Assistant",
     cancel: "Annuler",
-    left: "{time} restantes",
-    today_at: "aujourd'hui {time}",
-    tomorrow_at: "demain {time}",
-    yesterday_at: "hier {time}",
     zoom_in: "Afficher les détails",
     zoom_out: "Réduire",
     title: "Titre (facultatif)",
@@ -242,10 +234,6 @@ const STRINGS = {
     add_with_due: "Mit Fälligkeit hinzufügen",
     read_only: "Diese Liste kann in Home Assistant nicht geändert werden",
     cancel: "Abbrechen",
-    left: "Noch {time}",
-    today_at: "heute {time}",
-    tomorrow_at: "morgen {time}",
-    yesterday_at: "gestern {time}",
     zoom_in: "Details anzeigen",
     zoom_out: "Weniger anzeigen",
     title: "Titel (optional)",
@@ -322,10 +310,6 @@ const STRINGS = {
     add_with_due: "Añadir con fecha límite",
     read_only: "Esta lista no se puede modificar desde Home Assistant",
     cancel: "Cancelar",
-    left: "Quedan {time}",
-    today_at: "hoy {time}",
-    tomorrow_at: "mañana {time}",
-    yesterday_at: "ayer {time}",
     zoom_in: "Ver detalles",
     zoom_out: "Ver menos",
     title: "Título (opcional)",
@@ -402,10 +386,6 @@ const STRINGS = {
     add_with_due: "Aggiungi con scadenza",
     read_only: "Questo elenco non può essere modificato da Home Assistant",
     cancel: "Annulla",
-    left: "{time} rimanenti",
-    today_at: "oggi {time}",
-    tomorrow_at: "domani {time}",
-    yesterday_at: "ieri {time}",
     zoom_in: "Mostra dettagli",
     zoom_out: "Mostra meno",
     title: "Titolo (facoltativo)",
@@ -482,10 +462,6 @@ const STRINGS = {
     add_with_due: "Toevoegen met vervaldatum",
     read_only: "Deze lijst kan niet vanuit Home Assistant worden gewijzigd",
     cancel: "Annuleren",
-    left: "Nog {time}",
-    today_at: "vandaag {time}",
-    tomorrow_at: "morgen {time}",
-    yesterday_at: "gisteren {time}",
     zoom_in: "Details tonen",
     zoom_out: "Minder tonen",
     title: "Titel (optioneel)",
@@ -562,10 +538,6 @@ const STRINGS = {
     add_with_due: "Adicionar com data limite",
     read_only: "Esta lista não pode ser alterada a partir do Home Assistant",
     cancel: "Cancelar",
-    left: "Faltam {time}",
-    today_at: "hoje {time}",
-    tomorrow_at: "amanhã {time}",
-    yesterday_at: "ontem {time}",
     zoom_in: "Mostrar detalhes",
     zoom_out: "Mostrar menos",
     title: "Título (opcional)",
@@ -642,10 +614,6 @@ const STRINGS = {
     add_with_due: "Dodaj z terminem",
     read_only: "Tej listy nie można zmienić z poziomu Home Assistant",
     cancel: "Anuluj",
-    left: "Pozostało {time}",
-    today_at: "dziś {time}",
-    tomorrow_at: "jutro {time}",
-    yesterday_at: "wczoraj {time}",
     zoom_in: "Pokaż szczegóły",
     zoom_out: "Pokaż mniej",
     title: "Tytuł (opcjonalnie)",
@@ -722,10 +690,6 @@ const STRINGS = {
     add_with_due: "Додај са роком",
     read_only: "Ова листа се не може мењати из Home Assistant-а",
     cancel: "Откажи",
-    left: "Преостало {time}",
-    today_at: "данас {time}",
-    tomorrow_at: "сутра {time}",
-    yesterday_at: "јуче {time}",
     zoom_in: "Прикажи детаље",
     zoom_out: "Прикажи мање",
     title: "Наслов (опционо)",
@@ -802,10 +766,6 @@ const STRINGS = {
     add_with_due: "Dodaj sa rokom",
     read_only: "Ova lista se ne može menjati iz Home Assistant-a",
     cancel: "Otkaži",
-    left: "Preostalo {time}",
-    today_at: "danas {time}",
-    tomorrow_at: "sutra {time}",
-    yesterday_at: "juče {time}",
     zoom_in: "Prikaži detalje",
     zoom_out: "Prikaži manje",
     title: "Naslov (opciono)",
@@ -882,10 +842,6 @@ const STRINGS = {
     add_with_due: "Adaugă cu termen",
     read_only: "Această listă nu poate fi modificată din Home Assistant",
     cancel: "Anulează",
-    left: "Mai sunt {time}",
-    today_at: "azi {time}",
-    tomorrow_at: "mâine {time}",
-    yesterday_at: "ieri {time}",
     zoom_in: "Arată detalii",
     zoom_out: "Arată mai puțin",
     title: "Titlu (opțional)",
@@ -962,10 +918,6 @@ const STRINGS = {
     add_with_due: "Tilføj med forfaldsdato",
     read_only: "Denne liste kan ikke ændres fra Home Assistant",
     cancel: "Annuller",
-    left: "{time} tilbage",
-    today_at: "i dag {time}",
-    tomorrow_at: "i morgen {time}",
-    yesterday_at: "i går {time}",
     zoom_in: "Vis detaljer",
     zoom_out: "Vis mindre",
     title: "Titel (valgfri)",
@@ -1042,10 +994,6 @@ const STRINGS = {
     add_with_due: "Lägg till med förfallodatum",
     read_only: "Den här listan kan inte ändras från Home Assistant",
     cancel: "Avbryt",
-    left: "{time} kvar",
-    today_at: "i dag {time}",
-    tomorrow_at: "i morgon {time}",
-    yesterday_at: "i går {time}",
     zoom_in: "Visa detaljer",
     zoom_out: "Visa mindre",
     title: "Titel (valfri)",
@@ -1122,10 +1070,6 @@ const STRINGS = {
     add_with_due: "Добавяне със срок",
     read_only: "Този списък не може да се променя от Home Assistant",
     cancel: "Отказ",
-    left: "Остават {time}",
-    today_at: "днес {time}",
-    tomorrow_at: "утре {time}",
-    yesterday_at: "вчера {time}",
     zoom_in: "Покажи подробности",
     zoom_out: "Покажи по-малко",
     title: "Заглавие (по избор)",
@@ -1202,10 +1146,6 @@ const STRINGS = {
     add_with_due: "Добавить со сроком",
     read_only: "Этот список нельзя изменить из Home Assistant",
     cancel: "Отмена",
-    left: "Осталось {time}",
-    today_at: "сегодня {time}",
-    tomorrow_at: "завтра {time}",
-    yesterday_at: "вчера {time}",
     zoom_in: "Показать подробности",
     zoom_out: "Свернуть",
     title: "Заголовок (необязательно)",
@@ -1282,10 +1222,6 @@ const STRINGS = {
     add_with_due: "Додати з терміном",
     read_only: "Цей список не можна змінити з Home Assistant",
     cancel: "Скасувати",
-    left: "Залишилось {time}",
-    today_at: "сьогодні {time}",
-    tomorrow_at: "завтра {time}",
-    yesterday_at: "учора {time}",
     zoom_in: "Показати подробиці",
     zoom_out: "Згорнути",
     title: "Заголовок (необов'язково)",
@@ -1362,10 +1298,6 @@ const STRINGS = {
     add_with_due: "Hozzáadás határidővel",
     read_only: "Ez a lista nem módosítható a Home Assistantból",
     cancel: "Mégse",
-    left: "Még {time}",
-    today_at: "ma {time}",
-    tomorrow_at: "holnap {time}",
-    yesterday_at: "tegnap {time}",
     zoom_in: "Részletek",
     zoom_out: "Kevesebb",
     title: "Cím (nem kötelező)",
@@ -1442,10 +1374,6 @@ const STRINGS = {
     add_with_due: "Pridať s termínom",
     read_only: "Tento zoznam sa nedá zmeniť z Home Assistant",
     cancel: "Zrušiť",
-    left: "Zostáva {time}",
-    today_at: "dnes {time}",
-    tomorrow_at: "zajtra {time}",
-    yesterday_at: "včera {time}",
     zoom_in: "Zobraziť podrobnosti",
     zoom_out: "Zobraziť menej",
     title: "Názov (voliteľné)",
@@ -1522,10 +1450,6 @@ const STRINGS = {
     add_with_due: "Přidat s termínem",
     read_only: "Tento seznam nelze změnit z Home Assistant",
     cancel: "Zrušit",
-    left: "Zbývá {time}",
-    today_at: "dnes {time}",
-    tomorrow_at: "zítra {time}",
-    yesterday_at: "včera {time}",
     zoom_in: "Zobrazit podrobnosti",
     zoom_out: "Zobrazit méně",
     title: "Název (volitelné)",
@@ -1602,10 +1526,6 @@ const STRINGS = {
     add_with_due: "Dodaj z rokom",
     read_only: "Tega seznama ni mogoče spremeniti iz Home Assistanta",
     cancel: "Prekliči",
-    left: "Še {time}",
-    today_at: "danes {time}",
-    tomorrow_at: "jutri {time}",
-    yesterday_at: "včeraj {time}",
     zoom_in: "Prikaži podrobnosti",
     zoom_out: "Prikaži manj",
     title: "Naslov (neobvezno)",
@@ -1682,10 +1602,6 @@ const STRINGS = {
     add_with_due: "Pievienot ar termiņu",
     read_only: "Šo sarakstu nevar mainīt no Home Assistant",
     cancel: "Atcelt",
-    left: "Atlikušas {time}",
-    today_at: "šodien {time}",
-    tomorrow_at: "rīt {time}",
-    yesterday_at: "vakar {time}",
     zoom_in: "Rādīt detaļas",
     zoom_out: "Rādīt mazāk",
     title: "Virsraksts (neobligāts)",
@@ -1762,10 +1678,6 @@ const STRINGS = {
     add_with_due: "Προσθήκη με προθεσμία",
     read_only: "Αυτή η λίστα δεν μπορεί να αλλάξει από το Home Assistant",
     cancel: "Ακύρωση",
-    left: "Απομένουν {time}",
-    today_at: "σήμερα {time}",
-    tomorrow_at: "αύριο {time}",
-    yesterday_at: "χθες {time}",
     zoom_in: "Εμφάνιση λεπτομερειών",
     zoom_out: "Εμφάνιση λιγότερων",
     title: "Τίτλος (προαιρετικό)",
@@ -1843,15 +1755,6 @@ const domainOf = (id) => String(id || "").split(".")[0];
 const asList = (v) => (Array.isArray(v) ? v : v ? [v] : []);
 const DAY_MS = 8.64e7;
 
-
-// "8:12", "1:05:00": a countdown, rounded up to the second.
-const fmtCountdown = (ms) => {
-  const s = Math.max(0, Math.ceil(ms / 1000));
-  const h = Math.floor(s / 3600);
-  const m = Math.floor((s % 3600) / 60);
-  const sec = String(s % 60).padStart(2, "0");
-  return h ? `${h}:${String(m).padStart(2, "0")}:${sec}` : `${m}:${sec}`;
-};
 
 // A time stamp (ISO string, sensor state or input_datetime "YYYY-MM-DD HH:MM:SS") in ms; null otherwise.
 const parseTime = (v) => {
@@ -2107,7 +2010,7 @@ const focusKey = (el) => {
 // ---------------------------------------------------------------------------
 
 // What every card of this file shares: rendering only when something shown changed, no rewrite under a press, focus
-// kept for keyboard users, folding sections, a popup at the top of the card, live countdowns, service calls.
+// kept for keyboard users, folding sections, a popup at the top of the card, service calls.
 // A card defines _build() (its model from the registries and the configuration), _entityIds(m), _render(), and may
 // define _action(action, el, ev), _dialogHtml() / _dialogAction(action, el), _extraDeps(), _onConnect() / _onDisconnect().
 class CardBase extends HTMLElement {
@@ -2271,8 +2174,7 @@ class CardBase extends HTMLElement {
     window.removeEventListener("pointerup", this._onPressEnd, true);
     window.removeEventListener("pointercancel", this._onPressEnd, true);
     clearInterval(this._tick);
-    clearInterval(this._countdown);
-    this._tick = this._countdown = null;
+    this._tick = null;
     this._outside?.off();
     window.removeEventListener("keydown", this._onKey);
     this._onDisconnect?.();
@@ -2393,42 +2295,10 @@ class CardBase extends HTMLElement {
         this.shadowRoot.querySelector(sel)?.focus?.({ preventScroll: true });
       }
     }
-    this._syncCountdown();
     this._afterUpdate?.();
   }
 
-  // Countdowns move every second in place (no re-render, which would restart the animations): the text of [data-end]
-  // elements, and the arc of rings (data-total and data-c). The card is redrawn once a countdown ends.
-  _syncCountdown() {
-    const els = [...(this.shadowRoot.querySelectorAll?.("[data-end]") || [])];
-    if (!els.length) {
-      clearInterval(this._countdown);
-      this._countdown = null;
-      return;
-    }
-    if (this._countdown) return;
-    this._countdown = setInterval(() => {
-      const now = Date.now();
-      let ended = false;
-      for (const el of this.shadowRoot.querySelectorAll("[data-end]")) {
-        const left = Number(el.dataset.end) - now;
-        if (left <= 0) ended = true;
-        if (el.dataset.total) {
-          const offset = (Number(el.dataset.c) * (1 - clamp(left / Number(el.dataset.total), 0, 1))).toFixed(2);
-          if (el.style.strokeDashoffset !== offset) el.style.strokeDashoffset = offset;
-        } else {
-          const text = el.dataset.fmt === "left" ? this._t("left", { time: fmtCountdown(left) }) : fmtCountdown(left);
-          if (el.textContent !== text) el.textContent = text;
-        }
-      }
-      if (ended) {
-        clearInterval(this._countdown);
-        this._countdown = null;
-        this._lastDeps = null;
-        this._update();
-      }
-    }, 1000);
-  }
+
 
   _focusedSpot() {
     const el = this.shadowRoot.activeElement;
