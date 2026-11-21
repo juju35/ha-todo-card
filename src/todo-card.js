@@ -2325,7 +2325,7 @@ class CardBase extends HTMLElement {
       const focused = this._dialog && active?.dataset?.action;
       const kept = this._dialog || this._byPointer ? null : this._focusedSpot();
       this._html = html;
-      morph(this.shadowRoot, html);
+      morph(this._drawRoot ? this._drawRoot() : this.shadowRoot, html);
       this._fitPill();
       // Fields get back what was typed, and the caret when one had the focus.
       for (const el of this.shadowRoot.querySelectorAll?.("[data-keep]") || []) {
