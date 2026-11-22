@@ -1,6 +1,6 @@
 {
   "name": "ha-todo-card",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "Lovelace cards for Home Assistant: to-do and shopping lists: tick items off, add new ones, due dates, every list of every to-do integration.",
   "private": true,
   "type": "module",
